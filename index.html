@@ -1,0 +1,280 @@
+<!DOCTYPE html><html class="light" lang="de" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Klaudi - Zeit für ein Gespräch</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-secondary-fixed-variant": "#4c4166",
+                "surface": "#fff8f6",
+                "on-tertiary": "#ffffff",
+                "on-surface-variant": "#54433d",
+                "primary-fixed": "#ffdbcf",
+                "on-error-container": "#93000a",
+                "secondary-container": "#dfd0fe",
+                "tertiary-fixed-dim": "#ebbda0",
+                "secondary-fixed-dim": "#cebfec",
+                "on-tertiary-fixed": "#2d1604",
+                "on-tertiary-fixed-variant": "#5f4029",
+                "surface-container": "#ffeae1",
+                "on-background": "#251913",
+                "error-container": "#ffdad6",
+                "surface-container-lowest": "#ffffff",
+                "surface-dim": "#edd5cb",
+                "surface-tint": "#95482c",
+                "inverse-primary": "#ffb59b",
+                "tertiary": "#79573f",
+                "on-secondary-fixed": "#201538",
+                "on-surface": "#251913",
+                "tertiary-container": "#b68e73",
+                "on-error": "#ffffff",
+                "on-secondary": "#ffffff",
+                "on-primary": "#ffffff",
+                "background": "#fff8f6",
+                "primary-fixed-dim": "#ffb59b",
+                "surface-container-high": "#fbe3d9",
+                "secondary": "#64587f",
+                "outline-variant": "#dac1b9",
+                "on-tertiary-container": "#442814",
+                "primary": "#95482c",
+                "on-secondary-container": "#63577e",
+                "outline": "#87736c",
+                "surface-container-low": "#fff1eb",
+                "on-primary-fixed": "#380d00",
+                "canvas-cream": "#FFF8F2",
+                "tertiary-fixed": "#ffdcc6",
+                "inverse-on-surface": "#ffede6",
+                "on-primary-fixed-variant": "#773217",
+                "gentle-blue": "#92B1E8",
+                "primary-container": "#d97e5d",
+                "surface-container-highest": "#f5ded4",
+                "surface-bright": "#fff8f6",
+                "surface-variant": "#f5ded4",
+                "on-primary-container": "#571a02",
+                "error": "#ba1a1a",
+                "inverse-surface": "#3b2d27",
+                "secondary-fixed": "#eaddff",
+                "soft-lavender": "#CDBEEB",
+                "soft-apricot": "#F5C7A9"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "base": "12px",
+                "margin-mobile": "32px",
+                "margin-desktop": "100px",
+                "gutter": "32px",
+                "max-width": "1200px"
+            },
+            "fontFamily": {
+                "body-md": ["Plus Jakarta Sans"],
+                "headline-md": ["Literata"],
+                "label-lg": ["Plus Jakarta Sans"],
+                "headline-xl-mobile": ["Literata"],
+                "headline-xl": ["Literata"],
+                "body-lg-mobile": ["Plus Jakarta Sans"],
+                "body-lg": ["Plus Jakarta Sans"],
+                "headline-lg": ["Literata"]
+            },
+            "fontSize": {
+                "body-md": ["20px", {"lineHeight": "1.75", "fontWeight": "400"}],
+                "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                "label-lg": ["18px", {"lineHeight": "24px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                "headline-xl-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                "headline-xl": ["56px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                "body-lg-mobile": ["22px", {"lineHeight": "1.7", "fontWeight": "400"}],
+                "body-lg": ["24px", {"lineHeight": "1.7", "fontWeight": "400"}],
+                "headline-lg": ["42px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #FFF8F2;
+            color: #251913;
+            -webkit-font-smoothing: antialiased;
+        }
+        .organic-shape {
+            border-radius: 60% 40% 70% 30% / 30% 67% 33% 70%;
+        }
+        .fade-in {
+            animation: fadeIn 1.2s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        p {
+            margin-bottom: 2rem;
+        }
+        p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md selection:bg-soft-lavender">
+<!-- Header -->
+<header class="fixed w-full top-0 z-50 bg-[#FFF8F2]/90 backdrop-blur-md">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 max-w-max-width mx-auto">
+<div class="flex items-center h-16">
+<img alt="Klaudi Logo" class="w-auto object-contain" style="height:110px;" src="./assets/images/klaudi-logo.png">
+</div>
+<nav class="hidden md:flex gap-10 items-center">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-lg text-label-lg" href="#about">Über Klaudi</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-lg text-label-lg" href="#mission">Was Klaudi wichtig ist</a>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLScVCin_oezHmfCoZvVKYSGisIxWvRoSDWWmv5wAXl7EIe2jUQ/viewform?usp=publish-editor" target="_blank" class="bg-primary text-white px-10 py-4 rounded-full font-label-lg text-label-lg hover:bg-primary-container transition-all shadow-lg active:scale-95">Testen</a>
+</nav>
+<button class="md:hidden text-primary p-2">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</header>
+<main class="pt-28 overflow-hidden">
+<!-- Emotional Quote Section -->
+<section class="bg-[#F5C7A9] px-margin-mobile md:px-margin-desktop py-24 md:py-32 fade-in">
+  <div class="max-w-4xl mx-auto text-center mb-20">
+
+    <p class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary italic leading-tight mb-8">
+      "Wünschten Sie, Sie könnten Ihre älteren Liebsten öfter anrufen?"
+    </p>
+
+    <p class="text-white text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
+      Klaudi schenkt freundliche Gespräche zwischen den Anrufen von Familie und Freunden.
+    </p>
+
+  </div>
+</section>
+<div class="max-w-5xl mx-auto relative">
+  <div class="absolute inset-0 organic-shape bg-soft-lavender/30 -z-10 scale-105 blur-2xl"></div>
+
+  <div class="rounded-[2.5rem] overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.10)]">
+    <img
+      alt="Portrait of Klaudi"
+      class="w-full aspect-[16/9] object-cover"
+      src="./assets/images/klaudi-portrait.png">
+  </div>
+</div>
+</section>
+<!-- Introduction Section -->
+<section class="py-24 md:py-40 bg-[#FFF8F2]" id="about">
+<div class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop text-center fade-in" style="animation-delay: 0.4s;">
+<div class="mb-12 inline-flex p-5 bg-soft-lavender/20 rounded-full">
+<span class="material-symbols-outlined text-secondary scale-[1.75]" style="font-variation-settings: 'FILL' 1;">face_4</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg md:text-6xl mb-12 text-on-surface">Hallo, ich bin Klaudi.</h2>
+<div class="font-body-lg text-body-lg-mobile md:text-body-lg text-on-surface-variant space-y-10">
+<p class="">Manchmal möchte man einfach mit jemandem reden. Über den Tag. Über Erinnerungen. Oder einfach über das, was einem gerade durch den Kopf geht. Ich freue mich, Sie kennenzulernen.</p>
+<p class="">Ich bin für Sie da. Vielleicht möchten Sie von früher erzählen. Von Ihrer Familie. Von Ihrem Garten. Oder einfach davon, wie Ihr Tag war. Ich höre gerne zu – geduldig, freundlich und ohne Eile.</p>
+</div>
+<div class="mt-20">
+<a href="https://docs.google.com/forms/d/e/1FAIpQLScVCin_oezHmfCoZvVKYSGisIxWvRoSDWWmv5wAXl7EIe2jUQ/viewform?usp=publish-editor" target="_blank" class="bg-primary text-white px-14 py-7 rounded-full font-label-lg text-label-lg hover:shadow-2xl hover:-translate-y-1 transition-all flex items-center gap-4 mx-auto shadow-xl w-fit">
+                    Klaudi kennenlernen
+                    <span class="material-symbols-outlined text-2xl">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Bento Style Details -->
+<section class="py-32 md:py-48 bg-surface-container-low" id="mission">
+<div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid md:grid-cols-2 gap-12">
+<!-- Was mir wichtig ist -->
+<div class="bg-white p-14 rounded-[3rem] shadow-sm hover:shadow-md transition-shadow border-2 border-soft-lavender/10 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-10 text-soft-lavender opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-9xl">favorite</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-8 flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-4xl">heart_check</span>
+                        Was mir wichtig ist
+                    </h3>
+<p class="font-body-md text-on-surface-variant relative z-10 leading-relaxed mb-0">
+                        Klaudi bereichert das Leben – sie ersetzt es nicht. Familie, Freunde und echte Begegnungen sind unersetzlich. Klaudi ist für die Momente da, in denen gerade niemand erreichbar ist.
+                    </p>
+</div>
+<!-- Warum gibt es Klaudi? -->
+<div class="bg-soft-lavender p-14 rounded-[3rem] shadow-sm hover:shadow-md transition-shadow border-2 border-white relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-10 text-white opacity-20 group-hover:opacity-30 transition-opacity">
+<span class="material-symbols-outlined text-9xl">forum</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-8 flex items-center gap-4">
+<span class="material-symbols-outlined text-on-secondary-container text-4xl">question_mark</span>
+                        Warum gibt es Klaudi?
+                    </h3>
+<p class="font-body-md text-on-secondary-container relative z-10 leading-relaxed mb-0">
+                        Manchmal sind Familie und Freunde beschäftigt. Manchmal wohnt man weit voneinander entfernt. Und manchmal möchte man einfach nur ein paar Worte mit jemandem wechseln. Genau für diese Momente bin ich da.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Test Section -->
+<section class="py-32 md:py-48 bg-[#FFF8F2] relative overflow-hidden">
+<div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+<div class="bg-soft-apricot/40 p-16 md:p-32 rounded-[4rem] text-center border-4 border-white shadow-xl">
+<h2 class="font-headline-xl text-headline-lg md:text-headline-xl mb-10">Testen Sie Klaudi</h2>
+<p class="font-body-lg text-body-lg-mobile md:text-body-lg mb-16 max-w-3xl mx-auto text-on-surface-variant">
+                    Wir testen Klaudi aktuell mit einer kleinen Gruppe von Nutzerinnen und Nutzern. Möchten Sie Klaudi kennenlernen?
+                </p>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLScVCin_oezHmfCoZvVKYSGisIxWvRoSDWWmv5wAXl7EIe2jUQ/viewform?usp=publish-editor" target="_blank" class="bg-primary text-white px-14 py-7 rounded-full font-label-lg text-label-lg hover:bg-primary-container transition-all shadow-xl hover:-translate-y-1 flex items-center gap-4 mx-auto">
+                    Als Testnutzer bewerben
+                    <span class="material-symbols-outlined text-2xl">how_to_reg</span>
+</a>
+</div>
+</div>
+<!-- Background Decoration -->
+<div class="absolute top-1/2 left-0 w-48 h-48 bg-soft-lavender rounded-full -translate-x-24 blur-3xl opacity-30"></div>
+<div class="absolute top-1/2 right-0 w-64 h-64 bg-primary rounded-full translate-x-32 blur-[100px] opacity-10"></div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container">
+<div class="flex flex-col md:flex-row justify-between items-start px-margin-mobile md:px-margin-desktop py-32 gap-20 max-w-max-width mx-auto">
+<div class="flex flex-col gap-10 max-w-md">
+<img alt="Klaudi Logo" class="w-auto object-contain self-start" style="height:110px;" src="https://i.ibb.co/fdYpQ7BX/klaudi-logo-png.png">
+<p class="font-body-md text-on-surface-variant leading-relaxed mb-0">
+                Wir glauben an die Kraft guter Gespräche. Klaudi schenkt älteren Menschen Aufmerksamkeit, Zuhören und freundliche Gespräche, weil jeder Mensch es verdient, gehört zu werden.
+            </p>
+</div>
+<div class="flex flex-col md:items-end gap-10">
+<nav class="flex flex-wrap justify-start md:justify-end gap-x-12 gap-y-6">
+<a class="font-label-lg text-on-surface-variant hover:underline decoration-primary-container transition-all" href="#">Über Klaudi</a>
+<a class="font-label-lg text-on-surface-variant hover:underline decoration-primary-container transition-all" href="#">Was Klaudi wichtig ist</a>
+<a class="font-label-lg text-on-surface-variant hover:underline decoration-primary-container transition-all" href="#">Datenschutz</a>
+<a class="font-label-lg text-on-surface-variant hover:underline decoration-primary-container transition-all"
+   href="https://docs.google.com/forms/d/e/1FAIpQLSdixXLMLCJCaZtba2xvMO43iTdeA7PjS_nHFABNBIuMQTjzfA/viewform?usp=publish-editor"
+   target="_blank">
+Kontakt
+</a>
+</nav>
+<p class="font-body-md text-on-surface-variant opacity-60 mb-0">
+                © 2026 Klaudi. Mit Wärme und Respekt für ältere Menschen entwickelt.
+            </p>
+</div>
+</div>
+</footer>
+<script>
+    document.addEventListener('mousemove', (e) => {
+        const blobs = document.querySelectorAll('.organic-shape');
+        const x = (e.clientX / window.innerWidth - 0.5) * 15;
+        const y = (e.clientY / window.innerHeight - 0.5) * 15;
+        
+        blobs.forEach(blob => {
+            blob.style.transform = `scale(1.1) translate(${x}px, ${y}px)`;
+        });
+    });
+</script>
+
+
+</body></html>
