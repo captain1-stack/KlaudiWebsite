@@ -146,10 +146,38 @@
   <img alt="Klaudi Logo" class="w-auto object-contain self-start" style="height:75px;" src="./assets/images/klaudi-logo.png">
 </a>
 </div>
-<nav class="hidden md:flex gap-10 items-center">
-<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-lg text-label-lg" href="#about">Über Klaudi</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-lg text-label-lg" href="#mission">Was Klaudi wichtig ist</a>
-<a href="https://docs.google.com/forms/d/e/1FAIpQLScVCin_oezHmfCoZvVKYSGisIxWvRoSDWWmv5wAXl7EIe2jUQ/viewform?usp=publish-editor" target="_blank" class="bg-primary text-white px-10 py-4 rounded-full font-label-lg text-label-lg hover:bg-primary-container transition-all shadow-lg active:scale-95">Testen</a>
+<nav class="hidden md:flex gap-8 items-center">
+
+  <a
+    class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-lg text-label-lg"
+    href="#about"
+  >
+    Über Klaudi
+  </a>
+
+  <a
+    class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-lg text-label-lg"
+    href="#how-it-works"
+  >
+    So funktioniert es
+  </a>
+
+  <a
+    class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-lg text-label-lg"
+    href="#faq"
+  >
+    FAQ
+  </a>
+
+  <a
+    href="https://docs.google.com/forms/d/e/1FAIpQLScVCin_oezHmfCoZvVKYSGisIxWvRoSDWWmv5wAXl7EIe2jUQ/viewform"
+    target="_blank"
+    rel="noopener"
+    class="bg-primary text-white px-9 py-4 rounded-full font-label-lg text-label-lg hover:bg-primary-container transition-all shadow-lg active:scale-95"
+  >
+    Klaudi testen
+  </a>
+
 </nav>
 <button id="mobile-menu-button" class="md:hidden text-primary p-2">
   <span class="material-symbols-outlined text-3xl">menu</span>
@@ -158,10 +186,38 @@
 </header>
 <div id="mobile-menu" class="hidden fixed top-[90px] left-0 right-0 z-40 bg-[#FFF8F2] px-margin-mobile py-8 shadow-lg md:hidden">
   <nav class="flex flex-col gap-6 text-center">
-    <a class="font-label-lg text-on-surface-variant" href="#about">Über Klaudi</a>
-    <a class="font-label-lg text-on-surface-variant" href="#mission">Was Klaudi wichtig ist</a>
-    <a class="bg-primary text-white px-10 py-4 rounded-full font-label-lg text-label-lg" href="https://docs.google.com/forms/d/e/1FAIpQLScVCin_oezHmfCoZvVKYSGisIxWvRoSDWWmv5wAXl7EIe2jUQ/viewform" target="_blank">Testen</a>
-  </nav>
+
+  <a
+    class="font-label-lg text-on-surface-variant"
+    href="#about"
+  >
+    Über Klaudi
+  </a>
+
+  <a
+    class="font-label-lg text-on-surface-variant"
+    href="#how-it-works"
+  >
+    So funktioniert es
+  </a>
+
+  <a
+    class="font-label-lg text-on-surface-variant"
+    href="#faq"
+  >
+    FAQ
+  </a>
+
+  <a
+    class="bg-primary text-white px-10 py-4 rounded-full font-label-lg text-label-lg"
+    href="https://docs.google.com/forms/d/e/1FAIpQLScVCin_oezHmfCoZvVKYSGisIxWvRoSDWWmv5wAXl7EIe2jUQ/viewform"
+    target="_blank"
+    rel="noopener"
+  >
+    Klaudi testen
+  </a>
+
+</nav>
 </div>
 <main class="pt-28 overflow-hidden">
 <!-- Emotional Quote Section -->
@@ -1053,5 +1109,22 @@ rel="noopener"
 
   </div>
 </footer>
+
+<script>
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  mobileMenuButton.addEventListener("click", function () {
+    mobileMenu.classList.toggle("hidden");
+  });
+
+  const mobileMenuLinks = mobileMenu.querySelectorAll("a");
+
+  mobileMenuLinks.forEach(function (link) {
+    link.addEventListener("click", function () {
+      mobileMenu.classList.add("hidden");
+    });
+  });
+</script>
 
 </body></html>
