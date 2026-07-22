@@ -57,7 +57,8 @@
         }
 
         button,
-        input {
+        input,
+        select {
             font: inherit;
         }
 
@@ -179,7 +180,8 @@
             line-height: 1.4;
         }
 
-        input {
+        input,
+        select {
             display: block;
             width: 100%;
             height: 66px;
@@ -198,11 +200,13 @@
             color: #aaa4a0;
         }
 
-        input:hover {
+        input:hover,
+        select:hover {
             border-color: var(--border-hover);
         }
 
-        input:focus {
+        input:focus,
+        select:focus {
             border-color: var(--apricot);
             box-shadow: 0 0 0 4px var(--apricot-focus);
             outline: none;
@@ -314,6 +318,109 @@
             margin-top: 20px;
         }
 
+        .plan-badge {
+            display: inline-flex;
+            margin-bottom: 12px;
+            padding: 6px 11px;
+            border-radius: 999px;
+            background: var(--lavender-background);
+            color: #4c4166;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .schedule-list,
+        .summary-card {
+            margin-top: clamp(28px, 4vh, 44px);
+        }
+
+        .schedule-card {
+            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: var(--white);
+        }
+
+        .schedule-card + .schedule-card {
+            margin-top: 14px;
+        }
+
+        .schedule-title {
+            margin: 0 0 16px;
+            font-size: 21px;
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .schedule-fields {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .summary-card {
+            padding: 22px 24px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: var(--white);
+        }
+
+        .summary-list {
+            display: grid;
+            gap: 18px;
+            margin: 0;
+        }
+
+        .summary-list div {
+            display: grid;
+            gap: 6px;
+        }
+
+        .summary-list dt {
+            color: var(--text-muted);
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .summary-list dd {
+            margin: 0;
+            color: var(--text);
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 1.45;
+        }
+
+        .summary-list ul {
+            margin: 0;
+            padding-left: 22px;
+        }
+
+        .summary-heading-row {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 14px;
+        }
+
+        .summary-edit {
+            flex: 0 0 auto;
+            padding: 7px 12px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: transparent;
+            cursor: pointer;
+            color: var(--text-muted);
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .summary-edit:focus-visible {
+            outline: 4px solid var(--apricot-focus);
+            outline-offset: 4px;
+        }
+
         .information-box {
             display: flex;
             align-items: flex-start;
@@ -393,6 +500,12 @@
             outline-offset: 4px;
         }
 
+        .primary-button:disabled {
+            cursor: not-allowed;
+            filter: grayscale(0.35);
+            opacity: 0.62;
+        }
+
         .helper-text {
             margin:
                 clamp(14px, 2vh, 20px)
@@ -439,7 +552,8 @@
                 margin-top: 24px;
             }
 
-            input {
+            input,
+            select {
                 height: 60px;
             }
 
@@ -517,7 +631,8 @@
                 font-size: 18px;
             }
 
-            input {
+            input,
+            select {
                 height: 56px;
                 font-size: 19px;
             }
@@ -614,10 +729,15 @@
                 font-size: 18px;
             }
 
-            input {
+            input,
+            select {
                 height: 62px;
                 padding: 0 20px;
                 font-size: 20px;
+            }
+
+            .schedule-fields {
+                grid-template-columns: 1fr;
             }
 
             .information-box {
@@ -973,18 +1093,86 @@
                 hidden
             >
                 <h1 id="call-times-heading" tabindex="-1">
-                    Anrufzeiten
+                    Wann soll Klaudi anrufen?
                 </h1>
 
                 <p class="intro">
-                    Dieser Schritt wird als Nächstes umgesetzt.
+                    Wählen Sie die passenden Tage und Uhrzeiten aus.
                 </p>
+
+                <form id="call-times-form" novalidate>
+                    <p
+                        class="helper-text"
+                        id="schedule-status"
+                        aria-live="polite"
+                    >
+                        Bitte wählen Sie die Anrufzeiten aus.
+                    </p>
+
+                    <div
+                        class="schedule-list"
+                        id="schedule-list"
+                    ></div>
+
+                    <p
+                        class="error-message"
+                        id="schedule-error"
+                        role="alert"
+                    >
+                        Bitte wählen Sie für jeden Anruf einen Tag und eine Uhrzeit aus.
+                    </p>
+
+                    <p class="helper-text">
+                        Die Anrufzeiten können später jederzeit geändert werden.
+                    </p>
+
+                    <div class="button-row">
+                        <button
+                            class="secondary-button"
+                            type="button"
+                            id="back-to-plan"
+                        >
+                            Zurück
+                        </button>
+
+                        <button
+                            class="primary-button"
+                            type="submit"
+                            id="continue-from-schedules"
+                            disabled
+                        >
+                            Weiter
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section
+                class="screen"
+                id="screen-summary"
+                data-step="6"
+                aria-labelledby="summary-heading"
+                hidden
+            >
+                <h1 id="summary-heading" tabindex="-1">
+                    Alles bereit für Klaudi
+                </h1>
+
+                <p class="intro">
+                    Bitte prüfen Sie die Angaben noch einmal.
+                </p>
+
+                <div
+                    class="summary-card"
+                    id="summary-content"
+                    aria-live="polite"
+                ></div>
 
                 <div class="button-row">
                     <button
                         class="secondary-button"
                         type="button"
-                        id="back-to-plan"
+                        id="back-to-call-times"
                     >
                         Zurück
                     </button>
@@ -992,10 +1180,20 @@
                     <button
                         class="primary-button"
                         type="button"
+                        id="continue-to-order"
                     >
-                        Weiter
+                        Weiter zur Bezahlung
                     </button>
                 </div>
+
+                <p
+                    class="information-box"
+                    id="checkout-placeholder"
+                    role="status"
+                    hidden
+                >
+                    Der Bezahlvorgang folgt als Nächstes.
+                </p>
             </section>
 
         </div>
@@ -1011,23 +1209,24 @@
          * for billing or feature activation.
          */
         const plans = {
-            "once-weekly": {
-                slug: "once-weekly",
-                name: "1 Gespräch pro Woche",
-                priceCents: 999,
+            "three-times-weekly": {
+                slug: "three-times-weekly",
+                name: "3 Gespräche pro Woche",
+                priceCents: 2999,
                 currency: "EUR",
                 entitlements: {
-                    callsPerMonth: 4,
+                    callsPerMonth: 12,
                     minutesPerCall: 10,
                     memoryEnabled: false
                 },
                 marketingFeatures: [
-                    "4 Gespräche pro Monat",
+                    "12 Gespräche pro Monat",
                     "jeweils bis zu 10 Minuten"
                 ],
                 eligibleAddOnSlugs: [],
                 paymentPriceId: "",
-                active: true
+                active: true,
+                highlighted: true
             },
             "twice-weekly": {
                 slug: "twice-weekly",
@@ -1045,25 +1244,27 @@
                 ],
                 eligibleAddOnSlugs: [],
                 paymentPriceId: "",
-                active: true
+                active: true,
+                highlighted: false
             },
-            "three-times-weekly": {
-                slug: "three-times-weekly",
-                name: "3 Gespräche pro Woche",
-                priceCents: 2999,
+            "once-weekly": {
+                slug: "once-weekly",
+                name: "1 Gespräch pro Woche",
+                priceCents: 999,
                 currency: "EUR",
                 entitlements: {
-                    callsPerMonth: 12,
+                    callsPerMonth: 4,
                     minutesPerCall: 10,
                     memoryEnabled: false
                 },
                 marketingFeatures: [
-                    "12 Gespräche pro Monat",
+                    "4 Gespräche pro Monat",
                     "jeweils bis zu 10 Minuten"
                 ],
                 eligibleAddOnSlugs: [],
                 paymentPriceId: "",
-                active: true
+                active: true,
+                highlighted: false
             }
         };
 
@@ -1100,7 +1301,8 @@
             setupFor: "",
             selectedPlan,
             entrySource: selectedPlan ? "pricing" : "general",
-            selectedAddOns: []
+            selectedAddOns: [],
+            callSchedules: []
         };
 
         const screens = Array.from(document.querySelectorAll(".screen"));
@@ -1133,6 +1335,18 @@
         const planIntro = document.getElementById("plan-intro");
         const planContent = document.getElementById("plan-content");
         const callTimesHeading = document.getElementById("call-times-heading");
+        const callTimesForm = document.getElementById("call-times-form");
+        const scheduleList = document.getElementById("schedule-list");
+        const scheduleStatus = document.getElementById("schedule-status");
+        const scheduleError = document.getElementById("schedule-error");
+        const continueFromSchedulesButton = document.getElementById(
+            "continue-from-schedules"
+        );
+        const summaryHeading = document.getElementById("summary-heading");
+        const summaryContent = document.getElementById("summary-content");
+        const checkoutPlaceholder = document.getElementById(
+            "checkout-placeholder"
+        );
 
         const backToSetupForButton = document.getElementById(
             "back-to-setup-for"
@@ -1146,7 +1360,33 @@
             "continue-from-plan"
         );
         const backToPlanButton = document.getElementById("back-to-plan");
+        const backToCallTimesButton = document.getElementById(
+            "back-to-call-times"
+        );
+        const continueToOrderButton = document.getElementById(
+            "continue-to-order"
+        );
         let previousPlanMode = "selection";
+
+        const weekdays = [
+            { value: "monday", label: "Montag" },
+            { value: "tuesday", label: "Dienstag" },
+            { value: "wednesday", label: "Mittwoch" },
+            { value: "thursday", label: "Donnerstag" },
+            { value: "friday", label: "Freitag" },
+            { value: "saturday", label: "Samstag" },
+            { value: "sunday", label: "Sonntag" }
+        ];
+
+        const callTimeOptions = [];
+
+        for (let hour = 8; hour <= 20; hour += 1) {
+            callTimeOptions.push(`${String(hour).padStart(2, "0")}:00`);
+
+            if (hour < 20) {
+                callTimeOptions.push(`${String(hour).padStart(2, "0")}:30`);
+            }
+        }
 
         function getPlanBySlug(planSlug) {
             return frontendCatalog.plans[planSlug];
@@ -1198,6 +1438,9 @@
         }
 
         function getPlanCardMarkup(plan, includeButton) {
+            const badge = plan.highlighted
+                ? '<span class="plan-badge">Am beliebtesten</span>'
+                : "";
             const features = plan.marketingFeatures
                 .map((feature) => `<li>${feature}</li>`)
                 .join("");
@@ -1215,6 +1458,7 @@
 
             return `
                 <article class="plan-card">
+                    ${badge}
                     <span class="choice-title">${plan.name}</span>
                     <p class="plan-price">${formatPlanPrice(plan)}</p>
                     <ul class="plan-features">${features}</ul>
@@ -1257,6 +1501,287 @@
             planContent.innerHTML = plan ? getPlanCardMarkup(plan, false) : "";
             changePlanButton.hidden = false;
             continueFromPlanButton.hidden = false;
+        }
+
+        function getWeeklyCallCount(plan) {
+            return Math.max(1, Math.round(plan.entitlements.callsPerMonth / 4));
+        }
+
+        function getScheduleTitle(index) {
+            const titles = [
+                "Erster wöchentlicher Anruf",
+                "Zweiter wöchentlicher Anruf",
+                "Dritter wöchentlicher Anruf"
+            ];
+
+            return titles[index] || `${index + 1}. wöchentlicher Anruf`;
+        }
+
+        function prepareCallSchedules() {
+            const selectedPlanDetails = getPlanBySlug(onboardingData.selectedPlan);
+            const scheduleCount = getWeeklyCallCount(selectedPlanDetails);
+            const existingSchedules = onboardingData.callSchedules.slice(
+                0,
+                scheduleCount
+            );
+
+            while (existingSchedules.length < scheduleCount) {
+                existingSchedules.push({
+                    weekday: "",
+                    time: "",
+                    timeZone: "Europe/Berlin"
+                });
+            }
+
+            onboardingData.callSchedules = existingSchedules;
+        }
+
+        function renderScheduleSelectOptions(options, selectedValue) {
+            const optionMarkup = options
+                .map((option) => {
+                    const value = typeof option === "string"
+                        ? option
+                        : option.value;
+                    const label = typeof option === "string"
+                        ? option
+                        : option.label;
+                    const isSelected = value === selectedValue
+                        ? " selected"
+                        : "";
+
+                    return `<option value="${value}"${isSelected}>${label}</option>`;
+                })
+                .join("");
+
+            return `<option value="">Bitte wählen</option>${optionMarkup}`;
+        }
+
+        function renderCallSchedules() {
+            prepareCallSchedules();
+            scheduleList.innerHTML = onboardingData.callSchedules
+                .map((schedule, index) => `
+                    <section class="schedule-card">
+                        <p class="schedule-title">
+                            ${getScheduleTitle(index)}
+                        </p>
+
+                        <div class="schedule-fields">
+                            <div>
+                                <label for="schedule-day-${index}">
+                                    Wochentag
+                                </label>
+
+                                <select
+                                    id="schedule-day-${index}"
+                                    data-schedule-index="${index}"
+                                    data-schedule-field="weekday"
+                                    aria-describedby="schedule-error"
+                                >
+                                    ${renderScheduleSelectOptions(
+                                        weekdays,
+                                        schedule.weekday
+                                    )}
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="schedule-time-${index}">
+                                    Uhrzeit
+                                </label>
+
+                                <select
+                                    id="schedule-time-${index}"
+                                    data-schedule-index="${index}"
+                                    data-schedule-field="time"
+                                    aria-describedby="schedule-error"
+                                >
+                                    ${renderScheduleSelectOptions(
+                                        callTimeOptions,
+                                        schedule.time
+                                    )}
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+                `)
+                .join("");
+            scheduleError.classList.remove("is-visible");
+            updateScheduleStatus();
+        }
+
+        function updateCallSchedule(index, field, value) {
+            onboardingData.callSchedules[index][field] = value;
+            scheduleError.classList.remove("is-visible");
+            updateScheduleStatus();
+        }
+
+        function getIncompleteScheduleCount() {
+            return onboardingData.callSchedules.filter(
+                (schedule) => schedule.weekday === "" || schedule.time === ""
+            ).length;
+        }
+
+        function updateScheduleStatus() {
+            const incompleteCount = getIncompleteScheduleCount();
+            continueFromSchedulesButton.disabled = incompleteCount > 0;
+
+            if (incompleteCount === 0) {
+                scheduleStatus.textContent = "Alle Anrufzeiten sind ausgewählt.";
+                return;
+            }
+
+            if (incompleteCount === 1) {
+                scheduleStatus.textContent = "Noch 1 Anrufzeit auswählen.";
+                return;
+            }
+
+            scheduleStatus.textContent =
+                `Noch ${incompleteCount} Anrufzeiten auswählen.`;
+        }
+
+        function getScheduleValidationMessage() {
+            const hasIncompleteSchedule = onboardingData.callSchedules.some(
+                (schedule) => schedule.weekday === "" || schedule.time === ""
+            );
+
+            if (hasIncompleteSchedule) {
+                return "Bitte wählen Sie für jeden Anruf einen Tag und eine Uhrzeit aus.";
+            }
+
+            const usedCombinations = new Set();
+            const hasDuplicateSchedule = onboardingData.callSchedules.some(
+                (schedule) => {
+                    const combination = `${schedule.weekday}-${schedule.time}`;
+
+                    if (usedCombinations.has(combination)) {
+                        return true;
+                    }
+
+                    usedCombinations.add(combination);
+                    return false;
+                }
+            );
+
+            if (hasDuplicateSchedule) {
+                return "Bitte wählen Sie unterschiedliche Anrufzeiten aus.";
+            }
+
+            return "";
+        }
+
+        function formatCallSchedule(schedule) {
+            const weekday = weekdays.find(
+                (day) => day.value === schedule.weekday
+            );
+            const weekdayLabel = weekday ? weekday.label : schedule.weekday;
+
+            return `${weekdayLabel}, ${schedule.time} Uhr`;
+        }
+
+        function escapeHtml(value) {
+            return value
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        function getSetupForLabel() {
+            if (onboardingData.setupFor === "self") {
+                return "Für mich";
+            }
+
+            return "Für jemanden, der mir wichtig ist";
+        }
+
+        function renderSummary() {
+            const selectedPlanDetails = getPlanBySlug(onboardingData.selectedPlan);
+            const scheduleItems = onboardingData.callSchedules
+                .map((schedule) => `<li>${escapeHtml(formatCallSchedule(schedule))}</li>`)
+                .join("");
+
+            checkoutPlaceholder.hidden = true;
+            summaryContent.innerHTML = `
+                <dl class="summary-list">
+                    <div>
+                        <dt class="summary-heading-row">
+                            Für wen
+                            <button
+                                class="summary-edit"
+                                type="button"
+                                data-edit-step="1"
+                            >
+                                Ändern
+                            </button>
+                        </dt>
+                        <dd>${getSetupForLabel()}</dd>
+                    </div>
+
+                    <div>
+                        <dt class="summary-heading-row">
+                            Vorname
+                            <button
+                                class="summary-edit"
+                                type="button"
+                                data-edit-step="2"
+                            >
+                                Ändern
+                            </button>
+                        </dt>
+                        <dd>${escapeHtml(onboardingData.personName)}</dd>
+                    </div>
+
+                    <div>
+                        <dt class="summary-heading-row">
+                            Telefonnummer
+                            <button
+                                class="summary-edit"
+                                type="button"
+                                data-edit-step="3"
+                            >
+                                Ändern
+                            </button>
+                        </dt>
+                        <dd>${escapeHtml(onboardingData.phoneNumber)}</dd>
+                    </div>
+
+                    <div>
+                        <dt class="summary-heading-row">
+                            Paket
+                            <button
+                                class="summary-edit"
+                                type="button"
+                                data-edit-step="4"
+                            >
+                                Ändern
+                            </button>
+                        </dt>
+                        <dd>${selectedPlanDetails.name}</dd>
+                    </div>
+
+                    <div>
+                        <dt class="summary-heading-row">
+                            Anrufzeiten
+                            <button
+                                class="summary-edit"
+                                type="button"
+                                data-edit-step="5"
+                            >
+                                Ändern
+                            </button>
+                        </dt>
+                        <dd>
+                            <ul>${scheduleItems}</ul>
+                        </dd>
+                    </div>
+
+                    <div>
+                        <dt>Monatlicher Preis</dt>
+                        <dd>${formatPlanPrice(selectedPlanDetails)}</dd>
+                    </div>
+                </dl>
+            `;
         }
 
         function updateSetupForSelection() {
@@ -1389,8 +1914,65 @@
 
             updateSelectedPlan(planButton.dataset.planSlug);
             previousPlanMode = "selection";
+            renderCallSchedules();
             showStep(5, "screen-call-times");
             focusAfterStepChange(callTimesHeading);
+        });
+
+        scheduleList.addEventListener("change", (event) => {
+            const field = event.target.dataset.scheduleField;
+            const index = Number(event.target.dataset.scheduleIndex);
+
+            if (!field || Number.isNaN(index)) {
+                return;
+            }
+
+            updateCallSchedule(index, field, event.target.value);
+        });
+
+        summaryContent.addEventListener("click", (event) => {
+            const editButton = event.target.closest("[data-edit-step]");
+
+            if (!editButton) {
+                return;
+            }
+
+            const editStep = Number(editButton.dataset.editStep);
+
+            if (editStep === 1) {
+                updateSetupForSelection();
+                showStep(1);
+                focusAfterStepChange(setupForHeading);
+                return;
+            }
+
+            if (editStep === 2) {
+                updateNameScreenCopy();
+                showStep(2);
+                focusAfterStepChange(nameInput);
+                return;
+            }
+
+            if (editStep === 3) {
+                updatePhoneScreenCopy();
+                showStep(3);
+                focusAfterStepChange(phoneInput);
+                return;
+            }
+
+            if (editStep === 4) {
+                renderPlanSelection();
+                previousPlanMode = "selection";
+                showStep(4, "screen-plan");
+                focusAfterStepChange(planHeading);
+                return;
+            }
+
+            if (editStep === 5) {
+                renderCallSchedules();
+                showStep(5, "screen-call-times");
+                focusAfterStepChange(callTimesHeading);
+            }
         });
 
         nameForm.addEventListener("submit", (event) => {
@@ -1448,19 +2030,52 @@
 
         continueFromPlanButton.addEventListener("click", () => {
             previousPlanMode = "confirmation";
+            renderCallSchedules();
             showStep(5, "screen-call-times");
             focusAfterStepChange(callTimesHeading);
         });
 
         backToPlanButton.addEventListener("click", () => {
-            if (previousPlanMode === "confirmation") {
-                renderSelectedPlan();
-            } else {
-                renderPlanSelection();
-            }
-
+            renderPlanSelection();
+            previousPlanMode = "selection";
             showStep(4, "screen-plan");
             focusAfterStepChange(planHeading);
+        });
+
+        callTimesForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const validationMessage = getScheduleValidationMessage();
+
+            if (validationMessage !== "") {
+                scheduleError.textContent = validationMessage;
+                scheduleError.classList.add("is-visible");
+                scheduleList.querySelector("select").focus();
+                return;
+            }
+
+            renderSummary();
+            showStep(6, "screen-summary");
+            focusAfterStepChange(summaryHeading);
+        });
+
+        backToCallTimesButton.addEventListener("click", () => {
+            renderCallSchedules();
+            showStep(5, "screen-call-times");
+            focusAfterStepChange(callTimesHeading);
+        });
+
+        continueToOrderButton.addEventListener("click", () => {
+            console.log("Klaudi Onboarding Daten", onboardingData);
+            checkoutPlaceholder.hidden = false;
+
+            const orderEvent = new CustomEvent("klaudi:onboarding-ready", {
+                detail: {
+                    onboardingData
+                }
+            });
+
+            window.dispatchEvent(orderEvent);
         });
 
         backToSetupForButton.addEventListener("click", () => {
