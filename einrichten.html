@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Klaudi einrichten</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="./assets/images/klaudi-logo.png"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Literata:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        :root {
+            --background: #fff8f2;
+            --text: #251913;
+            --text-muted: #6f655f;
+            --apricot: #f5c7a9;
+            --apricot-hover: #efba97;
+            --apricot-focus: rgba(245, 199, 169, 0.42);
+            --border: #d7cec9;
+            --border-hover: #b9aea8;
+            --progress-inactive: #e7e4e2;
+            --white: #ffffff;
+            --error: #a5362a;
+            --error-background: #fff0ec;
+            --lavender: #cdbEEB;
+            --lavender-background: #f3eefb;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text);
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        button {
+            color: inherit;
+        }
+
+        .page {
+            width: 100%;
+            min-height: 100svh;
+            padding:
+                clamp(24px, 4vh, 48px)
+                24px
+                clamp(20px, 3vh, 40px);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .logo-link {
+            display: inline-flex;
+            border-radius: 999px;
+        }
+
+        .logo-link:focus-visible {
+            outline: 4px solid var(--apricot-focus);
+            outline-offset: 4px;
+        }
+
+        .logo {
+            display: block;
+            width: clamp(54px, 7vh, 68px);
+            height: clamp(54px, 7vh, 68px);
+            object-fit: contain;
+        }
+
+        .progress-label {
+            margin: clamp(22px, 3.5vh, 36px) 0 12px;
+            color: var(--text-muted);
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .progress {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .progress-step {
+            width: 52px;
+            height: 9px;
+            border-radius: 999px;
+            background: var(--progress-inactive);
+            transition: background-color 220ms ease;
+        }
+
+        .progress-step.is-active,
+        .progress-step.is-complete {
+            background: var(--apricot);
+        }
+
+        .screen {
+            display: none;
+            margin-top: clamp(30px, 5vh, 52px);
+            animation: screen-in 220ms ease;
+        }
+
+        .screen.is-active {
+            display: block;
+        }
+
+        @keyframes screen-in {
+            from {
+                opacity: 0;
+                transform: translateY(7px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            max-width: 740px;
+            margin: 0;
+            font-family: "Literata", serif;
+            font-size: clamp(40px, 4vw, 56px);
+            font-weight: 700;
+            line-height: 1.12;
+            letter-spacing: -0.025em;
+        }
+
+        .intro {
+            max-width: 700px;
+            margin:
+                clamp(18px, 2.5vh, 28px)
+                0
+                0;
+            color: var(--text-muted);
+            font-size: clamp(19px, 1.6vw, 22px);
+            line-height: 1.6;
+        }
+
+        form {
+            margin-top: clamp(28px, 4vh, 44px);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 11px;
+            font-size: 19px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            height: 66px;
+            padding: 0 24px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: var(--white);
+            color: var(--text);
+            font-size: 21px;
+            transition:
+                border-color 180ms ease,
+                box-shadow 180ms ease;
+        }
+
+        input::placeholder {
+            color: #aaa4a0;
+        }
+
+        input:hover {
+            border-color: var(--border-hover);
+        }
+
+        input:focus {
+            border-color: var(--apricot);
+            box-shadow: 0 0 0 4px var(--apricot-focus);
+            outline: none;
+        }
+
+        input[aria-invalid="true"] {
+            border-color: var(--error);
+        }
+
+        input[aria-invalid="true"]:focus {
+            box-shadow: 0 0 0 4px rgba(165, 54, 42, 0.16);
+        }
+
+        .error-message {
+            display: none;
+            margin: 10px 0 0;
+            color: var(--error);
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .error-message.is-visible {
+            display: block;
+        }
+
+        .information-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-top: 18px;
+            padding: 17px 18px;
+            border-radius: 16px;
+            background: var(--lavender-background);
+            color: #4c4166;
+            font-size: 17px;
+            line-height: 1.55;
+        }
+
+        .information-icon {
+            display: inline-flex;
+            flex: 0 0 auto;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 999px;
+            background: var(--lavender);
+            color: #372b50;
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .button-row {
+            display: grid;
+            grid-template-columns: minmax(150px, 0.42fr) minmax(220px, 1fr);
+            gap: 14px;
+            margin-top: clamp(22px, 3vh, 32px);
+        }
+
+        .primary-button,
+        .secondary-button {
+            min-height: 64px;
+            padding: 15px 24px;
+            border-radius: 18px;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: 600;
+            transition:
+                background-color 180ms ease,
+                border-color 180ms ease,
+                filter 180ms ease,
+                transform 180ms ease;
+        }
+
+        .primary-button {
+            border: 0;
+            background: var(--apricot);
+        }
+
+        .primary-button:hover {
+            background: var(--apricot-hover);
+        }
+
+        .secondary-button {
+            border: 1px solid var(--border);
+            background: transparent;
+        }
+
+        .secondary-button:hover {
+            border-color: var(--border-hover);
+            background: rgba(255, 255, 255, 0.45);
+        }
+
+        .primary-button:active,
+        .secondary-button:active {
+            transform: translateY(1px);
+        }
+
+        .primary-button:focus-visible,
+        .secondary-button:focus-visible {
+            outline: 4px solid var(--apricot-focus);
+            outline-offset: 4px;
+        }
+
+        .helper-text {
+            margin:
+                clamp(14px, 2vh, 20px)
+                0
+                0;
+            color: var(--text-muted);
+            font-size: 17px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        @media (min-width: 700px) and (max-height: 850px) {
+            .page {
+                padding-top: 22px;
+                padding-bottom: 18px;
+            }
+
+            .logo {
+                width: 52px;
+                height: 52px;
+            }
+
+            .progress-label {
+                margin-top: 18px;
+                margin-bottom: 9px;
+            }
+
+            .screen {
+                margin-top: 24px;
+            }
+
+            h1 {
+                font-size: 43px;
+                line-height: 1.08;
+            }
+
+            .intro {
+                margin-top: 16px;
+                font-size: 19px;
+                line-height: 1.5;
+            }
+
+            form {
+                margin-top: 24px;
+            }
+
+            input {
+                height: 60px;
+            }
+
+            .information-box {
+                margin-top: 14px;
+                padding-top: 14px;
+                padding-bottom: 14px;
+            }
+
+            .button-row {
+                margin-top: 20px;
+            }
+
+            .primary-button,
+            .secondary-button {
+                min-height: 60px;
+            }
+
+            .helper-text {
+                margin-top: 12px;
+                font-size: 16px;
+            }
+        }
+
+        @media (min-width: 700px) and (max-height: 720px) {
+            .page {
+                padding-top: 14px;
+                padding-bottom: 14px;
+            }
+
+            .logo {
+                width: 46px;
+                height: 46px;
+            }
+
+            .progress-label {
+                margin-top: 12px;
+                margin-bottom: 7px;
+                font-size: 14px;
+            }
+
+            .progress-step {
+                height: 7px;
+            }
+
+            .screen {
+                margin-top: 17px;
+            }
+
+            h1 {
+                font-size: 38px;
+            }
+
+            .intro {
+                margin-top: 12px;
+                font-size: 18px;
+                line-height: 1.45;
+            }
+
+            form {
+                margin-top: 18px;
+            }
+
+            label {
+                margin-bottom: 8px;
+                font-size: 18px;
+            }
+
+            input {
+                height: 56px;
+                font-size: 19px;
+            }
+
+            .information-box {
+                margin-top: 11px;
+                padding: 11px 14px;
+                font-size: 15px;
+            }
+
+            .information-icon {
+                width: 26px;
+                height: 26px;
+                font-size: 15px;
+            }
+
+            .button-row {
+                margin-top: 15px;
+            }
+
+            .primary-button,
+            .secondary-button {
+                min-height: 56px;
+                font-size: 18px;
+            }
+
+            .helper-text {
+                margin-top: 9px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 699px) {
+            .page {
+                padding: 24px 20px 28px;
+            }
+
+            .logo {
+                width: 56px;
+                height: 56px;
+            }
+
+            .progress-label {
+                margin-top: 24px;
+            }
+
+            .progress {
+                gap: 9px;
+            }
+
+            .progress-step {
+                width: 38px;
+                height: 8px;
+            }
+
+            .screen {
+                margin-top: 34px;
+            }
+
+            h1 {
+                font-size: 38px;
+                line-height: 1.13;
+            }
+
+            .intro {
+                margin-top: 20px;
+                font-size: 19px;
+                line-height: 1.55;
+            }
+
+            form {
+                margin-top: 34px;
+            }
+
+            label {
+                font-size: 18px;
+            }
+
+            input {
+                height: 62px;
+                padding: 0 20px;
+                font-size: 20px;
+            }
+
+            .information-box {
+                font-size: 16px;
+            }
+
+            .button-row {
+                display: flex;
+                flex-direction: column-reverse;
+                gap: 12px;
+                margin-top: 24px;
+            }
+
+            .primary-button,
+            .secondary-button {
+                width: 100%;
+                min-height: 62px;
+                font-size: 20px;
+            }
+
+            .helper-text {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 390px) {
+            h1 {
+                font-size: 34px;
+            }
+
+            .progress-step {
+                width: 34px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="page">
+        <div class="container">
+
+            <header>
+                <a
+                    class="logo-link"
+                    href="index.html"
+                    aria-label="Zurück zur Klaudi-Startseite"
+                >
+                    <img
+                        class="logo"
+                        src="assets/images/klaudi-logo.png"
+                        alt="Klaudi"
+                    >
+                </a>
+
+                <p
+                    class="progress-label"
+                    id="progress-label"
+                    aria-live="polite"
+                >
+                    Schritt 1 von 5
+                </p>
+
+                <div
+                    class="progress"
+                    role="progressbar"
+                    aria-label="Fortschritt der Einrichtung"
+                    aria-valuemin="1"
+                    aria-valuemax="5"
+                    aria-valuenow="1"
+                    id="progress-bar"
+                >
+                    <span class="progress-step is-active"></span>
+                    <span class="progress-step"></span>
+                    <span class="progress-step"></span>
+                    <span class="progress-step"></span>
+                    <span class="progress-step"></span>
+                </div>
+            </header>
+
+            <section
+                class="screen is-active"
+                id="screen-name"
+                data-step="1"
+                aria-labelledby="name-heading"
+            >
+                <h1 id="name-heading">
+                    Wen darf Klaudi regelmäßig anrufen?
+                </h1>
+
+                <p class="intro">
+                    Die Einrichtung dauert etwa drei Minuten.
+                    Wir gehen alles gemeinsam Schritt für Schritt durch.
+                </p>
+
+                <form id="name-form" novalidate>
+                    <label for="person-name">
+                        Name der Person
+                    </label>
+
+                    <input
+                        id="person-name"
+                        name="personName"
+                        type="text"
+                        autocomplete="name"
+                        placeholder="Maria Müller"
+                        aria-describedby="name-error"
+                    >
+
+                    <p
+                        class="error-message"
+                        id="name-error"
+                        role="alert"
+                    >
+                        Bitte tragen Sie den Namen der Person ein.
+                    </p>
+
+                    <div class="button-row">
+                        <button
+                            class="primary-button"
+                            type="submit"
+                            style="grid-column: 1 / -1;"
+                        >
+                            Weiter
+                        </button>
+                    </div>
+
+                    <p class="helper-text">
+                        Sie können alle Angaben später jederzeit ändern.
+                    </p>
+                </form>
+            </section>
+
+            <section
+                class="screen"
+                id="screen-phone"
+                data-step="2"
+                aria-labelledby="phone-heading"
+                hidden
+            >
+                <h1 id="phone-heading">
+                    Unter welcher Telefonnummer erreicht Klaudi diese Person?
+                </h1>
+
+                <p class="intro">
+                    Klaudi ruft auf dem normalen Festnetz oder Handy an.
+                    Es wird keine App benötigt.
+                </p>
+
+                <form id="phone-form" novalidate>
+                    <label for="phone-number">
+                        Telefonnummer
+                    </label>
+
+                    <input
+                        id="phone-number"
+                        name="phoneNumber"
+                        type="tel"
+                        inputmode="tel"
+                        autocomplete="tel"
+                        placeholder="+49 221 1234567"
+                        aria-describedby="phone-error phone-information"
+                    >
+
+                    <p
+                        class="error-message"
+                        id="phone-error"
+                        role="alert"
+                    >
+                        Bitte tragen Sie eine gültige Telefonnummer ein.
+                    </p>
+
+                    <div
+                        class="information-box"
+                        id="phone-information"
+                    >
+                        <span
+                            class="information-icon"
+                            aria-hidden="true"
+                        >
+                            ☎
+                        </span>
+
+                        <span>
+                            Klaudi ruft immer von derselben Telefonnummer an.
+                            So kann die Person den Anruf leicht wiedererkennen.
+                        </span>
+                    </div>
+
+                    <div class="button-row">
+                        <button
+                            class="secondary-button"
+                            type="button"
+                            id="back-to-name"
+                        >
+                            Zurück
+                        </button>
+
+                        <button
+                            class="primary-button"
+                            type="submit"
+                        >
+                            Weiter
+                        </button>
+                    </div>
+
+                    <p class="helper-text">
+                        Die Telefonnummer wird nur für die vereinbarten Anrufe verwendet.
+                    </p>
+                </form>
+            </section>
+
+        </div>
+    </main>
+
+    <script>
+        const onboardingData = {
+            personName: "",
+            phoneNumber: ""
+        };
+
+        const screens = Array.from(document.querySelectorAll(".screen"));
+        const progressSteps = Array.from(
+            document.querySelectorAll(".progress-step")
+        );
+
+        const progressLabel = document.getElementById("progress-label");
+        const progressBar = document.getElementById("progress-bar");
+
+        const nameForm = document.getElementById("name-form");
+        const nameInput = document.getElementById("person-name");
+        const nameError = document.getElementById("name-error");
+
+        const phoneForm = document.getElementById("phone-form");
+        const phoneInput = document.getElementById("phone-number");
+        const phoneError = document.getElementById("phone-error");
+
+        const backToNameButton = document.getElementById("back-to-name");
+
+        function showStep(stepNumber) {
+            screens.forEach((screen) => {
+                const screenStep = Number(screen.dataset.step);
+                const isCurrent = screenStep === stepNumber;
+
+                screen.classList.toggle("is-active", isCurrent);
+                screen.hidden = !isCurrent;
+            });
+
+            progressSteps.forEach((step, index) => {
+                const visualStep = index + 1;
+
+                step.classList.toggle(
+                    "is-complete",
+                    visualStep < stepNumber
+                );
+
+                step.classList.toggle(
+                    "is-active",
+                    visualStep === stepNumber
+                );
+            });
+
+            progressLabel.textContent = `Schritt ${stepNumber} von 5`;
+            progressBar.setAttribute("aria-valuenow", String(stepNumber));
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+        function clearInputError(input, errorElement) {
+            input.removeAttribute("aria-invalid");
+            errorElement.classList.remove("is-visible");
+        }
+
+        function showInputError(input, errorElement) {
+            input.setAttribute("aria-invalid", "true");
+            errorElement.classList.add("is-visible");
+            input.focus();
+        }
+
+        function normalizePhoneNumber(value) {
+            return value
+                .trim()
+                .replace(/[^\d+]/g, "")
+                .replace(/(?!^)\+/g, "");
+        }
+
+        function isValidPhoneNumber(value) {
+            const normalized = normalizePhoneNumber(value);
+            const digits = normalized.replace(/\D/g, "");
+
+            return digits.length >= 7 && digits.length <= 15;
+        }
+
+        nameInput.addEventListener("input", () => {
+            clearInputError(nameInput, nameError);
+        });
+
+        phoneInput.addEventListener("input", () => {
+            clearInputError(phoneInput, phoneError);
+        });
+
+        nameForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const personName = nameInput.value.trim();
+
+            if (personName.length < 2) {
+                showInputError(nameInput, nameError);
+                return;
+            }
+
+            onboardingData.personName = personName;
+            showStep(2);
+
+            window.setTimeout(() => {
+                phoneInput.focus();
+            }, 240);
+        });
+
+        phoneForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const phoneNumber = phoneInput.value.trim();
+
+            if (!isValidPhoneNumber(phoneNumber)) {
+                showInputError(phoneInput, phoneError);
+                return;
+            }
+
+            onboardingData.phoneNumber = phoneNumber;
+
+            /*
+             * Screen 3 folgt als Nächstes.
+             * Bis dahin zeigen wir bewusst noch keine technische Fehlermeldung.
+             */
+            alert(
+                "Telefonnummer gespeichert. Als Nächstes bauen wir die Paketwahl."
+            );
+        });
+
+        backToNameButton.addEventListener("click", () => {
+            onboardingData.phoneNumber = phoneInput.value.trim();
+            showStep(1);
+
+            window.setTimeout(() => {
+                nameInput.focus();
+            }, 240);
+        });
+    </script>
+</body>
+</html>
