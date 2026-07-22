@@ -229,6 +229,91 @@
             display: block;
         }
 
+        .choice-grid {
+            display: grid;
+            gap: 14px;
+            margin-top: clamp(28px, 4vh, 44px);
+        }
+
+        .choice-button {
+            width: 100%;
+            padding: 22px 24px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: var(--white);
+            cursor: pointer;
+            text-align: left;
+            transition:
+                border-color 180ms ease,
+                box-shadow 180ms ease,
+                transform 180ms ease;
+        }
+
+        .choice-button:hover {
+            border-color: var(--border-hover);
+        }
+
+        .choice-button:active {
+            transform: translateY(1px);
+        }
+
+        .choice-button:focus-visible {
+            outline: 4px solid var(--apricot-focus);
+            outline-offset: 4px;
+        }
+
+        .choice-button[aria-pressed="true"] {
+            border-color: var(--apricot);
+            box-shadow: 0 0 0 4px var(--apricot-focus);
+        }
+
+        .choice-title {
+            display: block;
+            font-size: 21px;
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .choice-description {
+            display: block;
+            margin-top: 7px;
+            color: var(--text-muted);
+            font-size: 17px;
+            line-height: 1.5;
+        }
+
+        .plan-card {
+            padding: 22px 24px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: var(--white);
+        }
+
+        .plan-price {
+            margin: 8px 0 0;
+            color: var(--text);
+            font-size: 21px;
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .plan-features {
+            margin: 16px 0 0;
+            padding-left: 22px;
+            color: var(--text-muted);
+            font-size: 17px;
+            line-height: 1.55;
+        }
+
+        .plan-features li + li {
+            margin-top: 5px;
+        }
+
+        .plan-card .primary-button {
+            width: 100%;
+            margin-top: 20px;
+        }
+
         .information-box {
             display: flex;
             align-items: flex-start;
@@ -364,6 +449,15 @@
                 padding-bottom: 14px;
             }
 
+            .choice-grid {
+                margin-top: 24px;
+            }
+
+            .choice-button {
+                padding-top: 18px;
+                padding-bottom: 18px;
+            }
+
             .button-row {
                 margin-top: 20px;
             }
@@ -431,6 +525,24 @@
             .information-box {
                 margin-top: 11px;
                 padding: 11px 14px;
+                font-size: 15px;
+            }
+
+            .choice-grid {
+                gap: 11px;
+                margin-top: 18px;
+            }
+
+            .choice-button {
+                padding: 15px 18px;
+            }
+
+            .choice-title {
+                font-size: 18px;
+            }
+
+            .choice-description {
+                margin-top: 5px;
                 font-size: 15px;
             }
 
@@ -512,6 +624,10 @@
                 font-size: 16px;
             }
 
+            .choice-button {
+                padding: 20px;
+            }
+
             .button-row {
                 display: flex;
                 flex-direction: column-reverse;
@@ -576,7 +692,7 @@
                     id="progress-label"
                     aria-live="polite"
                 >
-                    Schritt 1 von 5
+                    Schritt 1 von 6
                 </p>
 
                 <div
@@ -584,11 +700,12 @@
                     role="progressbar"
                     aria-label="Fortschritt der Einrichtung"
                     aria-valuemin="1"
-                    aria-valuemax="5"
+                    aria-valuemax="6"
                     aria-valuenow="1"
                     id="progress-bar"
                 >
                     <span class="progress-step is-active"></span>
+                    <span class="progress-step"></span>
                     <span class="progress-step"></span>
                     <span class="progress-step"></span>
                     <span class="progress-step"></span>
@@ -598,21 +715,79 @@
 
             <section
                 class="screen is-active"
-                id="screen-name"
+                id="screen-setup-for"
                 data-step="1"
-                aria-labelledby="name-heading"
+                aria-labelledby="setup-for-heading"
             >
-                <h1 id="name-heading">
-                    Wen darf Klaudi regelmäßig anrufen?
+                <h1 id="setup-for-heading" tabindex="-1">
+                    Für wen richten wir Klaudi ein?
                 </h1>
 
                 <p class="intro">
+                    Die Einrichtung dauert nur etwa drei Minuten.
+                </p>
+
+                <div
+                    class="choice-grid"
+                    role="group"
+                    aria-labelledby="setup-for-heading"
+                >
+                    <button
+                        class="choice-button"
+                        type="button"
+                        data-setup-for="self"
+                        aria-pressed="false"
+                    >
+                        <span class="choice-title">
+                            Für mich
+                        </span>
+
+                        <span class="choice-description">
+                            Klaudi soll mich regelmäßig anrufen.
+                        </span>
+                    </button>
+
+                    <button
+                        class="choice-button"
+                        type="button"
+                        data-setup-for="other"
+                        aria-pressed="false"
+                    >
+                        <span class="choice-title">
+                            Für jemanden, der mir wichtig ist
+                        </span>
+
+                        <span class="choice-description">
+                            Ich richte Klaudi für eine andere Person ein.
+                        </span>
+                    </button>
+                </div>
+            </section>
+
+            <section
+                class="screen"
+                id="screen-name"
+                data-step="2"
+                aria-labelledby="name-heading"
+                hidden
+            >
+                <h1 id="name-heading" tabindex="-1">
+                    Wen darf Klaudi regelmäßig anrufen?
+                </h1>
+
+                <p
+                    class="intro"
+                    id="name-intro"
+                >
                     Die Einrichtung dauert etwa drei Minuten.
                     Wir gehen alles gemeinsam Schritt für Schritt durch.
                 </p>
 
                 <form id="name-form" novalidate>
-                    <label for="person-name">
+                    <label
+                        for="person-name"
+                        id="name-label"
+                    >
                         Name der Person
                     </label>
 
@@ -621,7 +796,7 @@
                         name="personName"
                         type="text"
                         autocomplete="name"
-                        placeholder="Maria Müller"
+                        placeholder="Maria"
                         aria-describedby="name-error"
                     >
 
@@ -630,14 +805,21 @@
                         id="name-error"
                         role="alert"
                     >
-                        Bitte tragen Sie den Namen der Person ein.
+                        Bitte tragen Sie den Vornamen ein.
                     </p>
 
                     <div class="button-row">
                         <button
+                            class="secondary-button"
+                            type="button"
+                            id="back-to-setup-for"
+                        >
+                            Zurück
+                        </button>
+
+                        <button
                             class="primary-button"
                             type="submit"
-                            style="grid-column: 1 / -1;"
                         >
                             Weiter
                         </button>
@@ -652,15 +834,18 @@
             <section
                 class="screen"
                 id="screen-phone"
-                data-step="2"
+                data-step="3"
                 aria-labelledby="phone-heading"
                 hidden
             >
-                <h1 id="phone-heading">
+                <h1 id="phone-heading" tabindex="-1">
                     Unter welcher Telefonnummer erreicht Klaudi diese Person?
                 </h1>
 
-                <p class="intro">
+                <p
+                    class="intro"
+                    id="phone-intro"
+                >
                     Klaudi ruft auf dem normalen Festnetz oder Handy an.
                     Es wird keine App benötigt.
                 </p>
@@ -728,13 +913,194 @@
                 </form>
             </section>
 
+            <section
+                class="screen"
+                id="screen-plan"
+                data-step="4"
+                aria-labelledby="plan-heading"
+                hidden
+            >
+                <h1 id="plan-heading" tabindex="-1">
+                    Wie oft soll Klaudi anrufen?
+                </h1>
+
+                <p
+                    class="intro"
+                    id="plan-intro"
+                >
+                    Sie können das später jederzeit ändern oder pausieren.
+                </p>
+
+                <div
+                    id="plan-content"
+                    aria-live="polite"
+                ></div>
+
+                <div class="button-row">
+                    <button
+                        class="secondary-button"
+                        type="button"
+                        id="back-to-phone-from-plan"
+                    >
+                        Zurück
+                    </button>
+
+                    <button
+                        class="secondary-button"
+                        type="button"
+                        id="change-plan"
+                        hidden
+                    >
+                        Paket ändern
+                    </button>
+
+                    <button
+                        class="primary-button"
+                        type="button"
+                        id="continue-from-plan"
+                        hidden
+                    >
+                        Weiter
+                    </button>
+                </div>
+            </section>
+
+            <section
+                class="screen"
+                id="screen-call-times"
+                data-step="5"
+                aria-labelledby="call-times-heading"
+                hidden
+            >
+                <h1 id="call-times-heading" tabindex="-1">
+                    Anrufzeiten
+                </h1>
+
+                <p class="intro">
+                    Dieser Schritt wird als Nächstes umgesetzt.
+                </p>
+
+                <div class="button-row">
+                    <button
+                        class="secondary-button"
+                        type="button"
+                        id="back-to-plan"
+                    >
+                        Zurück
+                    </button>
+
+                    <button
+                        class="primary-button"
+                        type="button"
+                    >
+                        Weiter
+                    </button>
+                </div>
+            </section>
+
         </div>
     </main>
 
     <script>
+        /*
+         * Frontend-only catalog for the current onboarding UI.
+         * These data are display-only. Before checkout, the backend must be
+         * the authoritative source for prices, paymentPriceId values,
+         * package entitlements, and add-ons. The browser should only submit
+         * slugs; never trust prices or entitlement values from the browser
+         * for billing or feature activation.
+         */
+        const plans = {
+            "once-weekly": {
+                slug: "once-weekly",
+                name: "1 Gespräch pro Woche",
+                priceCents: 999,
+                currency: "EUR",
+                entitlements: {
+                    callsPerMonth: 4,
+                    minutesPerCall: 10,
+                    memoryEnabled: false
+                },
+                marketingFeatures: [
+                    "4 Gespräche pro Monat",
+                    "jeweils bis zu 10 Minuten"
+                ],
+                eligibleAddOnSlugs: [],
+                paymentPriceId: "",
+                active: true
+            },
+            "twice-weekly": {
+                slug: "twice-weekly",
+                name: "2 Gespräche pro Woche",
+                priceCents: 1999,
+                currency: "EUR",
+                entitlements: {
+                    callsPerMonth: 8,
+                    minutesPerCall: 10,
+                    memoryEnabled: false
+                },
+                marketingFeatures: [
+                    "8 Gespräche pro Monat",
+                    "jeweils bis zu 10 Minuten"
+                ],
+                eligibleAddOnSlugs: [],
+                paymentPriceId: "",
+                active: true
+            },
+            "three-times-weekly": {
+                slug: "three-times-weekly",
+                name: "3 Gespräche pro Woche",
+                priceCents: 2999,
+                currency: "EUR",
+                entitlements: {
+                    callsPerMonth: 12,
+                    minutesPerCall: 10,
+                    memoryEnabled: false
+                },
+                marketingFeatures: [
+                    "12 Gespräche pro Monat",
+                    "jeweils bis zu 10 Minuten"
+                ],
+                eligibleAddOnSlugs: [],
+                paymentPriceId: "",
+                active: true
+            }
+        };
+
+        const addOns = {
+            memory: {
+                slug: "memory",
+                name: "Klaudi erinnert sich",
+                description:
+                    "Klaudi kann sich wichtige persönliche Informationen für spätere Gespräche merken.",
+                priceCents: null,
+                currency: "EUR",
+                paymentPriceId: "",
+                entitlements: {
+                    memoryEnabled: true
+                },
+                active: false
+            }
+        };
+
+        const frontendCatalog = {
+            plans,
+            addOns
+        };
+
+        const urlParameters = new URLSearchParams(window.location.search);
+        const planParameter = urlParameters.get("plan");
+        const selectedPlan = isActivePlan(planParameter)
+            ? planParameter
+            : "";
+
         const onboardingData = {
             personName: "",
-            phoneNumber: ""
+            phoneNumber: "",
+            setupFor: "",
+            selectedPlan,
+            entrySource: selectedPlan ? "pricing" : "general",
+            selectedAddOns: []
         };
 
         const screens = Array.from(document.querySelectorAll(".screen"));
@@ -744,21 +1110,205 @@
 
         const progressLabel = document.getElementById("progress-label");
         const progressBar = document.getElementById("progress-bar");
+        const totalSteps = progressSteps.length;
 
+        const setupForButtons = Array.from(
+            document.querySelectorAll("[data-setup-for]")
+        );
+        const setupForHeading = document.getElementById("setup-for-heading");
         const nameForm = document.getElementById("name-form");
+        const nameHeading = document.getElementById("name-heading");
+        const nameIntro = document.getElementById("name-intro");
+        const nameLabel = document.getElementById("name-label");
         const nameInput = document.getElementById("person-name");
         const nameError = document.getElementById("name-error");
 
         const phoneForm = document.getElementById("phone-form");
+        const phoneHeading = document.getElementById("phone-heading");
+        const phoneIntro = document.getElementById("phone-intro");
         const phoneInput = document.getElementById("phone-number");
         const phoneError = document.getElementById("phone-error");
 
-        const backToNameButton = document.getElementById("back-to-name");
+        const planHeading = document.getElementById("plan-heading");
+        const planIntro = document.getElementById("plan-intro");
+        const planContent = document.getElementById("plan-content");
+        const callTimesHeading = document.getElementById("call-times-heading");
 
-        function showStep(stepNumber) {
+        const backToSetupForButton = document.getElementById(
+            "back-to-setup-for"
+        );
+        const backToNameButton = document.getElementById("back-to-name");
+        const backToPhoneFromPlanButton = document.getElementById(
+            "back-to-phone-from-plan"
+        );
+        const changePlanButton = document.getElementById("change-plan");
+        const continueFromPlanButton = document.getElementById(
+            "continue-from-plan"
+        );
+        const backToPlanButton = document.getElementById("back-to-plan");
+        let previousPlanMode = "selection";
+
+        function getPlanBySlug(planSlug) {
+            return frontendCatalog.plans[planSlug];
+        }
+
+        function getActivePlans() {
+            return Object.values(frontendCatalog.plans).filter(
+                (plan) => plan.active
+            );
+        }
+
+        function isActivePlan(planSlug) {
+            const plan = getPlanBySlug(planSlug);
+
+            return Boolean(plan && plan.active);
+        }
+
+        function hasPreselectedPlan() {
+            return onboardingData.selectedPlan !== "";
+        }
+
+        function getSelectedPlanLabel() {
+            if (!hasPreselectedPlan()) {
+                return "";
+            }
+
+            return getPlanBySlug(onboardingData.selectedPlan).name;
+        }
+
+        function getVisibleSteps() {
+            return Array.from(
+                new Set(screens.map((screen) => Number(screen.dataset.step)))
+            );
+        }
+
+        function focusAfterStepChange(element) {
+            window.setTimeout(() => {
+                element.focus();
+            }, 240);
+        }
+
+        function formatPlanPrice(plan) {
+            const formattedPrice = new Intl.NumberFormat("de-DE", {
+                style: "currency",
+                currency: plan.currency
+            }).format(plan.priceCents / 100);
+
+            return `${formattedPrice} / Monat`;
+        }
+
+        function getPlanCardMarkup(plan, includeButton) {
+            const features = plan.marketingFeatures
+                .map((feature) => `<li>${feature}</li>`)
+                .join("");
+            const button = includeButton
+                ? `
+                    <button
+                        class="primary-button"
+                        type="button"
+                        data-plan-slug="${plan.slug}"
+                    >
+                        Dieses Paket wählen
+                    </button>
+                `
+                : "";
+
+            return `
+                <article class="plan-card">
+                    <span class="choice-title">${plan.name}</span>
+                    <p class="plan-price">${formatPlanPrice(plan)}</p>
+                    <ul class="plan-features">${features}</ul>
+                    ${button}
+                </article>
+            `;
+        }
+
+        function updateSelectedPlan(planSlug) {
+            if (!isActivePlan(planSlug)) {
+                return;
+            }
+
+            onboardingData.selectedPlan = planSlug;
+        }
+
+        function renderPlanSelection() {
+            planHeading.textContent = "Wie oft soll Klaudi anrufen?";
+            planIntro.textContent =
+                "Sie können das später jederzeit ändern oder pausieren.";
+            planContent.className = "choice-grid";
+            planContent.setAttribute("role", "group");
+            planContent.setAttribute("aria-labelledby", "plan-heading");
+            planContent.innerHTML = getActivePlans()
+                .map((plan) => getPlanCardMarkup(plan, true))
+                .join("");
+            changePlanButton.hidden = true;
+            continueFromPlanButton.hidden = true;
+        }
+
+        function renderSelectedPlan() {
+            const plan = getPlanBySlug(onboardingData.selectedPlan);
+
+            planHeading.textContent = "Ihr Paket";
+            planIntro.textContent =
+                "Sie können das Paket bei Bedarf noch ändern.";
+            planContent.className = "";
+            planContent.removeAttribute("role");
+            planContent.removeAttribute("aria-labelledby");
+            planContent.innerHTML = plan ? getPlanCardMarkup(plan, false) : "";
+            changePlanButton.hidden = false;
+            continueFromPlanButton.hidden = false;
+        }
+
+        function updateSetupForSelection() {
+            setupForButtons.forEach((button) => {
+                const isSelected =
+                    button.dataset.setupFor === onboardingData.setupFor;
+
+                button.setAttribute("aria-pressed", String(isSelected));
+            });
+        }
+
+        function updateNameScreenCopy() {
+            if (onboardingData.setupFor === "self") {
+                nameHeading.textContent = "Wie dürfen wir Sie nennen?";
+                nameIntro.textContent =
+                    "So kann Klaudi Sie persönlich begrüßen.";
+                nameLabel.textContent = "Ihr Vorname";
+                nameInput.placeholder = "Maria";
+                nameError.textContent = "Bitte tragen Sie Ihren Vornamen ein.";
+                return;
+            }
+
+            nameHeading.textContent = "Wie heißt die Person?";
+            nameIntro.textContent =
+                "So kann Klaudi die Person später persönlich begrüßen.";
+            nameLabel.textContent = "Vorname der Person";
+            nameInput.placeholder = "Maria";
+            nameError.textContent =
+                "Bitte tragen Sie den Vornamen der Person ein.";
+        }
+
+        function updatePhoneScreenCopy() {
+            if (onboardingData.setupFor === "self") {
+                phoneHeading.textContent =
+                    "Unter welcher Telefonnummer erreicht Klaudi Sie?";
+                phoneIntro.textContent =
+                    "Klaudi ruft Sie auf dem normalen Festnetz oder Handy an. Es wird keine App benötigt.";
+                return;
+            }
+
+            phoneHeading.textContent =
+                "Unter welcher Telefonnummer erreicht Klaudi diese Person?";
+            phoneIntro.textContent =
+                "Klaudi ruft auf dem normalen Festnetz oder Handy an. Es wird keine App benötigt.";
+        }
+
+        function showStep(stepNumber, screenId = "") {
             screens.forEach((screen) => {
                 const screenStep = Number(screen.dataset.step);
-                const isCurrent = screenStep === stepNumber;
+                const isCurrent =
+                    screenStep === stepNumber
+                    && (screenId === "" || screen.id === screenId);
 
                 screen.classList.toggle("is-active", isCurrent);
                 screen.hidden = !isCurrent;
@@ -778,7 +1328,7 @@
                 );
             });
 
-            progressLabel.textContent = `Schritt ${stepNumber} von 5`;
+            progressLabel.textContent = `Schritt ${stepNumber} von ${totalSteps}`;
             progressBar.setAttribute("aria-valuenow", String(stepNumber));
 
             window.scrollTo({
@@ -820,6 +1370,29 @@
             clearInputError(phoneInput, phoneError);
         });
 
+        setupForButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                onboardingData.setupFor = button.dataset.setupFor;
+                updateSetupForSelection();
+                updateNameScreenCopy();
+                showStep(2);
+                focusAfterStepChange(nameInput);
+            });
+        });
+
+        planContent.addEventListener("click", (event) => {
+            const planButton = event.target.closest("[data-plan-slug]");
+
+            if (!planButton) {
+                return;
+            }
+
+            updateSelectedPlan(planButton.dataset.planSlug);
+            previousPlanMode = "selection";
+            showStep(5, "screen-call-times");
+            focusAfterStepChange(callTimesHeading);
+        });
+
         nameForm.addEventListener("submit", (event) => {
             event.preventDefault();
 
@@ -831,11 +1404,9 @@
             }
 
             onboardingData.personName = personName;
-            showStep(2);
-
-            window.setTimeout(() => {
-                phoneInput.focus();
-            }, 240);
+            updatePhoneScreenCopy();
+            showStep(3);
+            focusAfterStepChange(phoneInput);
         });
 
         phoneForm.addEventListener("submit", (event) => {
@@ -850,22 +1421,68 @@
 
             onboardingData.phoneNumber = phoneNumber;
 
-            /*
-             * Screen 3 folgt als Nächstes.
-             * Bis dahin zeigen wir bewusst noch keine technische Fehlermeldung.
-             */
-            alert(
-                "Telefonnummer gespeichert. Als Nächstes bauen wir die Paketwahl."
-            );
+            if (hasPreselectedPlan()) {
+                renderSelectedPlan();
+                previousPlanMode = "confirmation";
+                showStep(4, "screen-plan");
+                focusAfterStepChange(planHeading);
+                return;
+            }
+
+            renderPlanSelection();
+            previousPlanMode = "selection";
+            showStep(4, "screen-plan");
+            focusAfterStepChange(planHeading);
+        });
+
+        backToPhoneFromPlanButton.addEventListener("click", () => {
+            showStep(3);
+            focusAfterStepChange(phoneInput);
+        });
+
+        changePlanButton.addEventListener("click", () => {
+            renderPlanSelection();
+            previousPlanMode = "selection";
+            focusAfterStepChange(planHeading);
+        });
+
+        continueFromPlanButton.addEventListener("click", () => {
+            previousPlanMode = "confirmation";
+            showStep(5, "screen-call-times");
+            focusAfterStepChange(callTimesHeading);
+        });
+
+        backToPlanButton.addEventListener("click", () => {
+            if (previousPlanMode === "confirmation") {
+                renderSelectedPlan();
+            } else {
+                renderPlanSelection();
+            }
+
+            showStep(4, "screen-plan");
+            focusAfterStepChange(planHeading);
+        });
+
+        backToSetupForButton.addEventListener("click", () => {
+            onboardingData.personName = nameInput.value.trim();
+            clearInputError(nameInput, nameError);
+            updateSetupForSelection();
+            showStep(1);
+            window.setTimeout(() => {
+                const selectedSetupForButton = setupForButtons.find(
+                    (button) =>
+                        button.dataset.setupFor === onboardingData.setupFor
+                );
+
+                (selectedSetupForButton || setupForButtons[0]).focus();
+            }, 240);
         });
 
         backToNameButton.addEventListener("click", () => {
             onboardingData.phoneNumber = phoneInput.value.trim();
-            showStep(1);
-
-            window.setTimeout(() => {
-                nameInput.focus();
-            }, 240);
+            updateNameScreenCopy();
+            showStep(2);
+            focusAfterStepChange(nameInput);
         });
     </script>
 </body>
