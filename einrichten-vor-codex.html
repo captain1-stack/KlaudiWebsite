@@ -1,0 +1,1798 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Klaudi einrichten</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="./assets/images/klaudi-logo.png"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Literata:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        :root {
+            --background: #fff8f2;
+            --text: #251913;
+            --text-muted: #6f655f;
+            --apricot: #f5c7a9;
+            --apricot-hover: #efba97;
+            --apricot-focus: rgba(245, 199, 169, 0.42);
+            --border: #d7cec9;
+            --border-hover: #b9aea8;
+            --progress-inactive: #e7e4e2;
+            --white: #ffffff;
+            --error: #a5362a;
+            --error-background: #fff0ec;
+            --lavender: #cdbEEB;
+            --lavender-background: #f3eefb;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text);
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        button {
+            color: inherit;
+        }
+
+        .page {
+            width: 100%;
+            min-height: 100svh;
+            padding:
+                clamp(24px, 4vh, 48px)
+                24px
+                clamp(20px, 3vh, 40px);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .logo-link {
+            display: inline-flex;
+            border-radius: 999px;
+        }
+
+        .logo-link:focus-visible {
+            outline: 4px solid var(--apricot-focus);
+            outline-offset: 4px;
+        }
+
+        .logo {
+            display: block;
+            width: clamp(54px, 7vh, 68px);
+            height: clamp(54px, 7vh, 68px);
+            object-fit: contain;
+        }
+
+        .progress-label {
+            margin: clamp(22px, 3.5vh, 36px) 0 12px;
+            color: var(--text-muted);
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .progress {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .progress-step {
+            width: 52px;
+            height: 9px;
+            border-radius: 999px;
+            background: var(--progress-inactive);
+            transition: background-color 220ms ease;
+        }
+
+        .progress-step.is-active,
+        .progress-step.is-complete {
+            background: var(--apricot);
+        }
+
+        .screen {
+            display: none;
+            margin-top: clamp(30px, 5vh, 52px);
+            animation: screen-in 220ms ease;
+        }
+
+        .screen.is-active {
+            display: block;
+        }
+
+        @keyframes screen-in {
+            from {
+                opacity: 0;
+                transform: translateY(7px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            max-width: 740px;
+            margin: 0;
+            font-family: "Literata", serif;
+            font-size: clamp(40px, 4vw, 56px);
+            font-weight: 700;
+            line-height: 1.12;
+            letter-spacing: -0.025em;
+        }
+
+        .intro {
+            max-width: 700px;
+            margin:
+                clamp(18px, 2.5vh, 28px)
+                0
+                0;
+            color: var(--text-muted);
+            font-size: clamp(19px, 1.6vw, 22px);
+            line-height: 1.6;
+        }
+
+        form {
+            margin-top: clamp(28px, 4vh, 44px);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 11px;
+            font-size: 19px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            height: 66px;
+            padding: 0 24px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: var(--white);
+            color: var(--text);
+            font-size: 21px;
+            transition:
+                border-color 180ms ease,
+                box-shadow 180ms ease;
+        }
+
+        input::placeholder {
+            color: #aaa4a0;
+        }
+
+        input:hover {
+            border-color: var(--border-hover);
+        }
+
+        input:focus {
+            border-color: var(--apricot);
+            box-shadow: 0 0 0 4px var(--apricot-focus);
+            outline: none;
+        }
+
+        input[aria-invalid="true"] {
+            border-color: var(--error);
+        }
+
+        input[aria-invalid="true"]:focus {
+            box-shadow: 0 0 0 4px rgba(165, 54, 42, 0.16);
+        }
+
+        .error-message {
+            display: none;
+            margin: 10px 0 0;
+            color: var(--error);
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .error-message.is-visible {
+            display: block;
+        }
+
+        .choice-grid {
+            display: grid;
+            gap: 14px;
+            margin-top: clamp(28px, 4vh, 44px);
+        }
+
+        .choice-button {
+            width: 100%;
+            padding: 22px 24px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: var(--white);
+            cursor: pointer;
+            text-align: left;
+            transition:
+                border-color 180ms ease,
+                box-shadow 180ms ease,
+                transform 180ms ease;
+        }
+
+        .choice-button:hover {
+            border-color: var(--border-hover);
+        }
+
+        .choice-button:active {
+            transform: translateY(1px);
+        }
+
+        .choice-button:focus-visible {
+            outline: 4px solid var(--apricot-focus);
+            outline-offset: 4px;
+        }
+
+        .choice-button[aria-pressed="true"] {
+            border-color: var(--apricot);
+            box-shadow: 0 0 0 4px var(--apricot-focus);
+        }
+
+        .choice-title {
+            display: block;
+            font-size: 21px;
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .choice-description {
+            display: block;
+            margin-top: 7px;
+            color: var(--text-muted);
+            font-size: 17px;
+            line-height: 1.5;
+        }
+
+        .plan-selection {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: clamp(28px, 4vh, 42px);
+        }
+
+        .plan-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            padding: 24px;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.88);
+            box-shadow: 0 8px 30px rgba(37, 25, 19, 0.035);
+        }
+
+        .plan-card--recommended {
+            grid-column: 1 / -1;
+            padding: clamp(26px, 3.2vw, 34px);
+            border: 2px solid #b8a7dc;
+            background:
+                linear-gradient(135deg, rgba(243, 238, 251, 0.96), rgba(255, 255, 255, 0.96));
+            box-shadow: 0 18px 52px rgba(76, 65, 102, 0.11);
+        }
+
+        .plan-card--recommended::after {
+            content: "";
+            position: absolute;
+            inset: 10px;
+            border: 1px solid rgba(205, 190, 235, 0.42);
+            border-radius: 15px;
+            pointer-events: none;
+        }
+
+        .plan-card__top {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 18px;
+        }
+
+        .plan-card__identity {
+            min-width: 0;
+        }
+
+        .plan-eyebrow {
+            display: block;
+            margin-bottom: 7px;
+            color: #64547f;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.35;
+            letter-spacing: 0.045em;
+            text-transform: uppercase;
+        }
+
+        .plan-badge {
+            flex: 0 0 auto;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: var(--lavender);
+            color: #372b50;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.25;
+        }
+
+        .plan-name {
+            display: block;
+            font-size: clamp(21px, 2vw, 25px);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .plan-card--recommended .plan-name {
+            font-size: clamp(25px, 2.7vw, 32px);
+        }
+
+        .plan-price-row {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: baseline;
+            gap: 7px;
+            margin-top: 15px;
+        }
+
+        .plan-price {
+            margin: 0;
+            color: var(--text);
+            font-family: "Literata", serif;
+            font-size: clamp(29px, 3vw, 38px);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -0.025em;
+        }
+
+        .plan-card--recommended .plan-price {
+            font-size: clamp(36px, 4.5vw, 48px);
+        }
+
+        .plan-price-period {
+            color: var(--text-muted);
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .plan-promise {
+            position: relative;
+            z-index: 1;
+            margin: 15px 0 0;
+            color: var(--text-muted);
+            font-size: 17px;
+            line-height: 1.55;
+        }
+
+        .plan-card--recommended .plan-promise {
+            max-width: 570px;
+            color: #514663;
+            font-size: 18px;
+        }
+
+        .plan-features {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            gap: 9px;
+            margin: 20px 0 0;
+            padding: 0;
+            color: var(--text);
+            font-size: 16px;
+            line-height: 1.5;
+            list-style: none;
+        }
+
+        .plan-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .plan-features li::before {
+            content: "Ô£ô";
+            flex: 0 0 auto;
+            color: #67577f;
+            font-weight: 700;
+        }
+
+        .plan-card .primary-button {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            margin-top: auto;
+            padding-top: 16px;
+            padding-bottom: 16px;
+        }
+
+        .plan-features + .primary-button {
+            margin-top: 22px;
+        }
+
+        .plan-card--recommended .primary-button {
+            min-height: 68px;
+            background: var(--apricot);
+            color: var(--text);
+        }
+
+        .plan-card--recommended .primary-button:hover {
+            background: var(--apricot-hover);
+        }
+
+        .plan-guidance {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: var(--border);
+        }
+
+        .plan-guidance__item {
+            padding: 15px 16px;
+            background: rgba(255, 255, 255, 0.9);
+            text-align: center;
+        }
+
+        .plan-guidance__item strong {
+            display: block;
+            font-size: 16px;
+            line-height: 1.35;
+        }
+
+        .plan-guidance__item span {
+            display: block;
+            margin-top: 3px;
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .plan-trust {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 20px;
+            margin: 2px 0 0;
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.45;
+            text-align: center;
+        }
+
+        .plan-trust span::before {
+            content: "Ô£ô";
+            margin-right: 7px;
+            color: #67577f;
+            font-weight: 700;
+        }
+
+        .information-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-top: 18px;
+            padding: 17px 18px;
+            border-radius: 16px;
+            background: var(--lavender-background);
+            color: #4c4166;
+            font-size: 17px;
+            line-height: 1.55;
+        }
+
+        .information-icon {
+            display: inline-flex;
+            flex: 0 0 auto;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 999px;
+            background: var(--lavender);
+            color: #372b50;
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .button-row {
+            display: grid;
+            grid-template-columns: minmax(150px, 0.42fr) minmax(220px, 1fr);
+            gap: 14px;
+            margin-top: clamp(22px, 3vh, 32px);
+        }
+
+        .primary-button,
+        .secondary-button {
+            min-height: 64px;
+            padding: 15px 24px;
+            border-radius: 18px;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: 600;
+            transition:
+                background-color 180ms ease,
+                border-color 180ms ease,
+                filter 180ms ease,
+                transform 180ms ease;
+        }
+
+        .primary-button {
+            border: 0;
+            background: var(--apricot);
+        }
+
+        .primary-button:hover {
+            background: var(--apricot-hover);
+        }
+
+        .secondary-button {
+            border: 1px solid var(--border);
+            background: transparent;
+        }
+
+        .secondary-button:hover {
+            border-color: var(--border-hover);
+            background: rgba(255, 255, 255, 0.45);
+        }
+
+        .primary-button:active,
+        .secondary-button:active {
+            transform: translateY(1px);
+        }
+
+        .primary-button:focus-visible,
+        .secondary-button:focus-visible {
+            outline: 4px solid var(--apricot-focus);
+            outline-offset: 4px;
+        }
+
+        .helper-text {
+            margin:
+                clamp(14px, 2vh, 20px)
+                0
+                0;
+            color: var(--text-muted);
+            font-size: 17px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        @media (min-width: 700px) and (max-height: 850px) {
+            .page {
+                padding-top: 22px;
+                padding-bottom: 18px;
+            }
+
+            .logo {
+                width: 52px;
+                height: 52px;
+            }
+
+            .progress-label {
+                margin-top: 18px;
+                margin-bottom: 9px;
+            }
+
+            .screen {
+                margin-top: 24px;
+            }
+
+            h1 {
+                font-size: 43px;
+                line-height: 1.08;
+            }
+
+            .intro {
+                margin-top: 16px;
+                font-size: 19px;
+                line-height: 1.5;
+            }
+
+            form {
+                margin-top: 24px;
+            }
+
+            input {
+                height: 60px;
+            }
+
+            .information-box {
+                margin-top: 14px;
+                padding-top: 14px;
+                padding-bottom: 14px;
+            }
+
+            .choice-grid {
+                margin-top: 24px;
+            }
+
+            .choice-button {
+                padding-top: 18px;
+                padding-bottom: 18px;
+            }
+
+            .plan-selection {
+                margin-top: 22px;
+                gap: 12px;
+            }
+
+            .plan-card {
+                padding: 18px 20px;
+            }
+
+            .plan-card--recommended {
+                padding: 21px 24px;
+            }
+
+            .plan-features {
+                gap: 5px;
+                margin-top: 13px;
+            }
+
+            .plan-promise {
+                margin-top: 10px;
+            }
+
+            .plan-features + .primary-button {
+                margin-top: 15px;
+            }
+
+            .plan-guidance__item {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            .button-row {
+                margin-top: 20px;
+            }
+
+            .primary-button,
+            .secondary-button {
+                min-height: 60px;
+            }
+
+            .helper-text {
+                margin-top: 12px;
+                font-size: 16px;
+            }
+        }
+
+        @media (min-width: 700px) and (max-height: 720px) {
+            .page {
+                padding-top: 14px;
+                padding-bottom: 14px;
+            }
+
+            .logo {
+                width: 46px;
+                height: 46px;
+            }
+
+            .progress-label {
+                margin-top: 12px;
+                margin-bottom: 7px;
+                font-size: 14px;
+            }
+
+            .progress-step {
+                height: 7px;
+            }
+
+            .screen {
+                margin-top: 17px;
+            }
+
+            h1 {
+                font-size: 38px;
+            }
+
+            .intro {
+                margin-top: 12px;
+                font-size: 18px;
+                line-height: 1.45;
+            }
+
+            form {
+                margin-top: 18px;
+            }
+
+            label {
+                margin-bottom: 8px;
+                font-size: 18px;
+            }
+
+            input {
+                height: 56px;
+                font-size: 19px;
+            }
+
+            .information-box {
+                margin-top: 11px;
+                padding: 11px 14px;
+                font-size: 15px;
+            }
+
+            .choice-grid {
+                gap: 11px;
+                margin-top: 18px;
+            }
+
+            .choice-button {
+                padding: 15px 18px;
+            }
+
+            .choice-title {
+                font-size: 18px;
+            }
+
+            .choice-description {
+                margin-top: 5px;
+                font-size: 15px;
+            }
+
+            .information-icon {
+                width: 26px;
+                height: 26px;
+                font-size: 15px;
+            }
+
+            .button-row {
+                margin-top: 15px;
+            }
+
+            .primary-button,
+            .secondary-button {
+                min-height: 56px;
+                font-size: 18px;
+            }
+
+            .helper-text {
+                margin-top: 9px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 699px) {
+            .page {
+                padding: 24px 20px 28px;
+            }
+
+            .logo {
+                width: 56px;
+                height: 56px;
+            }
+
+            .progress-label {
+                margin-top: 24px;
+            }
+
+            .progress {
+                gap: 9px;
+            }
+
+            .progress-step {
+                width: 38px;
+                height: 8px;
+            }
+
+            .screen {
+                margin-top: 34px;
+            }
+
+            h1 {
+                font-size: 38px;
+                line-height: 1.13;
+            }
+
+            .intro {
+                margin-top: 20px;
+                font-size: 19px;
+                line-height: 1.55;
+            }
+
+            form {
+                margin-top: 34px;
+            }
+
+            label {
+                font-size: 18px;
+            }
+
+            input {
+                height: 62px;
+                padding: 0 20px;
+                font-size: 20px;
+            }
+
+            .information-box {
+                font-size: 16px;
+            }
+
+            .choice-button {
+                padding: 20px;
+            }
+
+            .plan-selection {
+                grid-template-columns: 1fr;
+                gap: 14px;
+                margin-top: 28px;
+            }
+
+            .plan-card,
+            .plan-card--recommended {
+                grid-column: auto;
+                padding: 22px 20px;
+                border-radius: 20px;
+            }
+
+            .plan-card__top {
+                gap: 12px;
+            }
+
+            .plan-badge {
+                padding: 7px 10px;
+                font-size: 13px;
+            }
+
+            .plan-guidance {
+                grid-template-columns: 1fr;
+            }
+
+            .plan-guidance__item {
+                display: flex;
+                align-items: baseline;
+                justify-content: space-between;
+                gap: 16px;
+                padding: 13px 15px;
+                text-align: left;
+            }
+
+            .plan-guidance__item span {
+                margin-top: 0;
+                text-align: right;
+            }
+
+            .plan-trust {
+                display: grid;
+                justify-content: start;
+                gap: 7px;
+                text-align: left;
+            }
+
+            .button-row {
+                display: flex;
+                flex-direction: column-reverse;
+                gap: 12px;
+                margin-top: 24px;
+            }
+
+            .primary-button,
+            .secondary-button {
+                width: 100%;
+                min-height: 62px;
+                font-size: 20px;
+            }
+
+            .helper-text {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 390px) {
+            h1 {
+                font-size: 34px;
+            }
+
+            .progress-step {
+                width: 34px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="page">
+        <div class="container">
+
+            <header>
+                <a
+                    class="logo-link"
+                    href="index.html"
+                    aria-label="Zur├╝ck zur Klaudi-Startseite"
+                >
+                    <img
+                        class="logo"
+                        src="assets/images/klaudi-logo.png"
+                        alt="Klaudi"
+                    >
+                </a>
+
+                <p
+                    class="progress-label"
+                    id="progress-label"
+                    aria-live="polite"
+                >
+                    Schritt 1 von 6
+                </p>
+
+                <div
+                    class="progress"
+                    role="progressbar"
+                    aria-label="Fortschritt der Einrichtung"
+                    aria-valuemin="1"
+                    aria-valuemax="6"
+                    aria-valuenow="1"
+                    id="progress-bar"
+                >
+                    <span class="progress-step is-active"></span>
+                    <span class="progress-step"></span>
+                    <span class="progress-step"></span>
+                    <span class="progress-step"></span>
+                    <span class="progress-step"></span>
+                    <span class="progress-step"></span>
+                </div>
+            </header>
+
+            <section
+                class="screen is-active"
+                id="screen-setup-for"
+                data-step="1"
+                aria-labelledby="setup-for-heading"
+            >
+                <h1 id="setup-for-heading" tabindex="-1">
+                    F├╝r wen richten wir Klaudi ein?
+                </h1>
+
+                <p class="intro">
+                    Die Einrichtung dauert nur etwa drei Minuten.
+                </p>
+
+                <div
+                    class="choice-grid"
+                    role="group"
+                    aria-labelledby="setup-for-heading"
+                >
+                    <button
+                        class="choice-button"
+                        type="button"
+                        data-setup-for="self"
+                        aria-pressed="false"
+                    >
+                        <span class="choice-title">
+                            F├╝r mich
+                        </span>
+
+                        <span class="choice-description">
+                            Klaudi soll mich regelm├ñ├ƒig anrufen.
+                        </span>
+                    </button>
+
+                    <button
+                        class="choice-button"
+                        type="button"
+                        data-setup-for="other"
+                        aria-pressed="false"
+                    >
+                        <span class="choice-title">
+                            F├╝r jemanden, der mir wichtig ist
+                        </span>
+
+                        <span class="choice-description">
+                            Ich richte Klaudi f├╝r eine andere Person ein.
+                        </span>
+                    </button>
+                </div>
+            </section>
+
+            <section
+                class="screen"
+                id="screen-name"
+                data-step="2"
+                aria-labelledby="name-heading"
+                hidden
+            >
+                <h1 id="name-heading" tabindex="-1">
+                    Wen darf Klaudi regelm├ñ├ƒig anrufen?
+                </h1>
+
+                <p
+                    class="intro"
+                    id="name-intro"
+                >
+                    Die Einrichtung dauert etwa drei Minuten.
+                    Wir gehen alles gemeinsam Schritt f├╝r Schritt durch.
+                </p>
+
+                <form id="name-form" novalidate>
+                    <label
+                        for="person-name"
+                        id="name-label"
+                    >
+                        Name der Person
+                    </label>
+
+                    <input
+                        id="person-name"
+                        name="personName"
+                        type="text"
+                        autocomplete="name"
+                        placeholder="Maria"
+                        aria-describedby="name-error"
+                    >
+
+                    <p
+                        class="error-message"
+                        id="name-error"
+                        role="alert"
+                    >
+                        Bitte tragen Sie den Vornamen ein.
+                    </p>
+
+                    <div class="button-row">
+                        <button
+                            class="secondary-button"
+                            type="button"
+                            id="back-to-setup-for"
+                        >
+                            Zur├╝ck
+                        </button>
+
+                        <button
+                            class="primary-button"
+                            type="submit"
+                        >
+                            Weiter
+                        </button>
+                    </div>
+
+                    <p class="helper-text">
+                        Sie k├Ânnen alle Angaben sp├ñter jederzeit ├ñndern.
+                    </p>
+                </form>
+            </section>
+
+            <section
+                class="screen"
+                id="screen-phone"
+                data-step="3"
+                aria-labelledby="phone-heading"
+                hidden
+            >
+                <h1 id="phone-heading" tabindex="-1">
+                    Unter welcher Telefonnummer erreicht Klaudi diese Person?
+                </h1>
+
+                <p
+                    class="intro"
+                    id="phone-intro"
+                >
+                    Klaudi ruft auf dem normalen Festnetz oder Handy an.
+                    Es wird keine App ben├Âtigt.
+                </p>
+
+                <form id="phone-form" novalidate>
+                    <label for="phone-number">
+                        Telefonnummer
+                    </label>
+
+                    <input
+                        id="phone-number"
+                        name="phoneNumber"
+                        type="tel"
+                        inputmode="tel"
+                        autocomplete="tel"
+                        placeholder="+49 221 1234567"
+                        aria-describedby="phone-error phone-information"
+                    >
+
+                    <p
+                        class="error-message"
+                        id="phone-error"
+                        role="alert"
+                    >
+                        Bitte tragen Sie eine g├╝ltige Telefonnummer ein.
+                    </p>
+
+                    <div
+                        class="information-box"
+                        id="phone-information"
+                    >
+                        <span
+                            class="information-icon"
+                            aria-hidden="true"
+                        >
+                            ÔÿÄ
+                        </span>
+
+                        <span>
+                            Klaudi ruft immer von derselben Telefonnummer an.
+                            So kann die Person den Anruf leicht wiedererkennen.
+                        </span>
+                    </div>
+
+                    <div class="button-row">
+                        <button
+                            class="secondary-button"
+                            type="button"
+                            id="back-to-name"
+                        >
+                            Zur├╝ck
+                        </button>
+
+                        <button
+                            class="primary-button"
+                            type="submit"
+                        >
+                            Weiter
+                        </button>
+                    </div>
+
+                    <p class="helper-text">
+                        Die Telefonnummer wird nur f├╝r die vereinbarten Anrufe verwendet.
+                    </p>
+                </form>
+            </section>
+
+            <section
+                class="screen"
+                id="screen-plan"
+                data-step="4"
+                aria-labelledby="plan-heading"
+                hidden
+            >
+                <h1 id="plan-heading" tabindex="-1">
+                    Wie oft soll Klaudi anrufen?
+                </h1>
+
+                <p
+                    class="intro"
+                    id="plan-intro"
+                >
+                    Sie k├Ânnen das sp├ñter jederzeit ├ñndern oder pausieren.
+                </p>
+
+                <div
+                    id="plan-content"
+                    aria-live="polite"
+                ></div>
+
+                <div class="button-row">
+                    <button
+                        class="secondary-button"
+                        type="button"
+                        id="back-to-phone-from-plan"
+                    >
+                        Zur├╝ck
+                    </button>
+
+                    <button
+                        class="secondary-button"
+                        type="button"
+                        id="change-plan"
+                        hidden
+                    >
+                        Paket ├ñndern
+                    </button>
+
+                    <button
+                        class="primary-button"
+                        type="button"
+                        id="continue-from-plan"
+                        hidden
+                    >
+                        Weiter
+                    </button>
+                </div>
+            </section>
+
+            <section
+                class="screen"
+                id="screen-call-times"
+                data-step="5"
+                aria-labelledby="call-times-heading"
+                hidden
+            >
+                <h1 id="call-times-heading" tabindex="-1">
+                    Anrufzeiten
+                </h1>
+
+                <p class="intro">
+                    Dieser Schritt wird als N├ñchstes umgesetzt.
+                </p>
+
+                <div class="button-row">
+                    <button
+                        class="secondary-button"
+                        type="button"
+                        id="back-to-plan"
+                    >
+                        Zur├╝ck
+                    </button>
+
+                    <button
+                        class="primary-button"
+                        type="button"
+                    >
+                        Weiter
+                    </button>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script>
+        /*
+         * Frontend-only catalog for the current onboarding UI.
+         * These data are display-only. Before checkout, the backend must be
+         * the authoritative source for prices, paymentPriceId values,
+         * package entitlements, and add-ons. The browser should only submit
+         * slugs; never trust prices or entitlement values from the browser
+         * for billing or feature activation.
+         */
+        const plans = {
+            "once-weekly": {
+                slug: "once-weekly",
+                name: "1 Gespr├ñch pro Woche",
+                priceCents: 999,
+                currency: "EUR",
+                entitlements: {
+                    callsPerMonth: 4,
+                    minutesPerCall: 10,
+                    memoryEnabled: false
+                },
+                marketingFeatures: [
+                    "4 Gespr├ñche pro Monat",
+                    "jeweils bis zu 10 Minuten"
+                ],
+                eligibleAddOnSlugs: [],
+                paymentPriceId: "",
+                active: true
+            },
+            "twice-weekly": {
+                slug: "twice-weekly",
+                name: "2 Gespr├ñche pro Woche",
+                priceCents: 1999,
+                currency: "EUR",
+                entitlements: {
+                    callsPerMonth: 8,
+                    minutesPerCall: 10,
+                    memoryEnabled: false
+                },
+                marketingFeatures: [
+                    "8 Gespr├ñche pro Monat",
+                    "jeweils bis zu 10 Minuten"
+                ],
+                eligibleAddOnSlugs: [],
+                paymentPriceId: "",
+                active: true
+            },
+            "three-times-weekly": {
+                slug: "three-times-weekly",
+                name: "3 Gespr├ñche pro Woche",
+                priceCents: 2999,
+                currency: "EUR",
+                entitlements: {
+                    callsPerMonth: 12,
+                    minutesPerCall: 10,
+                    memoryEnabled: false
+                },
+                badge: "Am beliebtesten",
+                recommended: true,
+                marketingFeatures: [
+                    "12 Gespr├ñche pro Monat",
+                    "jeweils bis zu 10 Minuten"
+                ],
+                eligibleAddOnSlugs: [],
+                paymentPriceId: "",
+                active: true
+            }
+        };
+
+        const addOns = {
+            memory: {
+                slug: "memory",
+                name: "Klaudi erinnert sich",
+                description:
+                    "Klaudi kann sich wichtige pers├Ânliche Informationen f├╝r sp├ñtere Gespr├ñche merken.",
+                priceCents: null,
+                currency: "EUR",
+                paymentPriceId: "",
+                entitlements: {
+                    memoryEnabled: true
+                },
+                active: false
+            }
+        };
+
+        const frontendCatalog = {
+            plans,
+            addOns
+        };
+
+        const urlParameters = new URLSearchParams(window.location.search);
+        const planParameter = urlParameters.get("plan");
+        const selectedPlan = isActivePlan(planParameter)
+            ? planParameter
+            : "";
+
+        const onboardingData = {
+            personName: "",
+            phoneNumber: "",
+            setupFor: "",
+            selectedPlan,
+            entrySource: selectedPlan ? "pricing" : "general",
+            selectedAddOns: []
+        };
+
+        const screens = Array.from(document.querySelectorAll(".screen"));
+        const progressSteps = Array.from(
+            document.querySelectorAll(".progress-step")
+        );
+
+        const progressLabel = document.getElementById("progress-label");
+        const progressBar = document.getElementById("progress-bar");
+        const totalSteps = progressSteps.length;
+
+        const setupForButtons = Array.from(
+            document.querySelectorAll("[data-setup-for]")
+        );
+        const setupForHeading = document.getElementById("setup-for-heading");
+        const nameForm = document.getElementById("name-form");
+        const nameHeading = document.getElementById("name-heading");
+        const nameIntro = document.getElementById("name-intro");
+        const nameLabel = document.getElementById("name-label");
+        const nameInput = document.getElementById("person-name");
+        const nameError = document.getElementById("name-error");
+
+        const phoneForm = document.getElementById("phone-form");
+        const phoneHeading = document.getElementById("phone-heading");
+        const phoneIntro = document.getElementById("phone-intro");
+        const phoneInput = document.getElementById("phone-number");
+        const phoneError = document.getElementById("phone-error");
+
+        const planHeading = document.getElementById("plan-heading");
+        const planIntro = document.getElementById("plan-intro");
+        const planContent = document.getElementById("plan-content");
+        const callTimesHeading = document.getElementById("call-times-heading");
+
+        const backToSetupForButton = document.getElementById(
+            "back-to-setup-for"
+        );
+        const backToNameButton = document.getElementById("back-to-name");
+        const backToPhoneFromPlanButton = document.getElementById(
+            "back-to-phone-from-plan"
+        );
+        const changePlanButton = document.getElementById("change-plan");
+        const continueFromPlanButton = document.getElementById(
+            "continue-from-plan"
+        );
+        const backToPlanButton = document.getElementById("back-to-plan");
+        let previousPlanMode = "selection";
+
+        function getPlanBySlug(planSlug) {
+            return frontendCatalog.plans[planSlug];
+        }
+
+        function getActivePlans() {
+            return Object.values(frontendCatalog.plans).filter(
+                (plan) => plan.active
+            );
+        }
+
+        function isActivePlan(planSlug) {
+            const plan = getPlanBySlug(planSlug);
+
+            return Boolean(plan && plan.active);
+        }
+
+        function hasPreselectedPlan() {
+            return onboardingData.selectedPlan !== "";
+        }
+
+        function getSelectedPlanLabel() {
+            if (!hasPreselectedPlan()) {
+                return "";
+            }
+
+            return getPlanBySlug(onboardingData.selectedPlan).name;
+        }
+
+        function getVisibleSteps() {
+            return Array.from(
+                new Set(screens.map((screen) => Number(screen.dataset.step)))
+            );
+        }
+
+        function focusAfterStepChange(element) {
+            window.setTimeout(() => {
+                element.focus();
+            }, 240);
+        }
+
+        function formatPlanPrice(plan) {
+            return new Intl.NumberFormat("de-DE", {
+                style: "currency",
+                currency: plan.currency
+            }).format(plan.priceCents / 100);
+        }
+
+        function getPlanCardMarkup(plan, includeButton) {
+            const features = plan.marketingFeatures
+                .map((feature) => `<li>${feature}</li>`)
+                .join("");
+            const recommendedClass = plan.recommended
+                ? " plan-card--recommended"
+                : "";
+            const badge = plan.badge
+                ? `<span class="plan-badge">${plan.badge}</span>`
+                : "";
+            const button = includeButton
+                ? `
+                    <button
+                        class="primary-button"
+                        type="button"
+                        data-plan-slug="${plan.slug}"
+                        aria-label="${plan.name} f├╝r ${formatPlanPrice(plan)} pro Monat w├ñhlen"
+                    >
+                        Dieses Paket w├ñhlen
+                    </button>
+                `
+                : "";
+
+            return `
+                <article class="plan-card${recommendedClass}">
+                    <div class="plan-card__top">
+                        <span class="plan-name">${plan.name}</span>
+                        ${badge}
+                    </div>
+
+                    <div class="plan-price-row">
+                        <p class="plan-price">${formatPlanPrice(plan)}</p>
+                        <span class="plan-price-period">pro Monat</span>
+                    </div>
+
+                    <ul class="plan-features">${features}</ul>
+                    ${button}
+                </article>
+            `;
+        }
+
+        function getPlanSelectionMarkup() {
+            const activePlans = getActivePlans();
+            const recommendedPlan = activePlans.find((plan) => plan.recommended);
+            const alternativePlans = activePlans
+                .filter((plan) => !plan.recommended)
+                .sort(
+                    (firstPlan, secondPlan) =>
+                        secondPlan.entitlements.callsPerMonth
+                        - firstPlan.entitlements.callsPerMonth
+                );
+            const orderedPlans = recommendedPlan
+                ? [recommendedPlan, ...alternativePlans]
+                : [...activePlans].sort(
+                    (firstPlan, secondPlan) =>
+                        secondPlan.entitlements.callsPerMonth
+                        - firstPlan.entitlements.callsPerMonth
+                );
+
+            return orderedPlans
+                .map((plan) => getPlanCardMarkup(plan, true))
+                .join("");
+        }
+
+        function updateSelectedPlan(planSlug) {
+            if (!isActivePlan(planSlug)) {
+                return;
+            }
+
+            onboardingData.selectedPlan = planSlug;
+        }
+
+        function renderPlanSelection() {
+            planHeading.textContent = "Wie oft soll Klaudi anrufen?";
+            planIntro.textContent =
+                "Sie k├Ânnen das sp├ñter jederzeit ├ñndern oder pausieren.";
+            planContent.className = "plan-selection";
+            planContent.setAttribute("role", "group");
+            planContent.setAttribute("aria-labelledby", "plan-heading");
+            planContent.innerHTML = getPlanSelectionMarkup();
+            changePlanButton.hidden = true;
+            continueFromPlanButton.hidden = true;
+        }
+
+        function renderSelectedPlan() {
+            const plan = getPlanBySlug(onboardingData.selectedPlan);
+
+            planHeading.textContent = "Ihr Paket";
+            planIntro.textContent =
+                "Sie k├Ânnen das Paket bei Bedarf noch ├ñndern.";
+            planContent.className = "plan-selection";
+            planContent.removeAttribute("role");
+            planContent.removeAttribute("aria-labelledby");
+            planContent.innerHTML = plan ? getPlanCardMarkup(plan, false) : "";
+            changePlanButton.hidden = false;
+            continueFromPlanButton.hidden = false;
+        }
+
+        function updateSetupForSelection() {
+            setupForButtons.forEach((button) => {
+                const isSelected =
+                    button.dataset.setupFor === onboardingData.setupFor;
+
+                button.setAttribute("aria-pressed", String(isSelected));
+            });
+        }
+
+        function updateNameScreenCopy() {
+            if (onboardingData.setupFor === "self") {
+                nameHeading.textContent = "Wie d├╝rfen wir Sie nennen?";
+                nameIntro.textContent =
+                    "So kann Klaudi Sie pers├Ânlich begr├╝├ƒen.";
+                nameLabel.textContent = "Ihr Vorname";
+                nameInput.placeholder = "Maria";
+                nameError.textContent = "Bitte tragen Sie Ihren Vornamen ein.";
+                return;
+            }
+
+            nameHeading.textContent = "Wie hei├ƒt die Person?";
+            nameIntro.textContent =
+                "So kann Klaudi die Person sp├ñter pers├Ânlich begr├╝├ƒen.";
+            nameLabel.textContent = "Vorname der Person";
+            nameInput.placeholder = "Maria";
+            nameError.textContent =
+                "Bitte tragen Sie den Vornamen der Person ein.";
+        }
+
+        function updatePhoneScreenCopy() {
+            if (onboardingData.setupFor === "self") {
+                phoneHeading.textContent =
+                    "Unter welcher Telefonnummer erreicht Klaudi Sie?";
+                phoneIntro.textContent =
+                    "Klaudi ruft Sie auf dem normalen Festnetz oder Handy an. Es wird keine App ben├Âtigt.";
+                return;
+            }
+
+            phoneHeading.textContent =
+                "Unter welcher Telefonnummer erreicht Klaudi diese Person?";
+            phoneIntro.textContent =
+                "Klaudi ruft auf dem normalen Festnetz oder Handy an. Es wird keine App ben├Âtigt.";
+        }
+
+        function showStep(stepNumber, screenId = "") {
+            screens.forEach((screen) => {
+                const screenStep = Number(screen.dataset.step);
+                const isCurrent =
+                    screenStep === stepNumber
+                    && (screenId === "" || screen.id === screenId);
+
+                screen.classList.toggle("is-active", isCurrent);
+                screen.hidden = !isCurrent;
+            });
+
+            progressSteps.forEach((step, index) => {
+                const visualStep = index + 1;
+
+                step.classList.toggle(
+                    "is-complete",
+                    visualStep < stepNumber
+                );
+
+                step.classList.toggle(
+                    "is-active",
+                    visualStep === stepNumber
+                );
+            });
+
+            progressLabel.textContent = `Schritt ${stepNumber} von ${totalSteps}`;
+            progressBar.setAttribute("aria-valuenow", String(stepNumber));
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+        function clearInputError(input, errorElement) {
+            input.removeAttribute("aria-invalid");
+            errorElement.classList.remove("is-visible");
+        }
+
+        function showInputError(input, errorElement) {
+            input.setAttribute("aria-invalid", "true");
+            errorElement.classList.add("is-visible");
+            input.focus();
+        }
+
+        function normalizePhoneNumber(value) {
+            return value
+                .trim()
+                .replace(/[^\d+]/g, "")
+                .replace(/(?!^)\+/g, "");
+        }
+
+        function isValidPhoneNumber(value) {
+            const normalized = normalizePhoneNumber(value);
+            const digits = normalized.replace(/\D/g, "");
+
+            return digits.length >= 7 && digits.length <= 15;
+        }
+
+        nameInput.addEventListener("input", () => {
+            clearInputError(nameInput, nameError);
+        });
+
+        phoneInput.addEventListener("input", () => {
+            clearInputError(phoneInput, phoneError);
+        });
+
+        setupForButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                onboardingData.setupFor = button.dataset.setupFor;
+                updateSetupForSelection();
+                updateNameScreenCopy();
+                showStep(2);
+                focusAfterStepChange(nameInput);
+            });
+        });
+
+        planContent.addEventListener("click", (event) => {
+            const planButton = event.target.closest("[data-plan-slug]");
+
+            if (!planButton) {
+                return;
+            }
+
+            updateSelectedPlan(planButton.dataset.planSlug);
+            previousPlanMode = "selection";
+            showStep(5, "screen-call-times");
+            focusAfterStepChange(callTimesHeading);
+        });
+
+        nameForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const personName = nameInput.value.trim();
+
+            if (personName.length < 2) {
+                showInputError(nameInput, nameError);
+                return;
+            }
+
+            onboardingData.personName = personName;
+            updatePhoneScreenCopy();
+            showStep(3);
+            focusAfterStepChange(phoneInput);
+        });
+
+        phoneForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const phoneNumber = phoneInput.value.trim();
+
+            if (!isValidPhoneNumber(phoneNumber)) {
+                showInputError(phoneInput, phoneError);
+                return;
+            }
+
+            onboardingData.phoneNumber = phoneNumber;
+
+            if (hasPreselectedPlan()) {
+                renderSelectedPlan();
+                previousPlanMode = "confirmation";
+                showStep(4, "screen-plan");
+                focusAfterStepChange(planHeading);
+                return;
+            }
+
+            renderPlanSelection();
+            previousPlanMode = "selection";
+            showStep(4, "screen-plan");
+            focusAfterStepChange(planHeading);
+        });
+
+        backToPhoneFromPlanButton.addEventListener("click", () => {
+            showStep(3);
+            focusAfterStepChange(phoneInput);
+        });
+
+        changePlanButton.addEventListener("click", () => {
+            renderPlanSelection();
+            previousPlanMode = "selection";
+            focusAfterStepChange(planHeading);
+        });
+
+        continueFromPlanButton.addEventListener("click", () => {
+            previousPlanMode = "confirmation";
+            showStep(5, "screen-call-times");
+            focusAfterStepChange(callTimesHeading);
+        });
+
+        backToPlanButton.addEventListener("click", () => {
+            if (previousPlanMode === "confirmation") {
+                renderSelectedPlan();
+            } else {
+                renderPlanSelection();
+            }
+
+            showStep(4, "screen-plan");
+            focusAfterStepChange(planHeading);
+        });
+
+        backToSetupForButton.addEventListener("click", () => {
+            onboardingData.personName = nameInput.value.trim();
+            clearInputError(nameInput, nameError);
+            updateSetupForSelection();
+            showStep(1);
+            window.setTimeout(() => {
+                const selectedSetupForButton = setupForButtons.find(
+                    (button) =>
+                        button.dataset.setupFor === onboardingData.setupFor
+                );
+
+                (selectedSetupForButton || setupForButtons[0]).focus();
+            }, 240);
+        });
+
+        backToNameButton.addEventListener("click", () => {
+            onboardingData.phoneNumber = phoneInput.value.trim();
+            updateNameScreenCopy();
+            showStep(2);
+            focusAfterStepChange(nameInput);
+        });
+    </script>
+</body>
+</html>
