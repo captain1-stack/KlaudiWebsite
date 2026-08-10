@@ -1452,6 +1452,147 @@
     }
 }
 
+
+        /* Personen-, Kontakt- und Einwilligungsbereiche */
+        .field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+        .field-group{min-width:0}.field-group--full{grid-column:1/-1}
+        .optional-label{color:var(--text-muted);font-size:15px;font-weight:500}
+        .role-card{margin-top:18px;padding:20px 22px;border:1px solid var(--border);border-radius:18px;background:rgba(255,255,255,.9)}
+        .role-card__label{margin:0;color:var(--text-muted);font-size:14px;font-weight:700;letter-spacing:.02em;text-transform:uppercase}
+        .role-card__name{margin:7px 0 0;font-size:21px;font-weight:700}.role-card__hint{margin:6px 0 0;color:var(--text-muted);font-size:15px;line-height:1.5}
+        .consent-panel{margin-top:22px;padding:22px;border:1px solid var(--border);border-radius:20px;background:rgba(255,255,255,.9)}
+        .consent-panel__heading{margin:0 0 16px;font-size:20px}.checkbox-row{display:grid;grid-template-columns:26px minmax(0,1fr);gap:12px;align-items:flex-start;margin-top:14px}
+        .checkbox-row:first-of-type{margin-top:0}.checkbox-row input[type="checkbox"]{width:22px;height:22px;margin:2px 0 0;padding:0;accent-color:var(--apricot-hover)}
+        .checkbox-row label{margin:0;font-size:16px;font-weight:500;line-height:1.55}.checkbox-row a{color:inherit;font-weight:700;text-underline-offset:3px}
+        .summary-role-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+        .summary-role-card{padding:18px 20px;border:1px solid var(--border);border-radius:18px;background:rgba(255,255,255,.96)}
+        .summary-role-card__title{margin:0 0 10px;color:var(--text-muted);font-size:14px;font-weight:700;letter-spacing:.02em;text-transform:uppercase}
+        .summary-role-card__value{margin:0;font-size:19px;font-weight:700;line-height:1.45}.summary-role-card__meta{margin:7px 0 0;color:var(--text-muted);font-size:15px;line-height:1.5;overflow-wrap:anywhere}
+        @media(max-width:699px){.field-grid,.summary-role-grid{grid-template-columns:1fr}.field-group--full{grid-column:auto}.consent-panel{padding:20px 18px}}
+
+
+        .consent-helper {
+            margin: 8px 0 0 38px;
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .checkbox-row--optional {
+            margin-top: 22px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border);
+        }
+
+        .trust-panel {
+            display: grid;
+            grid-template-columns: 44px minmax(0, 1fr);
+            gap: 16px;
+            align-items: flex-start;
+            margin-top: 18px;
+            padding: 22px;
+            border: 1px solid rgba(205, 190, 235, 0.82);
+            border-radius: 20px;
+            background: linear-gradient(
+                135deg,
+                rgba(243, 238, 251, 0.96),
+                rgba(255, 255, 255, 0.96)
+            );
+        }
+
+        .trust-panel__icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 999px;
+            background: var(--lavender);
+            color: #372b50;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .trust-panel__heading {
+            margin: 0;
+            color: var(--text);
+            font-size: 21px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .trust-panel__intro {
+            margin: 10px 0 0;
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .trust-panel__note {
+            margin: 16px 0 0;
+            padding-top: 14px;
+            border-top: 1px solid rgba(205, 190, 235, 0.65);
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .trust-list {
+            display: grid;
+            gap: 8px;
+            margin: 14px 0 0;
+            padding: 0;
+            list-style: none;
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .trust-list li {
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .trust-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #67577f;
+            font-weight: 800;
+        }
+
+        .checkout-reassurance {
+            margin-top: 14px;
+            text-align: center;
+        }
+
+        .checkout-reassurance__secure {
+            margin: 0;
+            color: var(--text);
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        .checkout-reassurance__text {
+            max-width: 620px;
+            margin: 7px auto 0;
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        @media (max-width: 699px) {
+            .consent-helper {
+                margin-left: 34px;
+            }
+
+            .trust-panel {
+                grid-template-columns: 1fr;
+                padding: 20px 18px;
+            }
+        }
+
         @media (prefers-reduced-motion: reduce) {
             *,
             *::before,
@@ -1462,7 +1603,37 @@
                 transition-duration: 0.01ms !important;
             }
         }
-    </style>
+
+        .package-limit-note-small {
+            margin: 18px 0 2px;
+            color: var(--text-muted);
+            font-size: 12px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .package-limit-note-small strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+    
+.package-month{display:block;margin-top:4px;font-size:.9em;color:var(--text-muted);font-weight:500;}
+
+
+        .checkout-status--error {
+            border: 1px solid rgba(165, 54, 42, 0.28);
+            background: var(--error-background);
+            color: var(--error);
+        }
+
+        .checkout-status--success {
+            border: 1px solid rgba(76, 65, 102, 0.24);
+            background: var(--lavender-background);
+            color: #4c4166;
+        }
+
+</style>
 </head>
 
 <body>
@@ -1487,7 +1658,7 @@
                     id="progress-label"
                     aria-live="polite"
                 >
-                    Schritt 1 von 6
+                    Schritt 1 von 7
                 </p>
 
                 <div
@@ -1495,11 +1666,12 @@
                     role="progressbar"
                     aria-label="Fortschritt der Einrichtung"
                     aria-valuemin="1"
-                    aria-valuemax="6"
+                    aria-valuemax="7"
                     aria-valuenow="1"
                     id="progress-bar"
                 >
                     <span class="progress-step is-active"></span>
+                    <span class="progress-step"></span>
                     <span class="progress-step"></span>
                     <span class="progress-step"></span>
                     <span class="progress-step"></span>
@@ -1579,29 +1751,17 @@
                 </p>
 
                 <form id="name-form" novalidate>
-                    <label
-                        for="person-name"
-                        id="name-label"
-                    >
-                        Name der Person
-                    </label>
-
-                    <input
-                        id="person-name"
-                        name="personName"
-                        type="text"
-                        autocomplete="name"
-                        placeholder="Maria"
-                        aria-describedby="name-error"
-                    >
-
-                    <p
-                        class="error-message"
-                        id="name-error"
-                        role="alert"
-                    >
-                        Bitte tragen Sie den Vornamen ein.
-                    </p>
+                    <div class="field-grid">
+                        <div class="field-group">
+                            <label for="person-first-name" id="name-label">Vorname</label>
+                            <input id="person-first-name" name="personFirstName" type="text" autocomplete="given-name" placeholder="Maria" aria-describedby="name-error">
+                            <p class="error-message" id="name-error" role="alert">Bitte tragen Sie den Vornamen ein.</p>
+                        </div>
+                        <div class="field-group">
+                            <label for="person-last-name">Nachname <span class="optional-label" id="person-last-name-optional" hidden>(optional)</span></label>
+                            <input id="person-last-name" name="personLastName" type="text" autocomplete="family-name" placeholder="Mustermann">
+                        </div>
+                    </div>
 
                     <div class="button-row">
                         <button
@@ -1718,8 +1878,7 @@
                 <h1 id="plan-heading" tabindex="-1">
                     Wie oft soll Klaudi anrufen?
                 </h1>
-
-                <p
+<p
                     class="intro"
                     id="plan-intro"
                 >
@@ -1785,7 +1944,7 @@
 </p>
 
 <p class="schedule-repeat-note">
-    Diese Termine wiederholen sich jede Woche.
+    Die gewählten Wochentage dienen als regelmäßige Wunschtermine. Pro Abrechnungsmonat werden höchstens so viele Gespräche geführt, wie in Ihrem Paket enthalten sind.
 </p>
 
 <div
@@ -1826,10 +1985,56 @@
                 </form>
             </section>
 
+            <section class="screen" id="screen-contact" data-step="6" aria-labelledby="contact-heading" hidden>
+                <h1 id="contact-heading" tabindex="-1">Wer schließt das Klaudi-Abo ab?</h1>
+                <p class="intro" id="contact-intro">Diese Angaben verwenden wir für die Vertragsbestätigung, Rechnungen und die spätere Verwaltung des Abos.</p>
+                <form id="contact-form" novalidate>
+                    <div class="role-card" id="self-customer-card" hidden>
+                        <p class="role-card__label">Vertragspartner</p>
+                        <p class="role-card__name" id="self-customer-name"></p>
+                        <p class="role-card__hint">Ihren Namen haben wir bereits übernommen.</p>
+                    </div>
+                    <div class="field-grid" id="buyer-name-fields">
+                        <div class="field-group">
+                            <label for="buyer-first-name">Ihr Vorname</label>
+                            <input id="buyer-first-name" name="buyerFirstName" type="text" autocomplete="given-name" placeholder="Anna" aria-describedby="buyer-first-name-error">
+                            <p class="error-message" id="buyer-first-name-error" role="alert">Bitte tragen Sie Ihren Vornamen ein.</p>
+                        </div>
+                        <div class="field-group">
+                            <label for="buyer-last-name">Ihr Nachname</label>
+                            <input id="buyer-last-name" name="buyerLastName" type="text" autocomplete="family-name" placeholder="Becker" aria-describedby="buyer-last-name-error">
+                            <p class="error-message" id="buyer-last-name-error" role="alert">Bitte tragen Sie Ihren Nachnamen ein.</p>
+                        </div>
+                    </div>
+                    <div class="field-grid" style="margin-top:18px">
+                        <div class="field-group field-group--full">
+                            <label for="buyer-email">E-Mail-Adresse</label>
+                            <input id="buyer-email" name="buyerEmail" type="email" inputmode="email" autocomplete="email" placeholder="name@beispiel.de" aria-describedby="buyer-email-error">
+                            <p class="error-message" id="buyer-email-error" role="alert">Bitte tragen Sie eine gültige E-Mail-Adresse ein.</p>
+                        </div>
+                        <div class="field-group field-group--full">
+                            <label for="buyer-email-confirmation">E-Mail-Adresse bestätigen</label>
+                            <input id="buyer-email-confirmation" name="buyerEmailConfirmation" type="email" inputmode="email" autocomplete="email" placeholder="name@beispiel.de" aria-describedby="buyer-email-confirmation-error">
+                            <p class="error-message" id="buyer-email-confirmation-error" role="alert">Die E-Mail-Adressen stimmen nicht überein.</p>
+                        </div>
+                        <div class="field-group field-group--full">
+                            <label for="buyer-phone">Ihre Telefonnummer <span class="optional-label">(optional)</span></label>
+                            <input id="buyer-phone" name="buyerPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+49 221 1234567" aria-describedby="buyer-phone-error">
+                            <p class="error-message" id="buyer-phone-error" role="alert">Bitte tragen Sie eine gültige Telefonnummer ein oder lassen Sie das Feld leer.</p>
+                        </div>
+                    </div>
+                    <div class="button-row">
+                        <button class="secondary-button" type="button" id="back-to-call-times-from-contact">Zurück</button>
+                        <button class="primary-button" type="submit">Angaben prüfen</button>
+                    </div>
+                    <p class="helper-text">Die E-Mail-Adresse wird für Vertragsinformationen, Rechnungen und die Verwaltung des Abos verwendet.</p>
+                </form>
+            </section>
+
             <section
                 class="screen"
                 id="screen-summary"
-                data-step="6"
+                data-step="7"
                 aria-labelledby="summary-heading"
                 hidden
             >
@@ -1857,22 +2062,118 @@
     aria-live="polite"
 ></div>
 
+                <div class="consent-panel" aria-labelledby="consent-heading">
+                    <h2 class="consent-panel__heading" id="consent-heading">
+                        Zustimmung
+                    </h2>
+
+                    <div class="checkbox-row">
+                        <input id="consent-terms" type="checkbox">
+                        <label for="consent-terms">
+                            Ich akzeptiere die
+                            <a href="agb.html" target="_blank" rel="noopener">AGB</a>
+                            und habe die
+                            <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>
+                            gelesen.
+                        </label>
+                    </div>
+
+                    <div class="checkbox-row">
+                        <input id="consent-withdrawal" type="checkbox">
+                        <label for="consent-withdrawal">
+                            Ich habe die
+                            <a href="widerrufsbelehrung.html" target="_blank" rel="noopener">Widerrufsbelehrung</a>
+                            gelesen.
+                        </label>
+                    </div>
+
+                    <div class="checkbox-row">
+                        <input id="consent-ai-calls" type="checkbox">
+                        <label id="consent-ai-calls-label" for="consent-ai-calls">
+                            Ich bin mit den vereinbarten Anrufen durch Klaudi
+                            einverstanden und weiß, dass ich mit einer KI spreche.
+                        </label>
+                    </div>
+
+                    <p class="consent-helper" id="consent-ai-calls-helper">
+                        Die Zustimmung kann jederzeit mit Wirkung für die Zukunft
+                        widerrufen werden.
+                    </p>
+
+                    <div class="checkbox-row checkbox-row--optional">
+                        <input id="consent-marketing" type="checkbox">
+                        <label for="consent-marketing">
+                            <strong>Optional:</strong> Ich möchte Neuigkeiten,
+                            Tipps und Informationen rund um Klaudi per E-Mail
+                            erhalten.
+                        </label>
+                    </div>
+
+                    <p class="consent-helper">
+                        Sie können diese Einwilligung jederzeit über den Link in
+                        jeder E-Mail widerrufen.
+                    </p>
+
+                    <p class="error-message" id="consent-error" role="alert">
+                        Bitte bestätigen Sie alle erforderlichen Punkte, um
+                        fortzufahren.
+                    </p>
+                </div>
+
+                <div class="trust-panel" aria-labelledby="trust-heading">
+                    <div class="trust-panel__icon" aria-hidden="true">✓</div>
+
+                    <div>
+                        <h2 class="trust-panel__heading" id="trust-heading">
+                            Ihre Daten sind bei Klaudi sicher
+                        </h2>
+
+                        <p class="trust-panel__intro">
+                            Vertrauen ist die Grundlage von Klaudi. Deshalb legen
+                            wir großen Wert auf Datenschutz, Transparenz und einen
+                            verantwortungsvollen Umgang mit Ihren Daten.
+                        </p>
+
+                        <ul class="trust-list">
+                            <li>Verschlüsselte Datenübertragung</li>
+                            <li>DSGVO-konforme Verarbeitung</li>
+                            <li>In diesem Paket speichert Klaudi keine vergangenen Gespräche dauerhaft.</li>
+                            <li>Keine Weitergabe Ihrer Daten zu Werbezwecken</li>
+                            <li>Jederzeit online kündbar</li>
+                            <li>Persönlicher Support per E-Mail</li>
+                        </ul>
+
+                        <p class="trust-panel__note">
+                            Während des Gesprächs verarbeitet Klaudi die Inhalte,
+                            um sinnvoll antworten zu können. Nach dem Auflegen
+                            werden Gesprächsinhalte in diesem Paket nicht dauerhaft
+                            gespeichert.
+                        </p>
+                    </div>
+                </div>
+
                 <div class="button-row">
-                    <button
-                        class="secondary-button"
-                        type="button"
-                        id="back-to-call-times"
-                    >
-                        Zurück
-                    </button>
+                    <button class="secondary-button" type="button" id="back-to-contact">Zurück</button>
 
                     <button
                         class="primary-button"
                         type="button"
                         id="continue-to-order"
                     >
-                        Weiter zur Bezahlung
+                        Klaudi jetzt sicher einrichten
                     </button>
+                </div>
+
+                <div class="checkout-reassurance">
+                    <p class="checkout-reassurance__secure">
+                        Sichere Bezahlung über Stripe
+                    </p>
+
+                    <p class="checkout-reassurance__text">
+                        Keine Mindestlaufzeit.
+                        Sie können Klaudi jederzeit online verwalten, pausieren
+                        oder kündigen.
+                    </p>
                 </div>
 
                 <p
@@ -1910,7 +2211,9 @@
                 },
                 marketingFeatures: [
                     "12 Gespräche pro Monat",
-                    "jeweils bis zu 10 Minuten"
+                    "Jeweils bis zu 10 Minuten",
+                    "Gespräche werden nicht dauerhaft gespeichert",
+                    "Inhalte werden beim Anruf sicher verarbeitet"
                 ],
                 eligibleAddOnSlugs: [],
                 paymentPriceId: "",
@@ -1929,7 +2232,9 @@
                 },
                 marketingFeatures: [
                     "8 Gespräche pro Monat",
-                    "jeweils bis zu 10 Minuten"
+                    "Jeweils bis zu 10 Minuten",
+                    "Gespräche werden nicht dauerhaft gespeichert",
+                    "Inhalte werden beim Anruf sicher verarbeitet"
                 ],
                 eligibleAddOnSlugs: [],
                 paymentPriceId: "",
@@ -1948,7 +2253,9 @@
                 },
                 marketingFeatures: [
                     "4 Gespräche pro Monat",
-                    "jeweils bis zu 10 Minuten"
+                    "Jeweils bis zu 10 Minuten",
+                    "Gespräche werden nicht dauerhaft gespeichert",
+                    "Inhalte werden beim Anruf sicher verarbeitet"
                 ],
                 eligibleAddOnSlugs: [],
                 paymentPriceId: "",
@@ -1986,12 +2293,27 @@
 
         const onboardingData = {
             personName: "",
+            personFirstName: "",
+            personLastName: "",
             phoneNumber: "",
             setupFor: "",
+            buyerFirstName: "",
+            buyerLastName: "",
+            buyerEmail: "",
+            buyerEmailConfirmation: "",
+            buyerPhone: "",
             selectedPlan,
             entrySource: selectedPlan ? "pricing" : "general",
             selectedAddOns: [],
-            callSchedules: []
+            callSchedules: [],
+            consents: {
+                agbAccepted: false,
+                privacyAccepted: false,
+                withdrawalAccepted: false,
+                aiCallsAccepted: false,
+                wordingVersion: "2026-07-25-v1",
+                acceptedAt: ""
+            }
         };
 
         const screens = Array.from(document.querySelectorAll(".screen"));
@@ -2011,7 +2333,9 @@
         const nameHeading = document.getElementById("name-heading");
         const nameIntro = document.getElementById("name-intro");
         const nameLabel = document.getElementById("name-label");
-        const nameInput = document.getElementById("person-name");
+        const nameInput = document.getElementById("person-first-name");
+        const lastNameInput = document.getElementById("person-last-name");
+        const lastNameOptional = document.getElementById("person-last-name-optional");
         const nameError = document.getElementById("name-error");
 
         const phoneForm = document.getElementById("phone-form");
@@ -2031,14 +2355,158 @@
         const continueFromSchedulesButton = document.getElementById(
             "continue-from-schedules"
         );
+        const contactHeading = document.getElementById("contact-heading");
+        const contactIntro = document.getElementById("contact-intro");
+        const contactForm = document.getElementById("contact-form");
+        const selfCustomerCard = document.getElementById("self-customer-card");
+        const selfCustomerName = document.getElementById("self-customer-name");
+        const buyerNameFields = document.getElementById("buyer-name-fields");
+        const buyerFirstNameInput = document.getElementById("buyer-first-name");
+        const buyerLastNameInput = document.getElementById("buyer-last-name");
+        const buyerEmailInput = document.getElementById("buyer-email");
+        const buyerEmailConfirmationInput = document.getElementById("buyer-email-confirmation");
+        const buyerPhoneInput = document.getElementById("buyer-phone");
+        const buyerFirstNameError = document.getElementById("buyer-first-name-error");
+        const buyerLastNameError = document.getElementById("buyer-last-name-error");
+        const buyerEmailError = document.getElementById("buyer-email-error");
+        const buyerEmailConfirmationError = document.getElementById("buyer-email-confirmation-error");
+        const buyerPhoneError = document.getElementById("buyer-phone-error");
         const summaryHeading = document.getElementById("summary-heading");
         const summaryContent = document.getElementById("summary-content");
+        const consentTermsInput = document.getElementById("consent-terms");
+        const consentWithdrawalInput = document.getElementById("consent-withdrawal");
+        const consentAiCallsInput = document.getElementById("consent-ai-calls");
+        const consentAiCallsLabel = document.getElementById("consent-ai-calls-label");
+        const consentAiCallsHelper = document.getElementById("consent-ai-calls-helper");
+        const consentMarketingInput = document.getElementById("consent-marketing");
+        const consentError = document.getElementById("consent-error");
         
 
 
         const checkoutPlaceholder = document.getElementById(
             "checkout-placeholder"
         );
+
+        const checkoutApiUrl = ["localhost", "127.0.0.1"].includes(
+            window.location.hostname
+        )
+            ? "http://localhost:3000/api/checkout"
+            : "/api/checkout";
+
+        const checkoutRequestTimeoutMs = 20000;
+        let checkoutRequestInProgress = false;
+
+        function setCheckoutStatus(message, type = "neutral") {
+            checkoutPlaceholder.textContent = message;
+            checkoutPlaceholder.hidden = false;
+            checkoutPlaceholder.classList.remove(
+                "checkout-status--error",
+                "checkout-status--success"
+            );
+
+            if (type === "error") {
+                checkoutPlaceholder.classList.add("checkout-status--error");
+            }
+
+            if (type === "success") {
+                checkoutPlaceholder.classList.add("checkout-status--success");
+            }
+        }
+
+        function resetCheckoutButton() {
+            checkoutRequestInProgress = false;
+            continueToOrderButton.disabled = false;
+            continueToOrderButton.textContent =
+                "Klaudi jetzt sicher einrichten";
+        }
+
+        async function createCheckoutSession(checkoutData) {
+            if (checkoutRequestInProgress) {
+                return;
+            }
+
+            checkoutRequestInProgress = true;
+            continueToOrderButton.disabled = true;
+            continueToOrderButton.textContent =
+                "Sichere Bezahlung wird vorbereitet …";
+
+            setCheckoutStatus(
+                "Bitte einen Moment – Ihre sichere Bezahlung wird vorbereitet."
+            );
+
+            const controller = new AbortController();
+            const timeoutId = window.setTimeout(
+                () => controller.abort(),
+                checkoutRequestTimeoutMs
+            );
+
+            try {
+                const response = await fetch(checkoutApiUrl, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify({
+                        fullName: checkoutData.fullName,
+                        email: checkoutData.email,
+                        phone: checkoutData.phone,
+                        plan: checkoutData.plan
+                    }),
+                    signal: controller.signal
+                });
+
+                const responseBody = await response.json().catch(() => null);
+
+                if (!response.ok) {
+                    const backendMessage =
+                        responseBody &&
+                        typeof responseBody.message === "string"
+                            ? responseBody.message
+                            : "";
+
+                    throw new Error(
+                        backendMessage ||
+                        "Die sichere Bezahlung konnte nicht vorbereitet werden."
+                    );
+                }
+
+                const checkoutUrl =
+                    responseBody &&
+                    typeof responseBody.checkoutUrl === "string"
+                        ? responseBody.checkoutUrl
+                        : "";
+
+                if (!checkoutUrl) {
+                    throw new Error(
+                        "Der Zahlungslink wurde nicht korrekt erstellt."
+                    );
+                }
+
+                setCheckoutStatus(
+                    "Alles bereit. Sie werden jetzt zur sicheren Bezahlung weitergeleitet.",
+                    "success"
+                );
+
+                window.location.assign(checkoutUrl);
+            } catch (error) {
+                const isTimeout = error && error.name === "AbortError";
+
+                console.error("Klaudi Checkout Fehler", error);
+
+                setCheckoutStatus(
+                    isTimeout
+                        ? "Die Verbindung hat zu lange gedauert. Bitte prüfen Sie, ob das Klaudi-Backend läuft, und versuchen Sie es erneut."
+                        : "Die sichere Bezahlung konnte gerade nicht geöffnet werden. Bitte versuchen Sie es erneut.",
+                    "error"
+                );
+
+                resetCheckoutButton();
+                checkoutPlaceholder.focus?.();
+            } finally {
+                window.clearTimeout(timeoutId);
+            }
+        }
 
         const backToSetupForButton = document.getElementById(
             "back-to-setup-for"
@@ -2052,9 +2520,8 @@
             "continue-from-plan"
         );
         const backToPlanButton = document.getElementById("back-to-plan");
-        const backToCallTimesButton = document.getElementById(
-            "back-to-call-times"
-        );
+        const backToCallTimesFromContactButton = document.getElementById("back-to-call-times-from-contact");
+        const backToContactButton = document.getElementById("back-to-contact");
         const continueToOrderButton = document.getElementById(
             "continue-to-order"
         );
@@ -2162,7 +2629,7 @@ for (let hour = 0; hour < 24; hour += 1) {
         : "";
 
     const badge = isRecommended
-        ? '<span class="plan-badge">Am beliebtesten</span>'
+        ? '<span class="plan-badge">Unsere Empfehlung</span>'
         : "";
 
     const promise = isRecommended
@@ -2247,10 +2714,11 @@ function getPlanSelectionMarkup() {
             .join("")}
 
         <div class="plan-trust" aria-label="Vorteile aller Pakete">
-            <span>Jederzeit pausierbar</span>
+            <span>Jederzeit online kündbar</span>
             <span>Keine App erforderlich</span>
             <span>Später jederzeit änderbar</span>
         </div>
+<p class="package-limit-note-small"><strong>Gut zu wissen:</strong> Je nach Paket sind maximal 4, 8 oder 12 Gespräche pro Abrechnungsmonat enthalten. Auch in Monaten mit mehr als vier Wochen finden keine zusätzlichen Gespräche statt.</p>
     `;
 }
 
@@ -2547,116 +3015,84 @@ function getPlanSelectionMarkup() {
 
             return "Für jemanden, der mir wichtig ist";
         }
+        function getPersonFullName() {
+            return [onboardingData.personFirstName, onboardingData.personLastName].filter(Boolean).join(" ").trim();
+        }
+        function getBuyerFullName() {
+            return [onboardingData.buyerFirstName, onboardingData.buyerLastName].filter(Boolean).join(" ").trim();
+        }
+        function isValidEmail(value) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+        }
+        function updateContactScreen() {
+            const isSelfSetup = onboardingData.setupFor === "self";
+            selfCustomerCard.hidden = !isSelfSetup;
+            buyerNameFields.hidden = isSelfSetup;
+            if (isSelfSetup) {
+                contactHeading.textContent = "Wie dürfen wir Sie erreichen?";
+                contactIntro.textContent = "Ihre E-Mail-Adresse verwenden wir für die Vertragsbestätigung, Rechnungen und die spätere Verwaltung des Abos.";
+                onboardingData.buyerFirstName = onboardingData.personFirstName;
+                onboardingData.buyerLastName = onboardingData.personLastName;
+                buyerFirstNameInput.value = onboardingData.buyerFirstName;
+                buyerLastNameInput.value = onboardingData.buyerLastName;
+                selfCustomerName.textContent = getPersonFullName();
+            } else {
+                contactHeading.textContent = "Wer schließt das Klaudi-Abo ab?";
+                contactIntro.textContent = "Bitte tragen Sie Ihre eigenen Kontaktdaten ein. Sie sind Vertragspartner; Klaudi ruft die zuvor angegebene Person an.";
+            }
+        }
+        function updateConsentCopy() {
+            if (onboardingData.setupFor === "self") {
+                consentAiCallsLabel.textContent =
+                    "Ich bin mit den vereinbarten Anrufen durch Klaudi einverstanden und weiß, dass ich mit einer KI spreche.";
+            } else {
+                consentAiCallsLabel.textContent =
+                    "Ich bestätige, dass die angerufene Person den regelmäßigen Anrufen durch Klaudi zugestimmt hat und darüber informiert wurde, dass sie mit einer KI spricht.";
+            }
+
+            consentAiCallsHelper.textContent =
+                "Die Zustimmung kann jederzeit mit Wirkung für die Zukunft widerrufen werden.";
+        }
+        function clearContactErrors() {
+            [[buyerFirstNameInput,buyerFirstNameError],[buyerLastNameInput,buyerLastNameError],[buyerEmailInput,buyerEmailError],[buyerEmailConfirmationInput,buyerEmailConfirmationError],[buyerPhoneInput,buyerPhoneError]]
+                .forEach(([input,error]) => clearInputError(input,error));
+        }
 
         function renderSummary() {
             const selectedPlanDetails = getPlanBySlug(onboardingData.selectedPlan);
-
-
-            const scheduleItems = onboardingData.callSchedules
-    .map((schedule) => {
-        const weekday = weekdays.find(
-            (day) => day.value === schedule.weekday
-        );
-
-        const weekdayLabel = weekday
-            ? weekday.label
-            : schedule.weekday;
-
-        return `
-            <div class="summary-schedule-card">
-                <span class="summary-schedule-card__day">
-                    ${escapeHtml(weekdayLabel)}
-                </span>
-
-                <strong class="summary-schedule-card__time">
-                    ${escapeHtml(schedule.time)} Uhr
-                </strong>
-            </div>
-        `;
-    })
-    .join("");
-
+            const scheduleItems = onboardingData.callSchedules.map((schedule) => {
+                const weekday = weekdays.find((day) => day.value === schedule.weekday);
+                const weekdayLabel = weekday ? weekday.label : schedule.weekday;
+                return `<div class="summary-schedule-card"><span class="summary-schedule-card__day">${escapeHtml(weekdayLabel)}</span><strong class="summary-schedule-card__time">${escapeHtml(schedule.time)} Uhr</strong></div>`;
+            }).join("");
             checkoutPlaceholder.hidden = true;
+            consentError.classList.remove("is-visible");
             summaryContent.innerHTML = `
-                <dl class="summary-list">
+                <div class="summary-role-grid">
+                    <section class="summary-role-card">
+                        <p class="summary-role-card__title">Gesprächspartner</p>
+                        <p class="summary-role-card__value">${escapeHtml(getPersonFullName())}</p>
+                        <p class="summary-role-card__meta">${escapeHtml(onboardingData.phoneNumber)}</p>
+                        <button class="summary-edit" type="button" data-edit-step="2" style="margin-top:12px">Person ändern</button>
+                    </section>
+                    <section class="summary-role-card">
+                        <p class="summary-role-card__title">Vertragspartner</p>
+                        <p class="summary-role-card__value">${escapeHtml(getBuyerFullName())}</p>
+                        <p class="summary-role-card__meta">${escapeHtml(onboardingData.buyerEmail)}</p>
+                        <button class="summary-edit" type="button" data-edit-step="6" style="margin-top:12px">Kontaktdaten ändern</button>
+                    </section>
+                </div>
+                <dl class="summary-list" style="margin-top:18px">
                     <div class="summary-plan-row">
-    <dt class="summary-heading-row">
-        Ihr Paket
-
-        <button
-            class="summary-edit"
-            type="button"
-            data-edit-step="4"
-        >
-            Ändern
-        </button>
-    </dt>
-
-    <dd class="summary-plan-details">
-        <strong class="summary-plan-name">
-            ${selectedPlanDetails.name}
-        </strong>
-
-        <span class="summary-plan-price">
-            ${formatPlanPrice(selectedPlanDetails)} / Monat
-        </span>
-    </dd>
-</div>
-
-                    <div>
-                        <dt class="summary-heading-row">
-                            Vorname
-                            <button
-                                class="summary-edit"
-                                type="button"
-                                data-edit-step="2"
-                            >
-                                Ändern
-                            </button>
-                        </dt>
-                        <dd>${escapeHtml(onboardingData.personName)}</dd>
+                        <dt class="summary-heading-row">Ihr Paket <button class="summary-edit" type="button" data-edit-step="4">Ändern</button></dt>
+                        <dd class="summary-plan-details"><strong class="summary-plan-name">${escapeHtml(selectedPlanDetails.name)}</strong><span class="summary-plan-price">${escapeHtml(formatPlanPrice(selectedPlanDetails))} / Monat</span></dd>
                     </div>
-
-                    <div>
-                        <dt class="summary-heading-row">
-                            Telefonnummer
-                            <button
-                                class="summary-edit"
-                                type="button"
-                                data-edit-step="3"
-                            >
-                                Ändern
-                            </button>
-                        </dt>
-                        <dd>${escapeHtml(onboardingData.phoneNumber)}</dd>
-                    </div>
-
-
                     <div class="summary-schedules-section">
-    <dt class="summary-heading-row">
-        Ihre Anrufzeiten
-
-        <button
-            class="summary-edit"
-            type="button"
-            data-edit-step="5"
-        >
-            Ändern
-        </button>
-    </dt>
-
-    <dd class="summary-schedule-grid">
-        ${scheduleItems}
-    </dd>
-
-    <p class="summary-schedule-note">
-        Diese Termine wiederholen sich automatisch jede Woche.
-    </p>
-</div>
-
-                    
-                </dl>
-            `;
+                        <dt class="summary-heading-row">Anrufzeiten <button class="summary-edit" type="button" data-edit-step="5">Ändern</button></dt>
+                        <dd class="summary-schedule-grid">${scheduleItems}</dd>
+                        <p class="summary-schedule-note">Diese Termine wiederholen sich automatisch jede Woche.</p>
+                    </div>
+                </dl>`;
         }
 
         function updateSetupForSelection() {
@@ -2669,23 +3105,19 @@ function getPlanSelectionMarkup() {
         }
 
         function updateNameScreenCopy() {
-            if (onboardingData.setupFor === "self") {
-                nameHeading.textContent = "Wie dürfen wir Sie nennen?";
-                nameIntro.textContent =
-                    "So kann Klaudi Sie persönlich begrüßen.";
+            const isSelfSetup = onboardingData.setupFor === "self";
+            lastNameOptional.hidden = isSelfSetup;
+            if (isSelfSetup) {
+                nameHeading.textContent = "Wie heißen Sie?";
+                nameIntro.textContent = "So kann Klaudi Sie persönlich begrüßen und wir können Ihren Namen später für den Vertrag übernehmen.";
                 nameLabel.textContent = "Ihr Vorname";
-                nameInput.placeholder = "Maria";
                 nameError.textContent = "Bitte tragen Sie Ihren Vornamen ein.";
                 return;
             }
-
             nameHeading.textContent = "Wie heißt die Person?";
-            nameIntro.textContent =
-                "So kann Klaudi die Person später persönlich begrüßen.";
+            nameIntro.textContent = "So kann Klaudi die Person später persönlich begrüßen.";
             nameLabel.textContent = "Vorname der Person";
-            nameInput.placeholder = "Maria";
-            nameError.textContent =
-                "Bitte tragen Sie den Vornamen der Person ein.";
+            nameError.textContent = "Bitte tragen Sie den Vornamen der Person ein.";
         }
 
         function updatePhoneScreenCopy() {
@@ -2762,9 +3194,11 @@ function getPlanSelectionMarkup() {
             return digits.length >= 7 && digits.length <= 15;
         }
 
-        nameInput.addEventListener("input", () => {
-            clearInputError(nameInput, nameError);
-        });
+        nameInput.addEventListener("input", () => clearInputError(nameInput, nameError));
+        [[buyerFirstNameInput,buyerFirstNameError],[buyerLastNameInput,buyerLastNameError],[buyerEmailInput,buyerEmailError],[buyerEmailConfirmationInput,buyerEmailConfirmationError],[buyerPhoneInput,buyerPhoneError]]
+            .forEach(([input,error]) => input.addEventListener("input", () => clearInputError(input,error)));
+        [consentTermsInput,consentWithdrawalInput,consentAiCallsInput]
+            .forEach((input) => input.addEventListener("change", () => consentError.classList.remove("is-visible")));
 
         phoneInput.addEventListener("input", () => {
             clearInputError(phoneInput, phoneError);
@@ -2775,6 +3209,7 @@ function getPlanSelectionMarkup() {
                 onboardingData.setupFor = button.dataset.setupFor;
                 updateSetupForSelection();
                 updateNameScreenCopy();
+                updateConsentCopy();
                 showStep(2);
                 focusAfterStepChange(nameInput);
             });
@@ -2847,20 +3282,30 @@ function getPlanSelectionMarkup() {
                 renderCallSchedules();
                 showStep(5, "screen-call-times");
                 focusAfterStepChange(callTimesHeading);
+                return;
+            }
+            if (editStep === 6) {
+                updateContactScreen();
+                showStep(6, "screen-contact");
+                focusAfterStepChange(contactHeading);
             }
         });
 
         nameForm.addEventListener("submit", (event) => {
             event.preventDefault();
-
-            const personName = nameInput.value.trim();
-
-            if (personName.length < 2) {
+            const personFirstName = nameInput.value.trim();
+            const personLastName = lastNameInput.value.trim();
+            if (personFirstName.length < 2) {
                 showInputError(nameInput, nameError);
                 return;
             }
-
-            onboardingData.personName = personName;
+            onboardingData.personFirstName = personFirstName;
+            onboardingData.personLastName = personLastName;
+            onboardingData.personName = personFirstName;
+            if (onboardingData.setupFor === "self") {
+                onboardingData.buyerFirstName = personFirstName;
+                onboardingData.buyerLastName = personLastName;
+            }
             updatePhoneScreenCopy();
             showStep(3);
             focusAfterStepChange(phoneInput);
@@ -2929,32 +3374,117 @@ function getPlanSelectionMarkup() {
                 return;
             }
 
-            renderSummary();
-            showStep(6, "screen-summary");
-            focusAfterStepChange(summaryHeading);
+            updateContactScreen();
+            showStep(6, "screen-contact");
+            focusAfterStepChange(contactHeading);
         });
 
-        backToCallTimesButton.addEventListener("click", () => {
+        backToCallTimesFromContactButton.addEventListener("click", () => {
             renderCallSchedules();
             showStep(5, "screen-call-times");
             focusAfterStepChange(callTimesHeading);
         });
 
+        contactForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            clearContactErrors();
+            const isSelfSetup = onboardingData.setupFor === "self";
+            const firstName = isSelfSetup ? onboardingData.personFirstName : buyerFirstNameInput.value.trim();
+            const lastName = isSelfSetup ? onboardingData.personLastName : buyerLastNameInput.value.trim();
+            const email = buyerEmailInput.value.trim().toLowerCase();
+            const confirmation = buyerEmailConfirmationInput.value.trim().toLowerCase();
+            const phone = buyerPhoneInput.value.trim();
+            if (!isSelfSetup && firstName.length < 2) { showInputError(buyerFirstNameInput,buyerFirstNameError); return; }
+            if (!isSelfSetup && lastName.length < 2) { showInputError(buyerLastNameInput,buyerLastNameError); return; }
+            if (!isValidEmail(email)) { showInputError(buyerEmailInput,buyerEmailError); return; }
+            if (confirmation !== email) { showInputError(buyerEmailConfirmationInput,buyerEmailConfirmationError); return; }
+            if (phone !== "" && !isValidPhoneNumber(phone)) { showInputError(buyerPhoneInput,buyerPhoneError); return; }
+            onboardingData.buyerFirstName = firstName;
+            onboardingData.buyerLastName = lastName;
+            onboardingData.buyerEmail = email;
+            onboardingData.buyerEmailConfirmation = confirmation;
+            onboardingData.buyerPhone = phone;
+            updateConsentCopy();
+            renderSummary();
+            showStep(7, "screen-summary");
+            focusAfterStepChange(summaryHeading);
+        });
+
+        backToContactButton.addEventListener("click", () => {
+            updateContactScreen();
+            showStep(6, "screen-contact");
+            focusAfterStepChange(contactHeading);
+        });
+
         continueToOrderButton.addEventListener("click", () => {
-            console.log("Klaudi Onboarding Daten", onboardingData);
-            checkoutPlaceholder.hidden = false;
-
-            const orderEvent = new CustomEvent("klaudi:onboarding-ready", {
-                detail: {
-                    onboardingData
+            if (!(consentTermsInput.checked && consentWithdrawalInput.checked && consentAiCallsInput.checked)) {
+                consentError.classList.add("is-visible");
+                consentTermsInput.focus();
+                return;
+            }
+            onboardingData.consents = {
+                agbAccepted: true,
+                privacyAccepted: true,
+                withdrawalAccepted: true,
+                aiCallsAccepted: true,
+                marketingAccepted: consentMarketingInput.checked,
+                marketingAcceptedAt: consentMarketingInput.checked
+                    ? new Date().toISOString()
+                    : "",
+                wordingVersion: "2026-07-25-v2",
+                acceptedAt: new Date().toISOString()
+            };
+            const buyerFullName = getBuyerFullName();
+            const checkoutData = {
+                ...onboardingData,
+                fullName: buyerFullName,
+                email: onboardingData.buyerEmail,
+                phone: onboardingData.phoneNumber,
+                plan: onboardingData.selectedPlan,
+                conversationPartner: {
+                    firstName: onboardingData.personFirstName,
+                    lastName: onboardingData.personLastName,
+                    fullName: getPersonFullName(),
+                    phone: onboardingData.phoneNumber
+                },
+                customer: {
+                    firstName: onboardingData.buyerFirstName,
+                    lastName: onboardingData.buyerLastName,
+                    fullName: buyerFullName,
+                    email: onboardingData.buyerEmail,
+                    phone: onboardingData.buyerPhone
                 }
-            });
+            };
+            console.log("Klaudi Onboarding Daten", checkoutData);
+            checkoutPlaceholder.hidden = false;
+            continueToOrderButton.disabled = true;
+            continueToOrderButton.textContent = "Klaudi wird sicher eingerichtet …";
+            window.dispatchEvent(new CustomEvent("klaudi:onboarding-ready", { detail: { onboardingData: checkoutData } }));
+        });
 
-            window.dispatchEvent(orderEvent);
+
+        window.addEventListener("klaudi:onboarding-ready", (event) => {
+            const checkoutData =
+                event &&
+                event.detail &&
+                event.detail.onboardingData;
+
+            if (!checkoutData) {
+                setCheckoutStatus(
+                    "Die Zahlungsdaten konnten nicht vorbereitet werden. Bitte laden Sie die Seite neu und versuchen Sie es erneut.",
+                    "error"
+                );
+                resetCheckoutButton();
+                return;
+            }
+
+            createCheckoutSession(checkoutData);
         });
 
         backToSetupForButton.addEventListener("click", () => {
-            onboardingData.personName = nameInput.value.trim();
+            onboardingData.personFirstName = nameInput.value.trim();
+            onboardingData.personLastName = lastNameInput.value.trim();
+            onboardingData.personName = onboardingData.personFirstName;
             clearInputError(nameInput, nameError);
             updateSetupForSelection();
             showStep(1);
