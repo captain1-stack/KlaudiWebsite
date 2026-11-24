@@ -1,0 +1,2621 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Kontakt | Klaudi</title>
+
+    <meta
+        name="description"
+        content="Kontaktieren Sie Klaudi bei Fragen zur Einrichtung, zu Ihrem Abo, Datenschutz oder anderen Anliegen."
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="./assets/images/klaudi-logo.png"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Literata:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        :root {
+            --cream: #FFF8F2;
+            --apricot: #F5C7A9;
+            --lavender: #CDBEEB;
+            --lavender-dark: #745A96;
+            --text: #251913;
+            --muted: #655952;
+            --border: #DED3CC;
+            --error: #9F3A31;
+            --success: #426B57;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: var(--cream);
+            color: var(--text);
+            font-family: "Plus Jakarta Sans", sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
+
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(255,248,242,.86);
+            border-bottom: 1px solid rgba(222,211,204,.55);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+        .header-inner {
+            width: min(1080px, calc(100% - 40px));
+            min-height: 92px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .logo {
+            display: block;
+            width: 62px;
+            height: 62px;
+            object-fit: contain;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+        }
+
+        .home-link {
+            color: var(--muted);
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .setup-link {
+            min-height: 52px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 27px;
+            border: 1px solid rgba(183,165,216,.58);
+            border-radius: 999px;
+            background: rgba(214,199,241,.28);
+            color: #49385C;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            text-decoration: none;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,.76),
+                0 8px 24px rgba(73,56,92,.075);
+            backdrop-filter: saturate(150%) blur(22px);
+            -webkit-backdrop-filter: saturate(150%) blur(22px);
+            transition:
+                transform .18s ease,
+                box-shadow .18s ease,
+                border-color .18s ease,
+                background-color .18s ease;
+        }
+
+        .setup-link:hover {
+            transform: translateY(-1px);
+            border-color: rgba(169,149,207,.74);
+            background: rgba(214,199,241,.34);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,.8),
+                0 11px 28px rgba(73,56,92,.10);
+        }
+
+        .setup-link:focus-visible {
+            outline: 4px solid rgba(205,190,235,.45);
+            outline-offset: 3px;
+        }
+
+        main {
+            position: relative;
+            overflow: hidden;
+            padding: clamp(64px,8vw,105px) 20px 100px;
+        }
+
+        main::before {
+            content: "";
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            left: -250px;
+            top: 80px;
+            border-radius: 50%;
+            background: rgba(245,199,169,.18);
+            filter: blur(55px);
+        }
+
+        main::after {
+            content: "";
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            right: -250px;
+            bottom: 20px;
+            border-radius: 50%;
+            background: rgba(205,190,235,.17);
+            filter: blur(60px);
+        }
+
+        .layout {
+            position: relative;
+            z-index: 1;
+            width: min(1000px, 100%);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns:
+                minmax(0,.82fr)
+                minmax(0,1.18fr);
+            gap: clamp(48px,7vw,82px);
+            align-items: start;
+        }
+
+        .eyebrow {
+            margin: 4px 0 18px;
+            color: var(--lavender-dark);
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0;
+            font-family: "Literata", serif;
+            font-size: clamp(44px,5vw,62px);
+            line-height: 1.04;
+            letter-spacing: -.03em;
+        }
+
+        .intro {
+            margin: 26px 0 0;
+            color: var(--muted);
+            font-size: clamp(19px,2vw,21px);
+            line-height: 1.65;
+        }
+
+        .direct {
+            margin-top: 34px;
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.55;
+        }
+
+        .direct a {
+            display: inline-block;
+            margin-top: 6px;
+            color: #49385C;
+            font-size: 18px;
+            font-weight: 700;
+            text-underline-offset: 4px;
+        }
+
+        .security-note {
+            position: relative;
+            margin-top: 30px;
+            padding: 18px 20px 18px 50px;
+            border: 1px solid rgba(205,190,235,.55);
+            border-radius: 18px;
+            background: rgba(243,238,251,.52);
+            color: #5B4E65;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .security-note::before {
+            content: "✓";
+            position: absolute;
+            left: 18px;
+            top: 17px;
+            display: flex;
+            width: 22px;
+            height: 22px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(205,190,235,.72);
+            color: #49385C;
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .card {
+            padding: clamp(26px,4vw,38px);
+            border: 1px solid rgba(222,211,204,.92);
+            border-radius: 30px;
+            background: rgba(255,255,255,.68);
+            box-shadow: 0 22px 64px rgba(73,56,92,.065);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+        .field + .field {
+            margin-top: 22px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 9px;
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            border: 1px solid var(--border);
+            border-radius: 17px;
+            background: rgba(255,255,255,.94);
+            color: var(--text);
+            font-size: 18px;
+            outline: none;
+            transition:
+                border-color .16s ease,
+                box-shadow .16s ease;
+        }
+
+        input,
+        select {
+            min-height: 60px;
+            padding: 0 18px;
+        }
+
+        textarea {
+            min-height: 180px;
+            padding: 16px 18px;
+            line-height: 1.55;
+            resize: vertical;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #A995CF;
+            box-shadow:
+                0 0 0 4px rgba(205,190,235,.33);
+        }
+
+        .privacy {
+            margin: 22px 2px 0;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .privacy a {
+            font-weight: 700;
+            text-underline-offset: 3px;
+        }
+
+        .submit {
+            width: 100%;
+            min-height: 64px;
+            margin-top: 24px;
+            border: 1px solid rgba(183,165,216,.58);
+            border-radius: 999px;
+            background: rgba(214,199,241,.30);
+            color: #49385C;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 700;
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,.72),
+                0 9px 26px rgba(73,56,92,.08);
+            backdrop-filter: saturate(150%) blur(22px);
+            -webkit-backdrop-filter: saturate(150%) blur(22px);
+            transition:
+                transform .16s ease,
+                box-shadow .16s ease,
+                opacity .16s ease;
+        }
+
+        .submit:hover:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,.72),
+                0 13px 30px rgba(73,56,92,.12);
+        }
+
+        .submit:disabled {
+            opacity: .6;
+            cursor: wait;
+        }
+
+        .status {
+            display: none;
+            margin: 18px 0 0;
+            padding: 15px 17px;
+            border-radius: 15px;
+            font-size: 16px;
+            line-height: 1.55;
+        }
+
+        .status.visible {
+            display: block;
+        }
+
+        .status.error {
+            background: #FFF0EC;
+            color: var(--error);
+        }
+
+        .status.success {
+            background: #EFF8F2;
+            color: var(--success);
+        }
+
+        .success-panel {
+            padding: 20px 0 8px;
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(205,190,235,.48);
+            color: #49385C;
+            font-size: 27px;
+            font-weight: 700;
+        }
+
+        .success-panel h2 {
+            margin: 0;
+            font-family: "Literata", serif;
+            font-size: 32px;
+        }
+
+        .success-panel p {
+            margin: 14px auto 0;
+            color: var(--muted);
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .honeypot {
+            position: absolute !important;
+            left: -9999px !important;
+            width: 1px !important;
+            height: 1px !important;
+            overflow: hidden !important;
+        }
+
+        footer {
+            padding: 30px 20px 40px;
+            border-top: 1px solid rgba(222,211,204,.65);
+        }
+
+        footer nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px 26px;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        footer nav a {
+            text-underline-offset: 3px;
+            transition: color .16s ease;
+        }
+
+        footer nav a:hover {
+            color: #49385C;
+        }
+
+        @media (max-width: 760px) {
+
+            .header-inner {
+                min-height: 84px;
+            }
+
+            .logo {
+                width: 56px;
+                height: 56px;
+            }
+
+            .home-link {
+                display: none;
+            }
+
+            .setup-link {
+                min-height: 48px;
+                padding: 0 19px;
+                font-size: 15px;
+            }
+
+            main {
+                padding-top: 52px;
+            }
+
+            .layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            h1 {
+                font-size: 42px;
+            }
+
+            .intro {
+                font-size: 18px;
+            }
+
+            .card {
+                border-radius: 25px;
+                padding: 24px 20px;
+            }
+
+            .security-note {
+                padding: 17px 18px 17px 48px;
+                font-size: 15px;
+            }
+
+            input,
+            select {
+                min-height: 62px;
+            }
+
+            .submit {
+                min-height: 64px;
+                font-size: 19px;
+            }
+        }
+    </style>
+<link rel="canonical" href="https://klaudi.app/kontakt.html">
+
+
+
+<style id="klaudi-footer-trust-10-style">
+
+/* ==========================================================
+   KLAUDI FOOTER 10/10
+   Trust + Presse + LinkedIn
+   ========================================================== */
+
+.klaudi-footer-trust-shell {
+
+    width:
+        min(100%, 1120px);
+
+    margin:
+        34px auto 0;
+
+    padding:
+        28px 0 0;
+
+    border-top:
+        1px solid rgba(255,255,255,0.13);
+
+}
+
+
+/* ==========================================================
+   TRUST STRIP
+   ========================================================== */
+
+.klaudi-footer-trust-row {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0,1fr));
+
+    align-items: center;
+
+    margin:
+        0 0 27px;
+
+}
+
+
+.klaudi-footer-trust-item {
+
+    min-height:
+        56px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap:
+        10px;
+
+    padding:
+        6px 18px;
+
+    color:
+        inherit;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.4;
+
+    font-weight:
+        600;
+
+    text-align:
+        center;
+
+    opacity:
+        0.82;
+
+}
+
+
+.klaudi-footer-trust-item + .klaudi-footer-trust-item {
+
+    border-left:
+        1px solid rgba(255,255,255,0.10);
+
+}
+
+
+/* ==========================================================
+   SMALL SHIELD
+   ========================================================== */
+
+.klaudi-footer-trust-icon {
+
+    width:
+        27px;
+
+    height:
+        31px;
+
+    flex:
+        0 0 auto;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    color:
+        #4C6DAE;
+
+}
+
+
+.klaudi-footer-trust-icon svg {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    display:
+        block;
+
+}
+
+
+/* ==========================================================
+   GERMANY CIRCLE
+   ========================================================== */
+
+.klaudi-footer-germany {
+
+    width:
+        30px;
+
+    height:
+        30px;
+
+    flex:
+        0 0 30px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    overflow:
+        hidden;
+
+    border-radius:
+        999px;
+
+    box-shadow:
+        0 0 0 1px rgba(255,255,255,0.18);
+
+}
+
+
+.klaudi-footer-germany span {
+
+    flex:
+        1;
+
+    width:
+        100%;
+
+}
+
+
+.klaudi-flag-black {
+
+    background:
+        #1D1D1D;
+
+}
+
+
+.klaudi-flag-red {
+
+    background:
+        #D64045;
+
+}
+
+
+.klaudi-flag-gold {
+
+    background:
+        #E9C259;
+
+}
+
+
+/* ==========================================================
+   AI CIRCLE
+   ========================================================== */
+
+.klaudi-footer-ai {
+
+    width:
+        30px;
+
+    height:
+        30px;
+
+    flex:
+        0 0 30px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        999px;
+
+    background:
+        #365D9E;
+
+    color:
+        #FFFFFF;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size:
+        10px;
+
+    line-height:
+        1;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.04em;
+
+    box-shadow:
+        inset 0 0 0 2px rgba(238,201,88,0.65);
+
+}
+
+
+/* ==========================================================
+   MORE ABOUT KLAUDI
+   ========================================================== */
+
+.klaudi-footer-more {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap:
+        20px;
+
+    padding:
+        23px 0 4px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.09);
+
+}
+
+
+.klaudi-footer-more-title {
+
+    margin:
+        0;
+
+    color:
+        inherit;
+
+    font-size:
+        11.5px;
+
+    line-height:
+        1.4;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.11em;
+
+    text-transform:
+        uppercase;
+
+    opacity:
+        0.58;
+
+}
+
+
+/* ==========================================================
+   FOOTER LINKS
+   ========================================================== */
+
+.klaudi-footer-more-links {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        flex-end;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        8px 22px;
+
+}
+
+
+.klaudi-footer-more-link {
+
+    min-height:
+        42px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        8px;
+
+    color:
+        inherit;
+
+    font-size:
+        15px;
+
+    line-height:
+        1.3;
+
+    font-weight:
+        600;
+
+    text-decoration:
+        none;
+
+    opacity:
+        0.84;
+
+    transition:
+        opacity 160ms ease,
+        transform 160ms ease;
+
+}
+
+
+.klaudi-footer-more-link:hover {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(-1px);
+
+}
+
+
+.klaudi-footer-more-link:focus-visible {
+
+    outline:
+        3px solid rgba(205,190,235,0.40);
+
+    outline-offset:
+        3px;
+
+    border-radius:
+        7px;
+
+}
+
+
+/* ==========================================================
+   PRESSE
+   ========================================================== */
+
+.klaudi-footer-press-dot {
+
+    width:
+        7px;
+
+    height:
+        7px;
+
+    flex:
+        0 0 7px;
+
+    border-radius:
+        999px;
+
+    background:
+        #CDBEEB;
+
+}
+
+
+/* ==========================================================
+   LINKEDIN
+   ========================================================== */
+
+.klaudi-footer-linkedin-mark {
+
+    width:
+        21px;
+
+    height:
+        21px;
+
+    flex:
+        0 0 21px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        4px;
+
+    background:
+        #0A66C2;
+
+    color:
+        #FFFFFF;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size:
+        13px;
+
+    line-height:
+        1;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        -0.04em;
+
+}
+
+
+.klaudi-footer-external {
+
+    position:
+        relative;
+
+    top:
+        -1px;
+
+    font-size:
+        12px;
+
+    line-height:
+        1;
+
+}
+
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 820px) {
+
+    .klaudi-footer-trust-row {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            0;
+
+    }
+
+
+    .klaudi-footer-trust-item {
+
+        justify-content:
+            flex-start;
+
+        text-align:
+            left;
+
+        padding:
+            11px 0;
+
+    }
+
+
+    .klaudi-footer-trust-item + .klaudi-footer-trust-item {
+
+        border-left:
+            0;
+
+        border-top:
+            1px solid rgba(255,255,255,0.08);
+
+    }
+
+
+    .klaudi-footer-more {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+        gap:
+            8px;
+
+    }
+
+
+    .klaudi-footer-more-links {
+
+        justify-content:
+            flex-start;
+
+    }
+
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 640px) {
+
+    .klaudi-footer-trust-shell {
+
+        margin-top:
+            28px;
+
+        padding-top:
+            22px;
+
+    }
+
+
+    .klaudi-footer-trust-row {
+
+        margin-bottom:
+            20px;
+
+    }
+
+
+    .klaudi-footer-trust-item {
+
+        min-height:
+            52px;
+
+        font-size:
+            14px;
+
+    }
+
+
+    .klaudi-footer-more {
+
+        padding-top:
+            20px;
+
+    }
+
+
+    .klaudi-footer-more-links {
+
+        width:
+            100%;
+
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+        gap:
+            2px;
+
+    }
+
+
+    .klaudi-footer-more-link {
+
+        min-height:
+            46px;
+
+        justify-content:
+            flex-start;
+
+    }
+
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .klaudi-footer-more-link {
+
+        transition:
+            none;
+
+    }
+
+
+    .klaudi-footer-more-link:hover {
+
+        transform:
+            none;
+
+    }
+
+}
+
+</style>
+
+
+<style id="klaudi-subpage-mobile-navigation-style">
+
+/* ==========================================================
+   KLAUDI MOBILE NAVIGATION — SUBPAGES
+   ========================================================== */
+
+#mobile-menu-button {
+
+    cursor:
+        pointer;
+
+}
+
+
+/* ----------------------------------------------------------
+   Injected button
+   ---------------------------------------------------------- */
+
+#mobile-menu-button.klaudi-injected-menu-button {
+
+    display:
+        none;
+
+    position:
+        absolute;
+
+    top:
+        50%;
+
+    right:
+        24px;
+
+    z-index:
+        1002;
+
+    width:
+        52px;
+
+    height:
+        52px;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        0;
+
+    transform:
+        translateY(-50%);
+
+    border:
+        0;
+
+    border-radius:
+        14px;
+
+    background:
+        transparent;
+
+    color:
+        #8A4A31;
+
+    font-size:
+        34px;
+
+    line-height:
+        1;
+
+}
+
+
+#mobile-menu-button.klaudi-injected-menu-button:hover {
+
+    background:
+        rgba(245,199,169,0.17);
+
+}
+
+
+#mobile-menu-button:focus-visible {
+
+    outline:
+        3px solid rgba(205,190,235,0.68);
+
+    outline-offset:
+        3px;
+
+}
+
+
+/* ----------------------------------------------------------
+   Menu
+   ---------------------------------------------------------- */
+
+#mobile-menu.klaudi-subpage-mobile-menu {
+
+    display:
+        none;
+
+    position:
+        fixed;
+
+    left:
+        0;
+
+    right:
+        0;
+
+    z-index:
+        9999;
+
+    padding:
+        18px 16px 24px;
+
+    border-top:
+        1px solid rgba(220,203,195,0.72);
+
+    border-bottom:
+        1px solid rgba(220,203,195,0.72);
+
+    background:
+        rgba(255,248,242,0.985);
+
+    box-shadow:
+        0 18px 38px rgba(73,56,92,0.12);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+}
+
+
+#mobile-menu.klaudi-subpage-mobile-menu.is-open {
+
+    display:
+        block !important;
+
+}
+
+
+.klaudi-subpage-mobile-menu-inner {
+
+    width:
+        min(100%, 460px);
+
+    margin:
+        0 auto;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        6px;
+
+}
+
+
+.klaudi-subpage-mobile-menu-inner > a {
+
+    min-height:
+        50px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        10px 16px;
+
+    border-radius:
+        14px;
+
+    color:
+        #493B35;
+
+    font-size:
+        16px;
+
+    line-height:
+        1.35;
+
+    font-weight:
+        600;
+
+    text-align:
+        center;
+
+    text-decoration:
+        none;
+
+}
+
+
+.klaudi-subpage-mobile-menu-inner > a:hover {
+
+    background:
+        rgba(245,199,169,0.14);
+
+}
+
+
+.klaudi-subpage-mobile-menu-inner
+.klaudi-subpage-mobile-portal {
+
+    margin-top:
+        5px;
+
+    border:
+        1px solid rgba(205,190,235,0.88);
+
+    background:
+        rgba(255,255,255,0.72);
+
+    color:
+        #594477;
+
+}
+
+
+.klaudi-subpage-mobile-menu-inner
+.klaudi-subpage-mobile-setup {
+
+    min-height:
+        56px;
+
+    margin-top:
+        2px;
+
+    border:
+        1px solid rgba(183,165,216,0.72);
+
+    background:
+        rgba(214,199,241,0.48);
+
+    color:
+        #49385C;
+
+    font-weight:
+        700;
+
+}
+
+
+/* ----------------------------------------------------------
+   MOBILE
+   ---------------------------------------------------------- */
+
+@media (max-width: 1023px) {
+
+    header {
+
+        position:
+            relative;
+
+        z-index:
+            1001;
+
+    }
+
+
+    #mobile-menu-button.klaudi-injected-menu-button {
+
+        display:
+            inline-flex;
+
+    }
+
+
+    /*
+     * kontakt.html has its own old desktop navigation.
+     * This class is added by the script only there.
+     */
+
+    body.klaudi-contact-mobile-nav
+    header
+    .header-nav
+    > a {
+
+        display:
+            none !important;
+
+    }
+
+}
+
+
+/* ----------------------------------------------------------
+   DESKTOP
+   ---------------------------------------------------------- */
+
+@media (min-width: 1024px) {
+
+    #mobile-menu.klaudi-subpage-mobile-menu {
+
+        display:
+            none !important;
+
+    }
+
+
+    #mobile-menu-button.klaudi-injected-menu-button {
+
+        display:
+            none !important;
+
+    }
+
+}
+
+
+/* ----------------------------------------------------------
+   REDUCED MOTION
+   ---------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #mobile-menu-button,
+    .klaudi-subpage-mobile-menu-inner > a {
+
+        transition:
+            none !important;
+
+    }
+
+}
+
+</style>
+
+
+
+
+
+
+
+<style id="klaudi-footer-business-final-style">
+
+.klaudi-footer-business-dot {
+
+    width:
+        7px;
+
+    height:
+        7px;
+
+    flex:
+        0 0 7px;
+
+    display:
+        inline-block;
+
+    border-radius:
+        50%;
+
+    background:
+        #D3C2F2;
+
+}
+
+
+.klaudi-footer-business-link {
+
+    white-space:
+        nowrap;
+
+}
+
+
+@media (max-width: 900px) {
+
+    .klaudi-footer-business-link {
+
+        white-space:
+            normal;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body class="klaudi-contact-mobile-nav">
+
+<header class="header">
+    <div class="header-inner">
+
+        <a
+            href="index.html"
+            aria-label="Zur Klaudi-Startseite"
+        >
+            <img
+                class="logo"
+                src="./assets/images/klaudi-logo.png"
+                alt="Klaudi"
+            >
+        </a>
+
+        <nav class="header-nav">
+
+            <a
+                class="home-link"
+                href="index.html"
+            >
+                Zur Startseite
+            </a>
+
+            <a
+                class="setup-link"
+                href="einrichten.html"
+            >
+                Klaudi einrichten
+            </a>
+
+        </nav>
+
+    </div>
+
+
+<button
+    id="mobile-menu-button"
+    class="klaudi-injected-menu-button"
+    type="button"
+    aria-label="Menü öffnen"
+    aria-controls="mobile-menu"
+    aria-expanded="false"
+>
+    <span
+        data-klaudi-menu-icon
+        aria-hidden="true"
+    >
+        ☰
+    </span>
+</button>
+
+</header>
+
+<!-- KLAUDI_SUBPAGE_MOBILE_MENU_START -->
+
+<div
+    id="mobile-menu"
+    class="klaudi-subpage-mobile-menu"
+    aria-hidden="true"
+>
+
+    <nav
+        class="klaudi-subpage-mobile-menu-inner"
+        aria-label="Mobile Navigation"
+    >
+
+        <a href="index.html#about">
+            Über Klaudi
+        </a>
+
+        <a href="index.html#how-it-works">
+            So funktioniert’s
+        </a>
+
+        <a href="index.html#preise">
+            Preise
+        </a>
+
+        <a href="index.html#hero">
+            Kostenlos testen
+        </a>
+
+        <a href="kontakt.html">
+            Kontakt
+        </a>
+
+        <a href="faq.html">
+            FAQ
+        </a>
+
+        <a
+            href="https://api.klaudi.app/portal/login.html"
+            class="klaudi-subpage-mobile-portal"
+        >
+            Kundenportal
+        </a>
+
+        <a
+            href="./einrichten.html"
+            class="klaudi-subpage-mobile-setup"
+        >
+            Klaudi einrichten
+        </a>
+
+    </nav>
+
+</div>
+
+<!-- KLAUDI_SUBPAGE_MOBILE_MENU_END -->
+
+
+
+
+<main>
+
+    <div class="layout">
+
+        <section>
+
+            <p class="eyebrow">
+                Kontakt
+            </p>
+
+            <h1>
+                Wir sind für Sie da.
+            </h1>
+
+            <p class="intro">
+                Sie haben eine Frage zu Klaudi?
+                Schreiben Sie uns einfach.
+                Wir melden uns persönlich bei Ihnen zurück.
+            </p>
+
+            <p class="direct">
+                Sie möchten lieber direkt schreiben?<br>
+
+                <a href="mailto:kontakt@klaudi.app">
+                    kontakt@klaudi.app
+                </a>
+            </p>
+
+            <p class="security-note">
+                Klaudi fragt über dieses Formular niemals nach
+                Passwörtern, PINs, TANs, Bankdaten oder Zugangsdaten.
+            </p>
+
+        </section>
+
+
+        <section
+            class="card"
+            aria-label="Kontaktformular"
+        >
+
+            <form
+                id="contact-form"
+                novalidate
+            >
+
+                <div
+                    class="honeypot"
+                    aria-hidden="true"
+                >
+                    <label for="website">
+                        Website
+                    </label>
+
+                    <input
+                        id="website"
+                        name="website"
+                        type="text"
+                        tabindex="-1"
+                        autocomplete="off"
+                    >
+                </div>
+
+
+                <div class="field">
+
+                    <label for="name">
+                        Ihr Name
+                    </label>
+
+                    <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        autocomplete="name"
+                        maxlength="100"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="email">
+                        Ihre E-Mail-Adresse
+                    </label>
+
+                    <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        autocomplete="email"
+                        inputmode="email"
+                        maxlength="254"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="topic">
+                        Worum geht es?
+                    </label>
+
+                    <select
+                        id="topic"
+                        name="topic"
+                        required
+                    >
+                        <option value="">
+                            Bitte auswählen
+                        </option>
+
+                        <option value="Allgemeine Frage">
+                            Allgemeine Frage
+                        </option>
+
+                        <option value="Einrichtung">
+                            Klaudi einrichten
+                        </option>
+
+                        <option value="Abo und Rechnung">
+                            Abo oder Rechnung
+                        </option>
+
+                        <option value="Datenschutz">
+                            Datenschutz
+                        </option>
+
+                        <option value="Sonstiges">
+                            Sonstiges
+                        </option>
+                    </select>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="message">
+                        Ihre Nachricht
+                    </label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        maxlength="4000"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <p class="privacy">
+                    Wir verwenden Ihre Angaben ausschließlich,
+                    um Ihre Anfrage zu beantworten.
+                    Weitere Informationen finden Sie in unserer
+                    <a href="datenschutz.html">
+                        Datenschutzerklärung
+                    </a>.
+                </p>
+
+
+                <button
+                    class="submit"
+                    id="submit"
+                    type="submit"
+                >
+                    Nachricht senden
+                </button>
+
+
+                <p
+                    class="status"
+                    id="status"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+
+            </form>
+
+        </section>
+
+    </div>
+
+</main>
+
+
+<footer>
+    <nav>
+        <a href="agb.html">AGB</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="widerrufsbelehrung.html">Widerrufsbelehrung</a>
+        <a href="kuendigen.html">Verträge hier kündigen</a>
+        <a href="widerrufen.html">Vertrag widerrufen</a>
+        <a href="impressum.html">Impressum</a>
+    </nav>
+
+
+
+
+<!-- KLAUDI_FOOTER_10_START -->
+
+<div class="klaudi-footer-trust-shell">
+
+
+    <!-- ====================================================
+         SMALL TRUST STRIP
+         ==================================================== -->
+
+    <div
+        class="klaudi-footer-trust-row"
+        aria-label="Grundsätze von Klaudi"
+    >
+
+
+        <!-- Datenschutz -->
+
+        <div class="klaudi-footer-trust-item">
+
+            <span
+                class="klaudi-footer-trust-icon klaudi-footer-shield"
+                aria-hidden="true"
+            >
+
+                <svg
+                    viewBox="0 0 32 36"
+                    focusable="false"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M16 1.8 28 6v9.5c0 8.2-4.8 14.7-12 18.7C8.8 30.2 4 23.7 4 15.5V6l12-4.2Z"
+                        fill="currentColor"
+                    />
+
+                    <path
+                        d="m10.3 17.5 3.7 3.7 7.8-8"
+                        fill="none"
+                        stroke="#fff"
+                        stroke-width="2.4"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+
+            </span>
+
+            <span>
+                Datenschutz im Fokus
+            </span>
+
+        </div>
+
+
+        <!-- Deutschland -->
+
+        <div class="klaudi-footer-trust-item">
+
+            <span
+                class="klaudi-footer-germany"
+                aria-hidden="true"
+            >
+
+                <span class="klaudi-flag-black"></span>
+                <span class="klaudi-flag-red"></span>
+                <span class="klaudi-flag-gold"></span>
+
+            </span>
+
+            <span>
+                Entwickelt in Deutschland
+            </span>
+
+        </div>
+
+
+        <!-- KI -->
+
+        <div class="klaudi-footer-trust-item">
+
+            <span
+                class="klaudi-footer-ai"
+                aria-hidden="true"
+            >
+                AI
+            </span>
+
+            <span>
+                Transparenter KI Einsatz
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ====================================================
+         MEDIA / COMPANY LINKS
+         ==================================================== -->
+
+    <div class="klaudi-footer-more">
+
+        <p class="klaudi-footer-more-title">
+            Mehr über Klaudi
+        </p>
+
+
+        <nav
+            class="klaudi-footer-more-links"
+            aria-label="Weitere Informationen über Klaudi"
+        >
+
+
+<!-- KLAUDI_FOOTER_BUSINESS_FINAL_START -->
+
+<a
+    href="kontakt.html"
+    class="klaudi-footer-more-link klaudi-footer-business-link"
+>
+    <span>
+        Für Einrichtungen &amp; Organisationen
+    </span>
+</a>
+
+<span
+    class="klaudi-footer-business-dot"
+    aria-hidden="true"
+></span>
+
+<!-- KLAUDI_FOOTER_BUSINESS_FINAL_END -->
+
+<a
+    href="vergleich.html"
+    class="klaudi-footer-more-link"
+    data-klaudi-compare-link="true"
+>
+    <span>
+        Klaudi vergleichen
+    </span>
+</a>
+
+
+
+            <a
+                href="presse.html"
+                class="klaudi-footer-more-link klaudi-footer-press-link"
+            >
+
+                <span class="klaudi-footer-press-dot" aria-hidden="true"></span>
+
+                <span>
+                    Presse &amp; Medien
+                </span>
+
+            </a>
+
+
+            <a
+                href="https://www.linkedin.com/company/klaudi/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="klaudi-footer-more-link klaudi-footer-linkedin"
+                aria-label="Klaudi auf LinkedIn in einem neuen Tab öffnen"
+            >
+
+                <span
+                    class="klaudi-footer-linkedin-mark"
+                    aria-hidden="true"
+                >
+                    in
+                </span>
+
+                <span>
+                    LinkedIn
+                </span>
+
+                <span
+                    class="klaudi-footer-external"
+                    aria-hidden="true"
+                >
+                    ↗
+                </span>
+
+            </a>
+
+
+
+
+<!-- KLAUDI_TRUSTPILOT_FOOTER_START -->
+
+<a
+    href="https://de.trustpilot.com/review/klaudi.app"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="klaudi-footer-more-link klaudi-footer-trustpilot-link"
+    aria-label="Klaudi Profil auf Trustpilot in einem neuen Tab öffnen"
+>
+    <span>
+        Klaudi auf Trustpilot ansehen
+    </span>
+
+    <span
+        class="klaudi-footer-external"
+        aria-hidden="true"
+    >
+        ↗
+    </span>
+</a>
+
+<!-- KLAUDI_TRUSTPILOT_FOOTER_END -->
+
+</nav>
+
+    </div>
+
+
+</div>
+
+<!-- KLAUDI_FOOTER_10_END -->
+
+
+
+
+
+</footer>
+
+
+<script>
+    const form =
+        document.getElementById("contact-form");
+
+    const submitButton =
+        document.getElementById("submit");
+
+    const statusElement =
+        document.getElementById("status");
+
+    const endpoint =
+        ["localhost", "127.0.0.1"].includes(
+            window.location.hostname
+        )
+            ? "http://localhost:3000/api/contact"
+            : "https://api.klaudi.app/api/contact";
+
+
+    function setStatus(message, type) {
+        statusElement.textContent = message;
+        statusElement.className =
+            "status visible " + type;
+    }
+
+
+    function clearStatus() {
+        statusElement.textContent = "";
+        statusElement.className = "status";
+    }
+
+
+    function setFieldError(id, message) {
+        clearFieldErrors();
+        setStatus(message, "error");
+        const field = document.getElementById(id);
+        field.setAttribute("aria-invalid", "true");
+        const descriptions = new Set((field.getAttribute("aria-describedby") || "").split(/\s+/).filter(Boolean));
+        descriptions.add("status");
+        field.setAttribute("aria-describedby", [...descriptions].join(" "));
+        field.focus();
+    }
+
+    function clearFieldErrors() {
+        for (const id of ["name", "email", "topic", "message"]) {
+            const field = document.getElementById(id);
+            field.removeAttribute("aria-invalid");
+            const descriptions = (field.getAttribute("aria-describedby") || "").split(/\s+/).filter(value => value && value !== "status");
+            if (descriptions.length) field.setAttribute("aria-describedby", descriptions.join(" "));
+            else field.removeAttribute("aria-describedby");
+        }
+    }
+
+    function validEmail(value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+            .test(value.trim());
+    }
+
+
+    form.addEventListener(
+        "submit",
+        async (event) => {
+
+            event.preventDefault();
+            clearStatus();
+            clearFieldErrors();
+
+            const data =
+                new FormData(form);
+
+            const payload = {
+                name:
+                    String(
+                        data.get("name") || ""
+                    ).trim(),
+
+                email:
+                    String(
+                        data.get("email") || ""
+                    ).trim(),
+
+                topic:
+                    String(
+                        data.get("topic") || ""
+                    ).trim(),
+
+                message:
+                    String(
+                        data.get("message") || ""
+                    ).trim(),
+
+                website:
+                    String(
+                        data.get("website") || ""
+                    ).trim()
+            };
+
+
+            if (
+                payload.name.length < 2 ||
+                payload.name.length > 100
+            ) {
+                setFieldError("name", "Bitte tragen Sie Ihren Namen ein.");
+
+                return;
+            }
+
+
+            if (
+                !validEmail(payload.email) ||
+                payload.email.length > 254
+            ) {
+                setFieldError("email", "Bitte tragen Sie eine gültige E-Mail-Adresse ein.");
+
+                return;
+            }
+
+
+            if (!payload.topic) {
+                setFieldError("topic", "Bitte wählen Sie aus, worum es geht.");
+
+                return;
+            }
+
+
+            if (
+                payload.message.length < 10 ||
+                payload.message.length > 4000
+            ) {
+                setFieldError("message", "Bitte schreiben Sie uns eine kurze Nachricht.");
+
+                return;
+            }
+
+
+            submitButton.disabled = true;
+            submitButton.textContent =
+                "Nachricht wird gesendet …";
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        endpoint,
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json",
+
+                                "Accept":
+                                    "application/json"
+                            },
+
+                            body:
+                                JSON.stringify(
+                                    payload
+                                )
+                        }
+                    );
+
+
+                const result =
+                    await response
+                        .json()
+                        .catch(() => null);
+
+
+                if (!response.ok) {
+                    throw new Error(
+                        result?.message ||
+                        "CONTACT_FAILED"
+                    );
+                }
+
+
+                form.innerHTML = `
+                    <div class="success-panel">
+
+                        <div
+                            class="success-icon"
+                            aria-hidden="true"
+                        >
+                            ✓
+                        </div>
+
+                        <h2>
+                            Vielen Dank.
+                        </h2>
+
+                        <p>
+                            Ihre Nachricht ist bei Klaudi angekommen.
+                            Wir melden uns so bald wie möglich bei Ihnen.
+                        </p>
+
+                        <p style="margin-top:24px">
+                            <a
+                                href="index.html"
+                                style="
+                                    color:#49385C;
+                                    font-weight:700;
+                                    text-decoration:none;
+                                "
+                            >
+                                Zurück zur Startseite ›
+                            </a>
+                        </p>
+
+                    </div>
+                `;
+
+            }
+            catch (error) {
+
+                console.error(
+                    "Klaudi Kontaktformular Fehler",
+                    error
+                );
+
+                setStatus(
+                    "Ihre Nachricht konnte gerade nicht gesendet werden. Bitte versuchen Sie es noch einmal oder schreiben Sie direkt an kontakt@klaudi.app.",
+                    "error"
+                );
+
+                submitButton.disabled = false;
+                submitButton.textContent =
+                    "Nachricht senden";
+            }
+        }
+    );
+</script>
+
+
+
+<!-- KLAUDI_SUBPAGE_MOBILE_NAV_SCRIPT_START -->
+
+<script id="klaudi-subpage-mobile-navigation-script">
+
+(function () {
+
+    function initKlaudiSubpageMenu() {
+
+        const originalButton =
+            document.getElementById(
+                "mobile-menu-button"
+            );
+
+        const mobileMenu =
+            document.getElementById(
+                "mobile-menu"
+            );
+
+        const header =
+            document.querySelector(
+                "header"
+            );
+
+
+        if (
+            !originalButton ||
+            !mobileMenu
+        ) {
+
+            return;
+        }
+
+
+        /*
+         * Important:
+         *
+         * Some subpages contain old copied JavaScript.
+         * Cloning the button removes old click listeners
+         * so the menu cannot toggle twice.
+         */
+
+        const menuButton =
+            originalButton.cloneNode(true);
+
+        originalButton.replaceWith(
+            menuButton
+        );
+
+
+        const menuIcon =
+            menuButton.querySelector(
+                ".material-symbols-outlined, [data-klaudi-menu-icon]"
+            );
+
+
+        function syncMenuTop() {
+
+            if (!header) {
+                return;
+            }
+
+            const rect =
+                header.getBoundingClientRect();
+
+            let bottom =
+                rect.bottom;
+
+            if (bottom < 0) {
+                bottom = 0;
+            }
+
+            mobileMenu.style.top =
+                Math.round(bottom) +
+                "px";
+
+        }
+
+
+        function setMenu(open) {
+
+            mobileMenu.classList.toggle(
+                "is-open",
+                open
+            );
+
+            mobileMenu.setAttribute(
+                "aria-hidden",
+                String(!open)
+            );
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                String(open)
+            );
+
+            menuButton.setAttribute(
+                "aria-label",
+                open
+                    ? "Menü schließen"
+                    : "Menü öffnen"
+            );
+
+
+            if (menuIcon) {
+
+                if (
+                    menuIcon.classList.contains(
+                        "material-symbols-outlined"
+                    )
+                ) {
+
+                    menuIcon.textContent =
+                        open
+                            ? "close"
+                            : "menu";
+
+                }
+                else {
+
+                    menuIcon.textContent =
+                        open
+                            ? "×"
+                            : "☰";
+
+                }
+
+            }
+
+
+            if (open) {
+
+                syncMenuTop();
+
+            }
+
+        }
+
+
+        setMenu(false);
+
+
+        menuButton.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+                const isOpen =
+                    menuButton.getAttribute(
+                        "aria-expanded"
+                    ) === "true";
+
+                setMenu(
+                    !isOpen
+                );
+
+            }
+        );
+
+
+        mobileMenu
+            .querySelectorAll("a")
+            .forEach(function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        setMenu(false);
+
+                    }
+                );
+
+            });
+
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Escape" &&
+                    menuButton.getAttribute(
+                        "aria-expanded"
+                    ) === "true"
+                ) {
+
+                    setMenu(false);
+
+                    menuButton.focus();
+
+                }
+
+            }
+        );
+
+
+        window.addEventListener(
+            "resize",
+            function () {
+
+                syncMenuTop();
+
+                if (
+                    window.innerWidth >= 1024
+                ) {
+
+                    setMenu(false);
+
+                }
+
+            }
+        );
+
+
+        window.addEventListener(
+            "scroll",
+            function () {
+
+                if (
+                    menuButton.getAttribute(
+                        "aria-expanded"
+                    ) === "true"
+                ) {
+
+                    syncMenuTop();
+
+                }
+
+            },
+            {
+                passive: true
+            }
+        );
+
+    }
+
+
+    if (
+        document.readyState === "loading"
+    ) {
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            initKlaudiSubpageMenu
+        );
+
+    }
+    else {
+
+        initKlaudiSubpageMenu();
+
+    }
+
+})();
+
+</script>
+
+<!-- KLAUDI_SUBPAGE_MOBILE_NAV_SCRIPT_END -->
+
+</body>
+</html>
