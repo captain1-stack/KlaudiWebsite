@@ -1,0 +1,66 @@
+# KLAUDI live website, reconstructed from the Netlify production deploy of 15 September 2026.
+# The original CLI-generated publish path referenced a temporary Windows directory;
+# Git-connected Netlify builds must publish from the repository root.
+[build]
+publish = "."
+
+[[redirects]]
+from = "/portal"
+to = "https://api.klaudi.app/portal/login.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/portal/"
+to = "https://api.klaudi.app/portal/login.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/portal/dashboard.html"
+to = "https://api.klaudi.app/portal/login.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/portal/login.html"
+to = "https://api.klaudi.app/portal/login.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/kundenportal"
+to = "https://api.klaudi.app/portal/login.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/kundenportal/"
+to = "https://api.klaudi.app/portal/login.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/login"
+to = "https://api.klaudi.app/portal/login.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/login/"
+to = "https://api.klaudi.app/portal/login.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/anmelden"
+to = "https://api.klaudi.app/portal/login.html"
+status = 301
+force = true
+
+[[redirects]]
+from = "/anmelden/"
+to = "https://api.klaudi.app/portal/login.html"
+status = 301
+force = true
+

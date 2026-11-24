@@ -1633,8 +1633,1077 @@
             color: #4c4166;
         }
 
+        .checkout-success-screen {
+            margin-top: clamp(32px, 6vh, 64px);
+        }
+
+        .checkout-success-shell {
+            padding: clamp(28px, 5vw, 46px);
+            border: 1px solid rgba(205, 190, 235, 0.82);
+            border-radius: 28px;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(243, 238, 251, 0.98),
+                    rgba(255, 255, 255, 0.98)
+                );
+            box-shadow: 0 18px 54px rgba(76, 65, 102, 0.10);
+        }
+
+        .checkout-success-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 58px;
+            height: 58px;
+            border-radius: 999px;
+            background: var(--lavender);
+            color: #372b50;
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .checkout-success-eyebrow {
+            margin: 22px 0 8px;
+            color: #67577f;
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .checkout-success-details {
+            margin-top: 24px;
+            padding: 20px 22px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.82);
+        }
+
+        .checkout-success-details p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .checkout-success-details p + p {
+            margin-top: 8px;
+        }
+
+        .checkout-success-actions {
+            display: grid;
+            grid-template-columns: minmax(220px, 1fr) minmax(180px, 0.7fr);
+            gap: 14px;
+            margin-top: 26px;
+        }
+
+        #progress-label[hidden],
+        #progress-bar[hidden] {
+            display: none !important;
+        }
+
+        .checkout-success-link,
+        .checkout-success-link:link,
+        .checkout-success-link:visited {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .checkout-success-shell.is-processing {
+            border-color: rgba(217, 122, 69, 0.34);
+        }
+
+        .checkout-success-shell.is-error {
+            border-color: rgba(165, 54, 42, 0.34);
+            background: var(--error-background);
+        }
+
+        .checkout-success-shell.is-error
+        .checkout-success-icon {
+            background: #f0c8c2;
+            color: var(--error);
+        }
+
+        @media (max-width: 699px) {
+            .checkout-success-actions {
+                grid-template-columns: 1fr;
+            }
+
+            .checkout-success-shell {
+                padding: 26px 20px;
+                border-radius: 22px;
+            }
+        }
+
 </style>
-</head>
+<link rel="canonical" href="https://klaudi.app/einrichten.html">
+
+
+
+<style id="klaudi-footer-trust-10-style">
+
+/* ==========================================================
+   KLAUDI FOOTER 10/10
+   Trust + Presse + LinkedIn
+   ========================================================== */
+
+.klaudi-footer-trust-shell {
+
+    width:
+        min(100%, 1120px);
+
+    margin:
+        34px auto 0;
+
+    padding:
+        28px 0 0;
+
+    border-top:
+        1px solid rgba(255,255,255,0.13);
+
+}
+
+
+/* ==========================================================
+   TRUST STRIP
+   ========================================================== */
+
+.klaudi-footer-trust-row {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0,1fr));
+
+    align-items: center;
+
+    margin:
+        0 0 27px;
+
+}
+
+
+.klaudi-footer-trust-item {
+
+    min-height:
+        56px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap:
+        10px;
+
+    padding:
+        6px 18px;
+
+    color:
+        inherit;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.4;
+
+    font-weight:
+        600;
+
+    text-align:
+        center;
+
+    opacity:
+        0.82;
+
+}
+
+
+.klaudi-footer-trust-item + .klaudi-footer-trust-item {
+
+    border-left:
+        1px solid rgba(255,255,255,0.10);
+
+}
+
+
+/* ==========================================================
+   SMALL SHIELD
+   ========================================================== */
+
+.klaudi-footer-trust-icon {
+
+    width:
+        27px;
+
+    height:
+        31px;
+
+    flex:
+        0 0 auto;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    color:
+        #4C6DAE;
+
+}
+
+
+.klaudi-footer-trust-icon svg {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    display:
+        block;
+
+}
+
+
+/* ==========================================================
+   GERMANY CIRCLE
+   ========================================================== */
+
+.klaudi-footer-germany {
+
+    width:
+        30px;
+
+    height:
+        30px;
+
+    flex:
+        0 0 30px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    overflow:
+        hidden;
+
+    border-radius:
+        999px;
+
+    box-shadow:
+        0 0 0 1px rgba(255,255,255,0.18);
+
+}
+
+
+.klaudi-footer-germany span {
+
+    flex:
+        1;
+
+    width:
+        100%;
+
+}
+
+
+.klaudi-flag-black {
+
+    background:
+        #1D1D1D;
+
+}
+
+
+.klaudi-flag-red {
+
+    background:
+        #D64045;
+
+}
+
+
+.klaudi-flag-gold {
+
+    background:
+        #E9C259;
+
+}
+
+
+/* ==========================================================
+   AI CIRCLE
+   ========================================================== */
+
+.klaudi-footer-ai {
+
+    width:
+        30px;
+
+    height:
+        30px;
+
+    flex:
+        0 0 30px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        999px;
+
+    background:
+        #365D9E;
+
+    color:
+        #FFFFFF;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size:
+        10px;
+
+    line-height:
+        1;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.04em;
+
+    box-shadow:
+        inset 0 0 0 2px rgba(238,201,88,0.65);
+
+}
+
+
+/* ==========================================================
+   MORE ABOUT KLAUDI
+   ========================================================== */
+
+.klaudi-footer-more {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap:
+        20px;
+
+    padding:
+        23px 0 4px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.09);
+
+}
+
+
+.klaudi-footer-more-title {
+
+    margin:
+        0;
+
+    color:
+        inherit;
+
+    font-size:
+        11.5px;
+
+    line-height:
+        1.4;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.11em;
+
+    text-transform:
+        uppercase;
+
+    opacity:
+        0.58;
+
+}
+
+
+/* ==========================================================
+   FOOTER LINKS
+   ========================================================== */
+
+.klaudi-footer-more-links {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        flex-end;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        8px 22px;
+
+}
+
+
+.klaudi-footer-more-link {
+
+    min-height:
+        42px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        8px;
+
+    color:
+        inherit;
+
+    font-size:
+        15px;
+
+    line-height:
+        1.3;
+
+    font-weight:
+        600;
+
+    text-decoration:
+        none;
+
+    opacity:
+        0.84;
+
+    transition:
+        opacity 160ms ease,
+        transform 160ms ease;
+
+}
+
+
+.klaudi-footer-more-link:hover {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(-1px);
+
+}
+
+
+.klaudi-footer-more-link:focus-visible {
+
+    outline:
+        3px solid rgba(205,190,235,0.40);
+
+    outline-offset:
+        3px;
+
+    border-radius:
+        7px;
+
+}
+
+
+/* ==========================================================
+   PRESSE
+   ========================================================== */
+
+.klaudi-footer-press-dot {
+
+    width:
+        7px;
+
+    height:
+        7px;
+
+    flex:
+        0 0 7px;
+
+    border-radius:
+        999px;
+
+    background:
+        #CDBEEB;
+
+}
+
+
+/* ==========================================================
+   LINKEDIN
+   ========================================================== */
+
+.klaudi-footer-linkedin-mark {
+
+    width:
+        21px;
+
+    height:
+        21px;
+
+    flex:
+        0 0 21px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        4px;
+
+    background:
+        #0A66C2;
+
+    color:
+        #FFFFFF;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size:
+        13px;
+
+    line-height:
+        1;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        -0.04em;
+
+}
+
+
+.klaudi-footer-external {
+
+    position:
+        relative;
+
+    top:
+        -1px;
+
+    font-size:
+        12px;
+
+    line-height:
+        1;
+
+}
+
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 820px) {
+
+    .klaudi-footer-trust-row {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            0;
+
+    }
+
+
+    .klaudi-footer-trust-item {
+
+        justify-content:
+            flex-start;
+
+        text-align:
+            left;
+
+        padding:
+            11px 0;
+
+    }
+
+
+    .klaudi-footer-trust-item + .klaudi-footer-trust-item {
+
+        border-left:
+            0;
+
+        border-top:
+            1px solid rgba(255,255,255,0.08);
+
+    }
+
+
+    .klaudi-footer-more {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+        gap:
+            8px;
+
+    }
+
+
+    .klaudi-footer-more-links {
+
+        justify-content:
+            flex-start;
+
+    }
+
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 640px) {
+
+    .klaudi-footer-trust-shell {
+
+        margin-top:
+            28px;
+
+        padding-top:
+            22px;
+
+    }
+
+
+    .klaudi-footer-trust-row {
+
+        margin-bottom:
+            20px;
+
+    }
+
+
+    .klaudi-footer-trust-item {
+
+        min-height:
+            52px;
+
+        font-size:
+            14px;
+
+    }
+
+
+    .klaudi-footer-more {
+
+        padding-top:
+            20px;
+
+    }
+
+
+    .klaudi-footer-more-links {
+
+        width:
+            100%;
+
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+        gap:
+            2px;
+
+    }
+
+
+    .klaudi-footer-more-link {
+
+        min-height:
+            46px;
+
+        justify-content:
+            flex-start;
+
+    }
+
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .klaudi-footer-more-link {
+
+        transition:
+            none;
+
+    }
+
+
+    .klaudi-footer-more-link:hover {
+
+        transform:
+            none;
+
+    }
+
+}
+
+</style>
+
+
+
+
+
+
+<style id="klaudi-footer-business-final-style">
+
+.klaudi-footer-business-dot {
+
+    width:
+        7px;
+
+    height:
+        7px;
+
+    flex:
+        0 0 7px;
+
+    display:
+        inline-block;
+
+    border-radius:
+        50%;
+
+    background:
+        #D3C2F2;
+
+}
+
+
+.klaudi-footer-business-link {
+
+    white-space:
+        nowrap;
+
+}
+
+
+@media (max-width: 900px) {
+
+    .klaudi-footer-business-link {
+
+        white-space:
+            normal;
+
+    }
+
+}
+
+</style>
+
+<style id="klaudi-optional-consent-confirmation-style">
+
+.optional-consent-confirmation {
+    margin-top: 22px;
+    padding: 22px;
+    border: 2px solid #CDBEEB;
+    border-radius: 18px;
+    background: #FFF8F2;
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.optional-consent-confirmation__title {
+    margin: 0 0 7px;
+    font-size: 1.12rem;
+    line-height: 1.35;
+    font-weight: 800;
+    color: #2E2926;
+}
+
+.optional-consent-confirmation__intro {
+    margin: 0 0 17px;
+    line-height: 1.55;
+    color: #403833;
+}
+
+.optional-consent-confirmation__button {
+    width: 100%;
+    min-height: 58px;
+    margin: 0;
+    padding: 14px 18px;
+    border: 2px solid #8F79BF;
+    border-radius: 15px;
+    background: #CDBEEB;
+    color: #211C29;
+    font-size: 1.08rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition:
+        transform 0.15s ease,
+        background-color 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.optional-consent-confirmation__button:hover:not(:disabled) {
+    background: #C3B2E5;
+    border-color: #745DA8;
+}
+
+.optional-consent-confirmation__button:focus-visible {
+    outline: 4px solid rgba(116, 93, 168, 0.28);
+    outline-offset: 3px;
+}
+
+.optional-consent-confirmation__button:active:not(:disabled) {
+    transform: translateY(1px);
+}
+
+.optional-consent-confirmation__status {
+    margin: 12px 0 0;
+    font-size: 0.96rem;
+    line-height: 1.45;
+    font-weight: 700;
+    color: #554C46;
+}
+
+
+/* ========================================================
+   ATTENTION / CHANGED
+   ======================================================== */
+
+.optional-consent-confirmation.is-warning {
+    border-color: #B26A00;
+    background: #FFF8E8;
+}
+
+.optional-consent-confirmation__status.is-warning {
+    color: #7A4800;
+}
+
+
+/* ========================================================
+   ERROR
+   Strong but calm red. Text explains what to do.
+   ======================================================== */
+
+.optional-consent-confirmation.is-error {
+    border-color: #C62828;
+    background: #FFF3F3;
+    box-shadow: 0 0 0 4px rgba(198, 40, 40, 0.10);
+}
+
+.optional-consent-confirmation.is-error
+.optional-consent-confirmation__title {
+    color: #8A1C1C;
+}
+
+.optional-consent-confirmation__status.is-error {
+    color: #A11F1F;
+}
+
+
+/* ========================================================
+   SUCCESS
+   ======================================================== */
+
+.optional-consent-confirmation.is-success {
+    border-color: #2E7D32;
+    background: #F1F8F3;
+}
+
+.optional-consent-confirmation.is-success
+.optional-consent-confirmation__title {
+    color: #1B5E20;
+}
+
+.optional-consent-confirmation__status.is-success {
+    color: #1B5E20;
+}
+
+.optional-consent-confirmation.is-success
+.optional-consent-confirmation__button:disabled {
+    border-color: #2E7D32;
+    background: #E2F2E5;
+    color: #1B5E20;
+    opacity: 1;
+    cursor: default;
+}
+
+
+@media (max-width: 640px) {
+
+    .optional-consent-confirmation {
+        padding: 18px;
+        border-radius: 16px;
+    }
+
+    .optional-consent-confirmation__button {
+        min-height: 56px;
+        font-size: 1rem;
+    }
+}
+
+
+/* SUCCESS: finished step stays intentionally minimal */
+.optional-consent-confirmation.is-success
+.optional-consent-confirmation__button,
+.optional-consent-confirmation.is-success
+.optional-consent-confirmation__status {
+    display: none;
+}
+</style>
+
+<style id="klaudi-consent-radio-ui-final">
+
+.consent-choice {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px;
+    margin-top: 14px;
+    border: 2px solid #E6DDF2;
+    border-radius: 18px;
+    cursor: pointer;
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        transform 0.15s ease;
+}
+
+.consent-choice:hover {
+    transform: translateY(-1px);
+}
+
+.consent-choice input[type="radio"] {
+    width: 22px;
+    height: 22px;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.consent-choice:has(input[type="radio"]:checked) {
+    border-color: #CDBEEB;
+    background: #FFF8F2;
+}
+
+.consent-choice strong {
+    font-size: 1.05rem;
+}
+
+.consent-choice span {
+    line-height: 1.5;
+}
+
+.consent-choice-group legend {
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+</style>
+
+<style id="klaudi-consent-10-10-ui">
+
+.consent-choice {
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+    padding:18px;
+    margin-top:12px;
+    border:1px solid #ddd;
+    border-radius:18px;
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.consent-choice input {
+    margin-top:5px;
+    width:22px;
+    height:22px;
+}
+
+.consent-choice:has(input:checked) {
+    border:2px solid #CDBEEB;
+    background:#FFF8F2;
+}
+
+.consent-choice span {
+    line-height:1.5;
+}
+
+.consent-choice-group legend {
+    font-weight:700;
+    line-height:1.4;
+    margin-bottom:10px;
+}
+
+</style>
+<style id="klaudi-summary-helper-css">
+.summary-helper {
+    margin: 18px 0;
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.5;
+    text-align: center;
+}
+</style></head>
 
 <body>
     <main class="page">
@@ -1816,7 +2885,7 @@
                         type="tel"
                         inputmode="tel"
                         autocomplete="tel"
-                        placeholder="+49 221 1234567"
+                        placeholder="z. B. 0221 1234567"
                         aria-describedby="phone-error phone-information"
                     >
 
@@ -1825,7 +2894,7 @@
                         id="phone-error"
                         role="alert"
                     >
-                        Bitte tragen Sie eine gültige Telefonnummer ein.
+                        Bitte geben Sie eine gültige deutsche Telefonnummer ein.
                     </p>
 
                     <div
@@ -2019,7 +3088,7 @@
                         </div>
                         <div class="field-group field-group--full">
                             <label for="buyer-phone">Ihre Telefonnummer <span class="optional-label">(optional)</span></label>
-                            <input id="buyer-phone" name="buyerPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+49 221 1234567" aria-describedby="buyer-phone-error">
+                            <input id="buyer-phone" name="buyerPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="z. B. 0221 1234567" aria-describedby="buyer-phone-error">
                             <p class="error-message" id="buyer-phone-error" role="alert">Bitte tragen Sie eine gültige Telefonnummer ein oder lassen Sie das Feld leer.</p>
                         </div>
                     </div>
@@ -2052,7 +3121,7 @@
     </div>
 
     <p class="summary-confirmation__title">
-        Alles eingerichtet
+        Ihre Angaben im Überblick
     </p>
 </div>
 
@@ -2062,7 +3131,13 @@
     aria-live="polite"
 ></div>
 
-                <div class="consent-panel" aria-labelledby="consent-heading">
+                <p class="summary-helper">
+    Gut zu wissen: Klaudi ist eine KI-Gesprächspartnerin für Gespräche,
+    Austausch und Gesellschaft. Sie ersetzt keinen Notruf und keine
+    medizinische Betreuung.
+</p>
+
+<div class="consent-panel" aria-labelledby="consent-heading">
                     <h2 class="consent-panel__heading" id="consent-heading">
                         Zustimmung
                     </h2>
@@ -2088,10 +3163,21 @@
                     </div>
 
                     <div class="checkbox-row">
+                        <input id="consent-early-performance" type="checkbox">
+                        <label for="consent-early-performance">
+                            Ich verlange ausdrücklich, dass Klaudi bereits vor Ablauf
+                            der 14-tägigen Widerrufsfrist mit der vereinbarten
+                            Dienstleistung beginnt. Mir ist bekannt, dass bei einem
+                            Widerruf Wertersatz für bis dahin erbrachte Leistungen
+                            anfallen kann.
+                        </label>
+                    </div>
+
+                    <div class="checkbox-row">
                         <input id="consent-ai-calls" type="checkbox">
                         <label id="consent-ai-calls-label" for="consent-ai-calls">
                             Ich bin mit den vereinbarten Anrufen durch Klaudi
-                            einverstanden und weiß, dass ich mit einer KI spreche.
+                            einverstanden und weiß, dass Klaudi eine KI-Gesprächspartnerin ist.
                         </label>
                     </div>
 
@@ -2100,21 +3186,104 @@
                         widerrufen werden.
                     </p>
 
-                    <div class="checkbox-row checkbox-row--optional">
-                        <input id="consent-marketing" type="checkbox">
-                        <label for="consent-marketing">
-                            <strong>Optional:</strong> Ich möchte Neuigkeiten,
-                            Tipps und Informationen rund um Klaudi per E-Mail
-                            erhalten.
+                    <fieldset class="consent-choice-group">
+                        <legend>
+                            Möchten Sie Neuigkeiten und hilfreiche Tipps von Klaudi erhalten?
+                        </legend>
+
+                        <label class="consent-choice">
+                            <input id="consent-marketing" type="radio" name="marketing-choice" value="yes">
+                            <span>
+                                <strong>Ja, gerne</strong><br>
+                                Ich möchte gelegentlich Tipps, Updates und Informationen rund um Klaudi per E-Mail erhalten.
+                            </span>
                         </label>
-                    </div>
+
+                        <label class="consent-choice">
+                            <input type="radio" name="marketing-choice" value="no">
+                            <span>
+                                <strong>Nein, danke</strong><br>
+                                Ich möchte keine weiteren Informationen erhalten.
+                            </span>
+                        </label>
+                    </fieldset>
 
                     <p class="consent-helper">
-                        Sie können diese Einwilligung jederzeit über den Link in
-                        jeder E-Mail widerrufen.
+                        Bitte treffen Sie eine Auswahl. Sie können Ihre Entscheidung jederzeit ändern.
                     </p>
 
-                    <p class="error-message" id="consent-error" role="alert">
+                    <div id="review-invitation-optin">
+                        <fieldset class="consent-choice-group">
+                            <legend>
+                                Möchten Sie anderen Familien mit Ihrer Klaudi-Erfahrung helfen?
+                            </legend>
+
+                            <label class="consent-choice">
+                                <input id="consent-review-invitation" type="radio" name="review-choice" value="yes">
+                                <span>
+                                    <strong>Ja, gerne</strong><br>
+                                    Ich möchte etwa eine Woche nach dem Start eine freiwillige Trustpilot-Bewertungseinladung erhalten.
+                                </span>
+                            </label>
+
+                            <label class="consent-choice">
+                                <input type="radio" name="review-choice" value="no">
+                                <span>
+                                    <strong>Nein, danke</strong><br>
+                                    Ich möchte keine Bewertungseinladung erhalten.
+                                </span>
+                            </label>
+                        </fieldset>
+
+                        <p class="consent-helper">
+                            Die Bewertung ist freiwillig und darf positiv,
+                            kritisch oder gemischt ausfallen. Dafür werden mein
+                            Name, meine E-Mail-Adresse und eine Bestell- oder
+                            Vertragsreferenz an Trustpilot übermittelt.
+                            Die Einwilligung kann jederzeit mit Wirkung für die
+                            Zukunft widerrufen werden.
+                        </p>
+                    </div>
+
+                                        <div
+                        class="optional-consent-confirmation"
+                        id="optional-consent-confirmation"
+                        hidden
+                    >
+                        <p
+                            class="optional-consent-confirmation__title"
+                            id="optional-consent-confirmation-title"
+                        >
+                            Bitte kurz bestätigen
+                        </p>
+
+                        <p
+                            class="optional-consent-confirmation__intro"
+                            id="optional-consent-confirmation-intro"
+                        >
+                            Die beiden optionalen Einstellungen sind
+                            vorausgewählt. Sie können sie abwählen.
+                            Bitte bestätigen Sie Ihre Auswahl.
+                        </p>
+
+                        <button
+                            class="secondary-button optional-consent-confirmation__button"
+                            id="confirm-optional-consents"
+                            type="button"
+                        >
+                            Auswahl jetzt bestätigen
+                        </button>
+
+                        <p
+                            class="optional-consent-confirmation__status"
+                            id="optional-consents-status"
+                            role="status"
+                            aria-live="polite"
+                        >
+                            Bitte einmal bestätigen.
+                        </p>
+                    </div>
+<p class="error-message" id="consent-error" role="alert">
                         Bitte bestätigen Sie alle erforderlichen Punkte, um
                         fortzufahren.
                     </p>
@@ -2136,7 +3305,7 @@
 
                         <ul class="trust-list">
                             <li>Verschlüsselte Datenübertragung</li>
-                            <li>DSGVO-konforme Verarbeitung</li>
+                            <li>Datenschutz nach den geltenden gesetzlichen Anforderungen</li>
                             <li>In diesem Paket speichert Klaudi keine vergangenen Gespräche dauerhaft.</li>
                             <li>Keine Weitergabe Ihrer Daten zu Werbezwecken</li>
                             <li>Jederzeit online kündbar</li>
@@ -2184,6 +3353,76 @@
                 >
                     Als Nächstes gelangen Sie zur sicheren Bezahlung.
                 </p>
+            </section>
+
+            <section
+                class="screen checkout-success-screen"
+                id="screen-checkout-success"
+                aria-labelledby="checkout-success-heading"
+                hidden
+            >
+                <div class="checkout-success-shell">
+                    <span
+                        class="checkout-success-icon"
+                        id="checkout-success-icon"
+                        aria-hidden="true"
+                    >
+                        …
+                    </span>
+
+                    <p
+                        class="checkout-success-eyebrow"
+                        id="checkout-success-eyebrow"
+                    >
+                        Zahlungsstatus
+                    </p>
+
+                    <h1
+                        id="checkout-success-heading"
+                        tabindex="-1"
+                    >
+                        Zahlung wird geprüft …
+                    </h1>
+
+                    <p
+                        class="intro"
+                        id="checkout-success-intro"
+                    >
+                        Einen Moment bitte. Klaudi bestätigt Ihre Zahlung sicher bei Stripe.
+                    </p>
+
+                    <div class="checkout-success-details">
+                        <p id="checkout-success-detail">
+                            Sie müssen nichts weiter tun.
+                        </p>
+
+                        <p id="checkout-success-note">
+                            Bitte schließen Sie dieses Fenster während der Prüfung nicht.
+                        </p>
+                    </div>
+
+                    <div
+                        class="checkout-success-actions"
+                        id="checkout-success-actions"
+                        hidden
+                    >
+                        <a
+                            class="primary-button checkout-success-link"
+                            id="checkout-success-primary-link"
+                            href="https://api.klaudi.app/portal/login.html"
+                        >
+                            Zum Kundenportal
+                        </a>
+
+                        <a
+                            class="secondary-button checkout-success-link"
+                            id="checkout-success-secondary-link"
+                            href="index.html"
+                        >
+                            Zur Startseite
+                        </a>
+                    </div>
+                </div>
             </section>
 
         </div>
@@ -2310,12 +3549,150 @@
                 agbAccepted: false,
                 privacyAccepted: false,
                 withdrawalAccepted: false,
+                earlyPerformanceRequested: false,
+                earlyPerformanceAcceptedAt: "",
                 aiCallsAccepted: false,
-                wordingVersion: "2026-07-25-v1",
+                marketingAccepted: false,
+                marketingAcceptedAt: "",
+                reviewInvitationAccepted: false,
+                reviewInvitationAcceptedAt: "",
+                wordingVersion: "2026-09-06-v5",
                 acceptedAt: ""
             }
         };
 
+        const onboardingDraftStorageKey =
+            "klaudi:onboarding-checkout-draft:v1";
+
+        const onboardingDraftMaxAgeMs =
+            60 * 60 * 1000;
+
+        function removeOnboardingCheckoutDraft() {
+            try {
+                window.sessionStorage.removeItem(
+                    onboardingDraftStorageKey
+                );
+            } catch (error) {
+                console.warn(
+                    "Klaudi Entwurf konnte nicht entfernt werden.",
+                    error
+                );
+            }
+        }
+
+        function persistOnboardingCheckoutDraft() {
+            const draft = {
+                version: 1,
+                savedAt: Date.now(),
+                data: {
+                    personName:
+                        onboardingData.personName,
+                    personFirstName:
+                        onboardingData.personFirstName,
+                    personLastName:
+                        onboardingData.personLastName,
+                    personPhone:
+                        onboardingData.personPhone,
+                    setupFor:
+                        onboardingData.setupFor,
+                    buyerFirstName:
+                        onboardingData.buyerFirstName,
+                    buyerLastName:
+                        onboardingData.buyerLastName,
+                    buyerEmail:
+                        onboardingData.buyerEmail,
+                    buyerEmailConfirmation:
+                        onboardingData.buyerEmailConfirmation,
+                    buyerPhone:
+                        onboardingData.buyerPhone,
+                    selectedPlan:
+                        onboardingData.selectedPlan,
+                    entrySource:
+                        onboardingData.entrySource,
+                    selectedAddOns:
+                        Array.isArray(
+                            onboardingData.selectedAddOns
+                        )
+                            ? [
+                                ...onboardingData.selectedAddOns
+                              ]
+                            : [],
+                    callSchedules:
+                        Array.isArray(
+                            onboardingData.callSchedules
+                        )
+                            ? onboardingData.callSchedules.map(
+                                (schedule) => ({
+                                    weekday:
+                                        schedule.weekday,
+                                    time:
+                                        schedule.time
+                                })
+                              )
+                            : []
+                }
+            };
+
+            try {
+                window.sessionStorage.setItem(
+                    onboardingDraftStorageKey,
+                    JSON.stringify(draft)
+                );
+
+                return true;
+            } catch (error) {
+                console.warn(
+                    "Klaudi Entwurf konnte nicht gespeichert werden.",
+                    error
+                );
+
+                return false;
+            }
+        }
+
+        function readOnboardingCheckoutDraft() {
+            try {
+                const raw =
+                    window.sessionStorage.getItem(
+                        onboardingDraftStorageKey
+                    );
+
+                if (!raw) {
+                    return null;
+                }
+
+                const draft = JSON.parse(raw);
+
+                if (
+                    !draft ||
+                    draft.version !== 1 ||
+                    typeof draft.savedAt !== "number" ||
+                    !draft.data
+                ) {
+                    removeOnboardingCheckoutDraft();
+                    return null;
+                }
+
+                if (
+                    Date.now() - draft.savedAt >
+                    onboardingDraftMaxAgeMs
+                ) {
+                    removeOnboardingCheckoutDraft();
+                    return null;
+                }
+
+                return draft.data;
+            } catch (error) {
+                removeOnboardingCheckoutDraft();
+
+                console.warn(
+                    "Klaudi Entwurf konnte nicht gelesen werden.",
+                    error
+                );
+
+                return null;
+            }
+        }
         const screens = Array.from(document.querySelectorAll(".screen"));
         const progressSteps = Array.from(
             document.querySelectorAll(".progress-step")
@@ -2324,6 +3701,32 @@
         const progressLabel = document.getElementById("progress-label");
         const progressBar = document.getElementById("progress-bar");
         const totalSteps = progressSteps.length;
+
+        const urlParams =
+            new URLSearchParams(
+                window.location.search
+            );
+
+        const checkoutReturnState =
+            urlParams.get("checkout");
+
+        const checkoutSessionId =
+            urlParams.get("session_id") || "";
+
+        const isCheckoutSuccessReturn =
+            checkoutReturnState === "success" &&
+            /^cs_(?:test|live)_[A-Za-z0-9]+$/.test(
+                checkoutSessionId
+            );
+
+        const isAdditionalPersonMode =
+            urlParams.get("mode") ===
+            "additional-person";
+
+        if (isAdditionalPersonMode) {
+            onboardingData.setupFor =
+                "other";
+        }
 
         const setupForButtons = Array.from(
             document.querySelectorAll("[data-setup-for]")
@@ -2375,23 +3778,329 @@
         const summaryContent = document.getElementById("summary-content");
         const consentTermsInput = document.getElementById("consent-terms");
         const consentWithdrawalInput = document.getElementById("consent-withdrawal");
+        const consentEarlyPerformanceInput = document.getElementById("consent-early-performance");
         const consentAiCallsInput = document.getElementById("consent-ai-calls");
         const consentAiCallsLabel = document.getElementById("consent-ai-calls-label");
         const consentAiCallsHelper = document.getElementById("consent-ai-calls-helper");
         const consentMarketingInput = document.getElementById("consent-marketing");
+        const consentReviewInvitationInput =
+            document.getElementById("consent-review-invitation");
+        const reviewInvitationOptin =
+            document.getElementById("review-invitation-optin");
         const consentError = document.getElementById("consent-error");
-        
 
+        /*
+         * OPTIONAL CONSENT UX
+         *
+         * Die sichtbare Vorauswahl ist NICHT der
+         * gespeicherte Einwilligungsnachweis.
+         *
+         * Der Nachweis entsteht erst durch den separaten
+         * Bestätigungsbutton weiter unten.
+         */
+         document.querySelectorAll('input[name="marketing-choice"]').forEach((input) => input.checked = false);
+        document.querySelectorAll(
+                'input[name="review-choice"]'
+            ).forEach(
+                (input) => input.checked = false
+            );
+
+        if (isAdditionalPersonMode && reviewInvitationOptin) {
+            reviewInvitationOptin.hidden = true;
+            document.querySelectorAll(
+                'input[name="review-choice"]'
+            ).forEach(
+                (input) => input.checked = false
+            );
+        }
+
+        const optionalConsentConfirmation =
+            document.getElementById(
+                "optional-consent-confirmation"
+            );
+
+        const optionalConsentConfirmationTitle =
+            document.getElementById(
+                "optional-consent-confirmation-title"
+            );
+
+        const optionalConsentConfirmationIntro =
+            document.getElementById(
+                "optional-consent-confirmation-intro"
+            );
+
+        const confirmOptionalConsentsButton =
+            document.getElementById(
+                "confirm-optional-consents"
+            );
+
+        const optionalConsentsStatus =
+            document.getElementById(
+                "optional-consents-status"
+            );
+
+        let optionalConsentsConfirmed = false;
+        let optionalConsentConfirmedAt = "";
+        let optionalMarketingAccepted = false;
+        let optionalReviewInvitationAccepted = false;
+
+
+        function clearOptionalConsentStateClasses() {
+
+            optionalConsentConfirmation.classList.remove(
+                "is-warning",
+                "is-error",
+                "is-success"
+            );
+
+            optionalConsentsStatus.classList.remove(
+                "is-warning",
+                "is-error",
+                "is-success"
+            );
+        }
+
+
+        function invalidateOptionalConsentConfirmation() {
+
+            optionalConsentsConfirmed = false;
+            optionalConsentConfirmedAt = "";
+            optionalMarketingAccepted = false;
+            optionalReviewInvitationAccepted = false;
+
+            onboardingData.consents.marketingAccepted = false;
+            onboardingData.consents.marketingAcceptedAt = "";
+
+            onboardingData.consents.reviewInvitationAccepted = false;
+            onboardingData.consents.reviewInvitationAcceptedAt = "";
+
+            clearOptionalConsentStateClasses();
+
+            optionalConsentConfirmation.classList.add(
+                "is-warning"
+            );
+
+            optionalConsentsStatus.classList.add(
+                "is-warning"
+            );
+
+            optionalConsentConfirmationTitle.textContent =
+                "Bitte erneut bestätigen";
+
+            optionalConsentConfirmationIntro.textContent =
+                "Sie haben Ihre Auswahl geändert. Bitte bestätigen Sie sie noch einmal.";
+
+            confirmOptionalConsentsButton.textContent =
+                "Auswahl jetzt bestätigen";
+
+            confirmOptionalConsentsButton.disabled =
+                false;
+
+            optionalConsentsStatus.textContent =
+                "Auswahl geändert.";
+        }
+
+
+        function getMarketingConsentValue() {
+    const selected =
+        document.querySelector('input[name="marketing-choice"]:checked');
+
+    return selected?.value === "yes";
+}
+
+
+        function getReviewConsentValue() {
+
+            if (isAdditionalPersonMode) {
+                return false;
+            }
+
+            const selected =
+                document.querySelector(
+                    'input[name="review-choice"]:checked'
+                );
+
+            if (selected) {
+                return selected.value === "yes";
+            }
+
+            return false;
+        }
+
+function confirmOptionalConsentSelection() {
+
+            const confirmedAt =
+                new Date().toISOString();
+
+            const marketingChoice =
+                document.querySelector('input[name="marketing-choice"]:checked');
+
+            const marketingSelected =
+                marketingChoice !== null;
+
+            const reviewChoice =
+                document.querySelector(
+                    'input[name="review-choice"]:checked'
+                );
+
+            const reviewSelected =
+                isAdditionalPersonMode ||
+                reviewChoice !== null;
+
+            if (!marketingSelected) {
+                clearOptionalConsentStateClasses();
+
+                optionalConsentConfirmation.classList.add(
+                    "is-error"
+                );
+
+                optionalConsentsStatus.textContent =
+                    "Bitte entscheiden Sie, ob Sie Klaudi-Neuigkeiten erhalten möchten.";
+
+                return;
+            }
+
+            if (!reviewSelected) {
+                clearOptionalConsentStateClasses();
+
+                optionalConsentConfirmation.classList.add(
+                    "is-error"
+                );
+
+                optionalConsentsStatus.textContent =
+                    "Bitte entscheiden Sie, ob Sie eine Bewertungseinladung erhalten möchten.";
+
+                return;
+            }
+
+            optionalMarketingAccepted =
+                document.querySelector('input[name="marketing-choice"]:checked')?.value === "yes";
+
+            optionalReviewInvitationAccepted =
+                !isAdditionalPersonMode &&
+                document.querySelector('input[name="review-choice"]:checked')?.value === "yes";
+
+            optionalConsentConfirmedAt =
+                confirmedAt;
+
+            optionalConsentsConfirmed =
+                true;
+
+            onboardingData.consents.marketingAccepted =
+                optionalMarketingAccepted;
+
+            onboardingData.consents.marketingAcceptedAt =
+                optionalMarketingAccepted
+                    ? confirmedAt
+                    : "";
+
+            onboardingData.consents.reviewInvitationAccepted =
+                optionalReviewInvitationAccepted;
+
+            onboardingData.consents.reviewInvitationAcceptedAt =
+                optionalReviewInvitationAccepted
+                    ? confirmedAt
+                    : "";
+
+            clearOptionalConsentStateClasses();
+
+            optionalConsentConfirmation.classList.add(
+                "is-success"
+            );
+
+            optionalConsentsStatus.classList.add(
+                "is-success"
+            );
+
+            optionalConsentConfirmationTitle.textContent =
+                "✓ Auswahl bestätigt";
+
+            optionalConsentConfirmationIntro.textContent =
+                "Danke. Sie können jetzt zur Zahlung weitergehen.";
+
+            confirmOptionalConsentsButton.textContent =
+                "Auswahl bestätigt";
+
+            confirmOptionalConsentsButton.disabled =
+                true;
+
+            optionalConsentsStatus.textContent =
+                "Alles erledigt.";
+        }
+
+
+        consentMarketingInput.addEventListener(
+            "change",
+            invalidateOptionalConsentConfirmation
+        );
+
+        consentReviewInvitationInput.addEventListener(
+            "change",
+            invalidateOptionalConsentConfirmation
+        );
+
+        confirmOptionalConsentsButton.addEventListener(
+            "click",
+            confirmOptionalConsentSelection
+        );
 
         const checkoutPlaceholder = document.getElementById(
             "checkout-placeholder"
         );
 
-        const checkoutApiUrl = ["localhost", "127.0.0.1"].includes(
-            window.location.hostname
-        )
-            ? "http://localhost:3000/api/checkout"
-            : "/api/checkout";
+        const backendBaseUrl =
+            ["localhost", "127.0.0.1"].includes(
+                window.location.hostname
+            )
+                ? "http://localhost:3000/"
+                : "https://api.klaudi.app/";
+
+        const checkoutApiUrl =
+            backendBaseUrl +
+            (
+                isAdditionalPersonMode
+                    ? "api/portal/additional-person-checkout"
+                    : "api/checkout"
+            );
+
+        const checkoutStatusApiUrl =
+            backendBaseUrl +
+            "api/checkout/status";
+
+        function isPortalAuthenticationFailure(
+            response,
+            responseBody
+        ) {
+            return (
+                isAdditionalPersonMode &&
+                (
+                    response?.status === 401 ||
+                    responseBody?.error ===
+                        "UNAUTHORIZED_PORTAL_ACCESS"
+                )
+            );
+        }
+
+        function redirectToPortalLogin() {
+            const loginUrl = new URL(
+                "portal/login.html",
+                backendBaseUrl
+            );
+
+            loginUrl.searchParams.set(
+                "reason",
+                "session-expired"
+            );
+
+            loginUrl.searchParams.set(
+                "returnTo",
+                "/portal/personen.html"
+            );
+
+            window.location.assign(
+                loginUrl.toString()
+            );
+        }
 
         const checkoutRequestTimeoutMs = 20000;
         let checkoutRequestInProgress = false;
@@ -2420,7 +4129,24 @@
                 "Klaudi jetzt sicher einrichten";
         }
 
-        async function createCheckoutSession(checkoutData) {
+                function normalizeCheckoutPhone(phone) {
+            const value = String(phone || "").trim().replace(/\s+/g, "");
+
+            if (value.startsWith("+")) {
+                return value;
+            }
+
+            if (value.startsWith("00")) {
+                return "+" + value.slice(2);
+            }
+
+            if (value.startsWith("0")) {
+                return "+49" + value.slice(1);
+            }
+
+            return value;
+        }
+async function createCheckoutSession(checkoutData) {
             if (checkoutRequestInProgress) {
                 return;
             }
@@ -2441,24 +4167,122 @@
             );
 
             try {
+                const checkoutPayload = {
+                    phone:
+                        normalizeCheckoutPhone(checkoutData.phone),
+                    plan:
+                        checkoutData.plan,
+                    callSchedules:
+                        checkoutData.callSchedules,
+                    setupFor:
+                        checkoutData.setupFor,
+                    conversationPartner: {
+                        firstName:
+                            checkoutData.conversationPartner.firstName,
+                        lastName:
+                            checkoutData.conversationPartner.lastName,
+                        fullName:
+                            checkoutData.conversationPartner.fullName,
+                        phone:
+                            normalizeCheckoutPhone(
+                                checkoutData.conversationPartner.phone
+                            )
+                    },
+                    consents: {
+                        agbAccepted:
+                            checkoutData.consents.agbAccepted === true,
+                        privacyAccepted:
+                            checkoutData.consents.privacyAccepted === true,
+                        withdrawalAccepted:
+                            checkoutData.consents.withdrawalAccepted === true,
+                        earlyPerformanceRequested:
+                            checkoutData.consents.earlyPerformanceRequested === true,
+                        earlyPerformanceAcceptedAt:
+                            checkoutData.consents.earlyPerformanceAcceptedAt,
+                        aiCallsAccepted:
+                            checkoutData.consents.aiCallsAccepted === true,
+                        marketingAccepted:
+                            checkoutData.consents.marketingAccepted === true,
+                        marketingAcceptedAt:
+                            checkoutData.consents.marketingAcceptedAt || null,
+                        reviewInvitationAccepted:
+                            checkoutData.consents.reviewInvitationAccepted === true,
+                        reviewInvitationAcceptedAt:
+                            checkoutData.consents.reviewInvitationAcceptedAt || null,
+                        wordingVersion:
+                            checkoutData.consents.wordingVersion,
+                        acceptedAt:
+                            checkoutData.consents.acceptedAt
+                    }
+                };
+
+                if (!isAdditionalPersonMode) {
+                    checkoutPayload.fullName =
+                        checkoutData.fullName;
+                    checkoutPayload.email =
+                        checkoutData.email;
+                    checkoutPayload.customer = {
+                        firstName:
+                            checkoutData.customer.firstName,
+                        lastName:
+                            checkoutData.customer.lastName,
+                        fullName:
+                            checkoutData.customer.fullName,
+                        email:
+                            checkoutData.customer.email,
+                        phone:
+                            checkoutData.customer.phone
+                                ? normalizeCheckoutPhone(
+                                    checkoutData.customer.phone
+                                  )
+                                : ""
+                    };
+                }
+
+                if (
+                    !isAdditionalPersonMode &&
+                    window.klaudiAttributionV1
+                ) {
+                    try {
+                        checkoutPayload.attribution =
+                            await window.klaudiAttributionV1
+                                .getCheckoutAttribution(250);
+                    } catch (error) {
+                        /*
+                         * Attribution ist best-effort.
+                         * Ein Tracking-Fehler darf den Checkout nie blockieren.
+                         */
+                    }
+                }
+
                 const response = await fetch(checkoutApiUrl, {
                     method: "POST",
+                    credentials:
+                        isAdditionalPersonMode
+                            ? "include"
+                            : "same-origin",
                     headers: {
                         "Content-Type": "application/json",
                         "Accept": "application/json"
                     },
-                    body: JSON.stringify({
-                        fullName: checkoutData.fullName,
-                        email: checkoutData.email,
-                        phone: checkoutData.phone,
-                        plan: checkoutData.plan
-                    }),
+                    body:
+                        JSON.stringify(checkoutPayload),
                     signal: controller.signal
                 });
 
                 const responseBody = await response.json().catch(() => null);
 
                 if (!response.ok) {
+                    if (
+                        isPortalAuthenticationFailure(
+                            response,
+                            responseBody
+                        )
+                    ) {
+                        redirectToPortalLogin();
+                        return;
+                    }
+
                     const backendMessage =
                         responseBody &&
                         typeof responseBody.message === "string"
@@ -2854,9 +4678,10 @@ function getPlanSelectionMarkup() {
 
                         <div class="schedule-field">
 
-                            <label>Wochentag</label>
+                            <label for="schedule-weekday-${index}">Wochentag</label>
 
                             <select
+                                id="schedule-weekday-${index}"
                                 data-schedule-index="${index}"
                                 data-schedule-field="weekday"
                             >
@@ -2870,9 +4695,10 @@ function getPlanSelectionMarkup() {
 
                         <div class="schedule-field">
 
-                            <label>Uhrzeit</label>
+                            <label for="schedule-time-${index}">Uhrzeit</label>
 
                             <select
+                                id="schedule-time-${index}"
                                 data-schedule-index="${index}"
                                 data-schedule-field="time"
                             >
@@ -3058,6 +4884,212 @@ function getPlanSelectionMarkup() {
                 .forEach(([input,error]) => clearInputError(input,error));
         }
 
+        function resetCheckoutConsentState() {
+            onboardingData.consents = {
+                agbAccepted: false,
+                privacyAccepted: false,
+                withdrawalAccepted: false,
+                earlyPerformanceRequested: false,
+                earlyPerformanceAcceptedAt: "",
+                aiCallsAccepted: false,
+                marketingAccepted: false,
+                marketingAcceptedAt: "",
+                reviewInvitationAccepted: false,
+                reviewInvitationAcceptedAt: "",
+                wordingVersion: "2026-09-06-v5",
+                acceptedAt: ""
+            };
+
+            optionalConsentsConfirmed = false;
+            optionalConsentConfirmedAt = "";
+            optionalMarketingAccepted = false;
+            optionalReviewInvitationAccepted = false;
+
+            consentTermsInput.checked = false;
+            consentWithdrawalInput.checked = false;
+            consentEarlyPerformanceInput.checked = false;
+            consentAiCallsInput.checked = false;
+             document.querySelectorAll('input[name="marketing-choice"]').forEach((input) => input.checked = false);
+            document.querySelectorAll(
+                'input[name="review-choice"]'
+            ).forEach(
+                (input) => input.checked = false
+            );
+
+            consentError.classList.remove("is-visible");
+        }
+
+        function restoreOnboardingCheckoutDraft() {
+            const draft =
+                readOnboardingCheckoutDraft();
+
+            if (!draft) {
+                return false;
+            }
+
+            if (
+                !["self", "other"].includes(
+                    draft.setupFor
+                ) ||
+                !isActivePlan(
+                    draft.selectedPlan
+                ) ||
+                typeof draft.personFirstName !==
+                    "string" ||
+                draft.personFirstName.trim() === "" ||
+                typeof draft.personPhone !==
+                    "string" ||
+                draft.personPhone.trim() === "" ||
+                typeof draft.buyerEmail !==
+                    "string" ||
+                !isValidEmail(
+                    draft.buyerEmail
+                ) ||
+                !Array.isArray(
+                    draft.callSchedules
+                )
+            ) {
+                removeOnboardingCheckoutDraft();
+                return false;
+            }
+
+            onboardingData.personFirstName =
+                draft.personFirstName || "";
+
+            onboardingData.personLastName =
+                draft.personLastName || "";
+
+            onboardingData.personName =
+                onboardingData.personFirstName;
+
+            onboardingData.personPhone =
+                draft.personPhone || "";
+
+            onboardingData.setupFor =
+                draft.setupFor;
+
+            onboardingData.buyerFirstName =
+                draft.buyerFirstName || "";
+
+            onboardingData.buyerLastName =
+                draft.buyerLastName || "";
+
+            onboardingData.buyerEmail =
+                draft.buyerEmail || "";
+
+            onboardingData.buyerEmailConfirmation =
+                draft.buyerEmail || "";
+
+            onboardingData.buyerPhone =
+                draft.buyerPhone || "";
+
+            onboardingData.selectedPlan =
+                draft.selectedPlan;
+
+            onboardingData.entrySource =
+                draft.entrySource === "pricing"
+                    ? "pricing"
+                    : "general";
+
+            onboardingData.selectedAddOns =
+                Array.isArray(
+                    draft.selectedAddOns
+                )
+                    ? [...draft.selectedAddOns]
+                    : [];
+
+            onboardingData.callSchedules =
+                draft.callSchedules.map(
+                    (schedule) => ({
+                        weekday:
+                            typeof schedule.weekday ===
+                            "string"
+                                ? schedule.weekday
+                                : "",
+                        time:
+                            typeof schedule.time ===
+                            "string"
+                                ? schedule.time
+                                : ""
+                    })
+                );
+
+            /*
+             * Consent is intentionally NOT restored.
+             * Returning from an external checkout therefore
+             * requires a fresh confirmation before another
+             * checkout attempt.
+             */
+            onboardingData.consents = {
+                agbAccepted: false,
+                privacyAccepted: false,
+                withdrawalAccepted: false,
+                earlyPerformanceRequested: false,
+                earlyPerformanceAcceptedAt: "",
+                aiCallsAccepted: false,
+                marketingAccepted: false,
+                marketingAcceptedAt: "",
+                reviewInvitationAccepted: false,
+                reviewInvitationAcceptedAt: "",
+                wordingVersion: "2026-09-06-v5",
+                acceptedAt: ""
+            };
+
+            optionalConsentsConfirmed = false;
+            optionalConsentConfirmedAt = "";
+            optionalMarketingAccepted = false;
+            optionalReviewInvitationAccepted = false;
+
+             document.querySelectorAll('input[name="marketing-choice"]').forEach((input) => input.checked = false);
+            document.querySelectorAll(
+                'input[name="review-choice"]'
+            ).forEach(
+                (input) => input.checked = false
+            );
+
+            resetCheckoutConsentState();
+
+            nameInput.value =
+                onboardingData.personFirstName;
+
+            lastNameInput.value =
+                onboardingData.personLastName;
+
+            phoneInput.value =
+                onboardingData.personPhone;
+
+            buyerFirstNameInput.value =
+                onboardingData.buyerFirstName;
+
+            buyerLastNameInput.value =
+                onboardingData.buyerLastName;
+
+            buyerEmailInput.value =
+                onboardingData.buyerEmail;
+
+            buyerEmailConfirmationInput.value =
+                onboardingData.buyerEmail;
+
+            buyerPhoneInput.value =
+                onboardingData.buyerPhone;
+
+            updateSetupForSelection();
+            updateNameScreenCopy();
+            updatePhoneScreenCopy();
+            updateContactScreen();
+            updateConsentCopy();
+
+            renderSelectedPlan();
+            renderCallSchedules();
+            renderSummary();
+
+            showStep(
+                7,
+                "screen-summary"
+            );
+
+            return true;
+        }
         function renderSummary() {
             const selectedPlanDetails = getPlanBySlug(onboardingData.selectedPlan);
             const scheduleItems = onboardingData.callSchedules.map((schedule) => {
@@ -3072,7 +5104,7 @@ function getPlanSelectionMarkup() {
                     <section class="summary-role-card">
                         <p class="summary-role-card__title">Gesprächspartner</p>
                         <p class="summary-role-card__value">${escapeHtml(getPersonFullName())}</p>
-                        <p class="summary-role-card__meta">${escapeHtml(onboardingData.phoneNumber)}</p>
+                        <p class="summary-role-card__meta">${escapeHtml(onboardingData.personPhone)}</p>
                         <button class="summary-edit" type="button" data-edit-step="2" style="margin-top:12px">Person ändern</button>
                     </section>
                     <section class="summary-role-card">
@@ -3135,6 +5167,272 @@ function getPlanSelectionMarkup() {
                 "Klaudi ruft auf dem normalen Festnetz oder Handy an. Es wird keine App benötigt.";
         }
 
+        function showCheckoutReturnScreen() {
+            screens.forEach((screen) => {
+                const isSuccessScreen =
+                    screen.id ===
+                    "screen-checkout-success";
+
+                screen.classList.toggle(
+                    "is-active",
+                    isSuccessScreen
+                );
+
+                screen.hidden =
+                    !isSuccessScreen;
+            });
+
+            progressLabel.hidden = true;
+            progressBar.hidden = true;
+            progressLabel.style.display = "none";
+            progressBar.style.display = "none";
+
+            document.title =
+                "Klaudi – Zahlungsstatus";
+
+            window.scrollTo({
+                top: 0,
+                behavior: "auto"
+            });
+
+            window.setTimeout(() => {
+                document
+                    .getElementById(
+                        "checkout-success-heading"
+                    )
+                    ?.focus();
+            }, 0);
+        }
+
+        function setCheckoutReturnPresentation(
+            state
+        ) {
+            const shell = document.querySelector(
+                ".checkout-success-shell"
+            );
+            const icon = document.getElementById(
+                "checkout-success-icon"
+            );
+            const eyebrow = document.getElementById(
+                "checkout-success-eyebrow"
+            );
+            const heading = document.getElementById(
+                "checkout-success-heading"
+            );
+            const intro = document.getElementById(
+                "checkout-success-intro"
+            );
+            const detail = document.getElementById(
+                "checkout-success-detail"
+            );
+            const note = document.getElementById(
+                "checkout-success-note"
+            );
+            const actions = document.getElementById(
+                "checkout-success-actions"
+            );
+            const primaryLink = document.getElementById(
+                "checkout-success-primary-link"
+            );
+            const secondaryLink = document.getElementById(
+                "checkout-success-secondary-link"
+            );
+
+            shell?.classList.remove(
+                "is-processing",
+                "is-error"
+            );
+
+            if (state === "paid") {
+                removeOnboardingCheckoutDraft();
+
+                if (icon) icon.textContent = "✓";
+                if (eyebrow) eyebrow.textContent =
+                    "Zahlung erfolgreich";
+                if (heading) heading.textContent =
+                    "Vielen Dank. Ihre Zahlung ist bestätigt.";
+                if (intro) intro.textContent =
+                    "Vielen Dank. Ihr Klaudi-Abo ist eingerichtet und kann jetzt genutzt werden.";
+                if (detail) detail.textContent =
+                    "Ihre vereinbarten Anrufzeiten und Ihr Abo können Sie im Klaudi-Kundenportal verwalten.";
+                if (note) note.textContent =
+                    "Eine Bestätigung erhalten Sie zusätzlich per E-Mail. Bitte melden Sie sich für das Kundenportal mit Ihrer E-Mail-Adresse an.";
+                if (actions) actions.hidden = false;
+                if (primaryLink) {
+                    primaryLink.href =
+                        backendBaseUrl +
+                        "portal/login.html";
+                    primaryLink.textContent =
+                        "Zum Kundenportal";
+                }
+                if (secondaryLink) {
+                    secondaryLink.href =
+                        "index.html";
+                    secondaryLink.textContent =
+                        "Zur Startseite";
+                }
+                document.title =
+                    "Zahlung erfolgreich – Klaudi";
+                return;
+            }
+
+            if (state === "processing") {
+                removeOnboardingCheckoutDraft();
+                shell?.classList.add(
+                    "is-processing"
+                );
+                if (icon) icon.textContent = "…";
+                if (eyebrow) eyebrow.textContent =
+                    "Zahlung in Bearbeitung";
+                if (heading) heading.textContent =
+                    "Ihre Zahlung wird noch bestätigt.";
+                if (intro) intro.textContent =
+                    "Der Bezahlvorgang wurde bei Stripe abgeschlossen, die endgültige Zahlungsbestätigung steht aber noch aus.";
+                if (detail) detail.textContent =
+                    "Bei Zahlungsarten wie SEPA kann die Bestätigung etwas dauern. Bitte starten Sie keinen zweiten Bezahlvorgang.";
+                if (note) note.textContent =
+                    "Sobald alles bestätigt ist, wird Ihr Klaudi-Abo entsprechend verarbeitet.";
+                if (actions) actions.hidden = false;
+                if (primaryLink) {
+                    primaryLink.href =
+                        backendBaseUrl +
+                        "portal/login.html";
+                    primaryLink.textContent =
+                        "Zum Kundenportal";
+                }
+                if (secondaryLink) {
+                    secondaryLink.href =
+                        "index.html";
+                    secondaryLink.textContent =
+                        "Zur Startseite";
+                }
+                document.title =
+                    "Zahlung in Bearbeitung – Klaudi";
+                return;
+            }
+
+            shell?.classList.add("is-error");
+            if (icon) icon.textContent = "!";
+            if (eyebrow) eyebrow.textContent =
+                "Zahlung nicht bestätigt";
+            if (heading) heading.textContent =
+                "Wir konnten die Zahlung nicht bestätigen.";
+            if (intro) intro.textContent =
+                "Es wird keine erfolgreiche Zahlung angezeigt, solange Klaudi den Status nicht sicher bei Stripe bestätigt hat.";
+            if (detail) detail.textContent =
+                "Falls Sie den Bezahlvorgang abgebrochen haben, können Sie zur Einrichtung zurückkehren. Falls Sie bereits bezahlt haben, versuchen Sie die Prüfung bitte erneut.";
+            if (note) note.textContent =
+                "Bei wiederholten Problemen hilft Ihnen kontakt@klaudi.app weiter.";
+            if (actions) actions.hidden = false;
+            if (primaryLink) {
+                primaryLink.href =
+                    "einrichten.html?checkout=cancel";
+                primaryLink.textContent =
+                    "Zur Einrichtung zurück";
+            }
+            if (secondaryLink) {
+                const retryUrl = new URL(
+                    window.location.href
+                );
+                retryUrl.searchParams.set(
+                    "checkout",
+                    "success"
+                );
+                secondaryLink.href =
+                    retryUrl.toString();
+                secondaryLink.textContent =
+                    "Status erneut prüfen";
+            }
+            document.title =
+                "Zahlung prüfen – Klaudi";
+        }
+
+        async function verifyCheckoutSuccessReturn() {
+            showCheckoutReturnScreen();
+
+            const controller =
+                new AbortController();
+
+            const timeoutId =
+                window.setTimeout(
+                    () => controller.abort(),
+                    15000
+                );
+
+            try {
+                const statusUrl = new URL(
+                    checkoutStatusApiUrl
+                );
+
+                statusUrl.searchParams.set(
+                    "session_id",
+                    checkoutSessionId
+                );
+
+                const response = await fetch(
+                    statusUrl.toString(),
+                    {
+                        method: "GET",
+                        credentials: "omit",
+                        headers: {
+                            "Accept":
+                                "application/json"
+                        },
+                        signal: controller.signal
+                    }
+                );
+
+                const body = await response
+                    .json()
+                    .catch(() => null);
+
+                if (
+                    !response.ok ||
+                    body?.success !== true ||
+                    body?.verified !== true
+                ) {
+                    setCheckoutReturnPresentation(
+                        "error"
+                    );
+                    return;
+                }
+
+                if (
+                    body.paymentState === "paid"
+                ) {
+                    setCheckoutReturnPresentation(
+                        "paid"
+                    );
+                    return;
+                }
+
+                if (
+                    body.paymentState ===
+                    "processing"
+                ) {
+                    setCheckoutReturnPresentation(
+                        "processing"
+                    );
+                    return;
+                }
+
+                setCheckoutReturnPresentation(
+                    "error"
+                );
+            } catch (error) {
+                console.error(
+                    "Klaudi Checkout-Statusprüfung fehlgeschlagen",
+                    error
+                );
+
+                setCheckoutReturnPresentation(
+                    "error"
+                );
+            } finally {
+                window.clearTimeout(timeoutId);
+            }
+        }
+
         function showStep(stepNumber, screenId = "") {
             screens.forEach((screen) => {
                 const screenStep = Number(screen.dataset.step);
@@ -3146,22 +5444,84 @@ function getPlanSelectionMarkup() {
                 screen.hidden = !isCurrent;
             });
 
-            progressSteps.forEach((step, index) => {
-                const visualStep = index + 1;
+            const additionalPersonStepMap = {
+                2: 1,
+                3: 2,
+                4: 3,
+                5: 4,
+                7: 5
+            };
 
-                step.classList.toggle(
-                    "is-complete",
-                    visualStep < stepNumber
-                );
+            const displayedStep =
+                isAdditionalPersonMode
+                    ? (
+                        additionalPersonStepMap[
+                            stepNumber
+                        ] || 1
+                      )
+                    : stepNumber;
 
-                step.classList.toggle(
-                    "is-active",
-                    visualStep === stepNumber
-                );
-            });
+            const displayedTotalSteps =
+                isAdditionalPersonMode
+                    ? 5
+                    : totalSteps;
 
-            progressLabel.textContent = `Schritt ${stepNumber} von ${totalSteps}`;
-            progressBar.setAttribute("aria-valuenow", String(stepNumber));
+            progressSteps.forEach(
+                (step, index) => {
+                    if (
+                        isAdditionalPersonMode &&
+                        index >= displayedTotalSteps
+                    ) {
+                        step.hidden = true;
+
+                        step.classList.remove(
+                            "is-active",
+                            "is-complete"
+                        );
+
+                        return;
+                    }
+
+                    step.hidden = false;
+
+                    const visualStep =
+                        index + 1;
+
+                    const referenceStep =
+                        isAdditionalPersonMode
+                            ? displayedStep
+                            : stepNumber;
+
+                    step.classList.toggle(
+                        "is-complete",
+                        visualStep <
+                            referenceStep
+                    );
+
+                    step.classList.toggle(
+                        "is-active",
+                        visualStep ===
+                            referenceStep
+                    );
+                }
+            );
+
+            progressLabel.textContent =
+                `Schritt ${displayedStep} von ${displayedTotalSteps}`;
+
+            progressBar.setAttribute(
+                "aria-valuenow",
+                String(
+                    displayedStep
+                )
+            );
+
+            progressBar.setAttribute(
+                "aria-valuemax",
+                String(
+                    displayedTotalSteps
+                )
+            );
 
             window.scrollTo({
                 top: 0,
@@ -3181,23 +5541,31 @@ function getPlanSelectionMarkup() {
         }
 
         function normalizePhoneNumber(value) {
-            return value
+            let normalized = String(value || "")
                 .trim()
-                .replace(/[^\d+]/g, "")
-                .replace(/(?!^)\+/g, "");
+                .replace(/[()\s/-]/g, "");
+
+            if (normalized.startsWith("0049")) {
+                normalized = "+49" + normalized.slice(4);
+            } else if (normalized.startsWith("+49")) {
+                normalized = "+49" + normalized.slice(3);
+            } else if (normalized.startsWith("0")) {
+                normalized = "+49" + normalized.slice(1);
+            }
+
+            return normalized;
         }
 
         function isValidPhoneNumber(value) {
             const normalized = normalizePhoneNumber(value);
-            const digits = normalized.replace(/\D/g, "");
 
-            return digits.length >= 7 && digits.length <= 15;
+            return /^\+49[1-9]\d{5,12}$/.test(normalized);
         }
 
         nameInput.addEventListener("input", () => clearInputError(nameInput, nameError));
         [[buyerFirstNameInput,buyerFirstNameError],[buyerLastNameInput,buyerLastNameError],[buyerEmailInput,buyerEmailError],[buyerEmailConfirmationInput,buyerEmailConfirmationError],[buyerPhoneInput,buyerPhoneError]]
             .forEach(([input,error]) => input.addEventListener("input", () => clearInputError(input,error)));
-        [consentTermsInput,consentWithdrawalInput,consentAiCallsInput]
+        [consentTermsInput,consentWithdrawalInput,consentEarlyPerformanceInput,consentAiCallsInput]
             .forEach((input) => input.addEventListener("change", () => consentError.classList.remove("is-visible")));
 
         phoneInput.addEventListener("input", () => {
@@ -3321,7 +5689,7 @@ function getPlanSelectionMarkup() {
                 return;
             }
 
-            onboardingData.phoneNumber = phoneNumber;
+            onboardingData.personPhone = phoneNumber;
 
             if (hasPreselectedPlan()) {
                 renderSelectedPlan();
@@ -3362,21 +5730,143 @@ function getPlanSelectionMarkup() {
             focusAfterStepChange(planHeading);
         });
 
-        callTimesForm.addEventListener("submit", (event) => {
+        async function loadPortalCustomerForSummary() {
+            const response = await fetch(
+                backendBaseUrl + "api/portal/subscriptions",
+                {
+                    method: "GET",
+                    credentials: "include",
+                    headers: {
+                        "Accept": "application/json"
+                    }
+                }
+            );
+
+            const body =
+                await response
+                    .json()
+                    .catch(() => null);
+
+            if (!response.ok) {
+                if (
+                    isPortalAuthenticationFailure(
+                        response,
+                        body
+                    )
+                ) {
+                    redirectToPortalLogin();
+                    return null;
+                }
+
+                throw new Error(
+                    "PORTAL_CUSTOMER_LOAD_FAILED"
+                );
+            }
+
+            const data = body?.data ?? body;
+            const customer = data?.customer ?? null;
+
+            if (
+                !customer?.fullName ||
+                !customer?.email
+            ) {
+                throw new Error(
+                    "PORTAL_CUSTOMER_INCOMPLETE"
+                );
+            }
+
+            const parts =
+                String(customer.fullName)
+                    .trim()
+                    .split(/\s+/);
+
+            onboardingData.buyerFirstName =
+                parts.shift() || "";
+
+            onboardingData.buyerLastName =
+                parts.join(" ");
+
+            onboardingData.buyerEmail =
+                String(customer.email)
+                    .trim()
+                    .toLowerCase();
+
+            onboardingData.buyerEmailConfirmation =
+                onboardingData.buyerEmail;
+
+            onboardingData.buyerPhone =
+                "";
+
+            return customer;
+        }
+
+        callTimesForm.addEventListener("submit", async (event) => {
             event.preventDefault();
 
-            const validationMessage = getScheduleValidationMessage();
+            const validationMessage =
+                getScheduleValidationMessage();
 
             if (validationMessage !== "") {
-                scheduleError.textContent = validationMessage;
-                scheduleError.classList.add("is-visible");
-                scheduleList.querySelector("select").focus();
+                scheduleError.textContent =
+                    validationMessage;
+
+                scheduleError.classList.add(
+                    "is-visible"
+                );
+
+                scheduleList
+                    .querySelector("select")
+                    .focus();
+
+                return;
+            }
+
+            if (isAdditionalPersonMode) {
+                try {
+                    const portalCustomer =
+                        await loadPortalCustomerForSummary();
+
+                    if (!portalCustomer) {
+                        return;
+                    }
+                } catch (error) {
+                    console.error(
+                        "Portal customer loading failed",
+                        error
+                    );
+
+                    window.alert(
+                        "Ihre Kundendaten konnten gerade nicht geladen werden. Bitte starten Sie den Vorgang erneut aus Ihrem Klaudi-Kundenportal."
+                    );
+
+                    return;
+                }
+
+                updateConsentCopy();
+                renderSummary();
+
+                showStep(
+                    7,
+                    "screen-summary"
+                );
+
+                focusAfterStepChange(
+                    summaryHeading
+                );
+
                 return;
             }
 
             updateContactScreen();
-            showStep(6, "screen-contact");
-            focusAfterStepChange(contactHeading);
+
+            showStep(
+                6,
+                "screen-contact"
+            );
+
+            focusAfterStepChange(
+                contactHeading
+            );
         });
 
         backToCallTimesFromContactButton.addEventListener("click", () => {
@@ -3411,27 +5901,125 @@ function getPlanSelectionMarkup() {
         });
 
         backToContactButton.addEventListener("click", () => {
+            if (isAdditionalPersonMode) {
+                renderCallSchedules();
+
+                showStep(
+                    5,
+                    "screen-call-times"
+                );
+
+                focusAfterStepChange(
+                    callTimesHeading
+                );
+
+                return;
+            }
+
             updateContactScreen();
-            showStep(6, "screen-contact");
-            focusAfterStepChange(contactHeading);
+
+            showStep(
+                6,
+                "screen-contact"
+            );
+
+            focusAfterStepChange(
+                contactHeading
+            );
         });
 
         continueToOrderButton.addEventListener("click", () => {
-            if (!(consentTermsInput.checked && consentWithdrawalInput.checked && consentAiCallsInput.checked)) {
+            if (!(consentTermsInput.checked && consentWithdrawalInput.checked && consentEarlyPerformanceInput.checked && consentAiCallsInput.checked)) {
                 consentError.classList.add("is-visible");
                 consentTermsInput.focus();
                 return;
             }
+            const selectedMarketingChoice =
+                document.querySelector(
+                    'input[name="marketing-choice"]:checked'
+                );
+
+            const selectedReviewChoice =
+                isAdditionalPersonMode
+                    ? { value: "no" }
+                    : document.querySelector(
+                        'input[name="review-choice"]:checked'
+                    );
+
+            if (!selectedMarketingChoice) {
+                consentError.textContent =
+                    "Bitte entscheiden Sie, ob Sie Klaudi-Neuigkeiten erhalten möchten.";
+
+                consentError.classList.add(
+                    "is-visible"
+                );
+
+                const firstMarketingChoice =
+                    document.querySelector(
+                        'input[name="marketing-choice"]'
+                    );
+
+                firstMarketingChoice?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+                window.setTimeout(
+                    () => firstMarketingChoice?.focus(),
+                    300
+                );
+
+                return;
+            }
+
+            if (!selectedReviewChoice) {
+                consentError.textContent =
+                    "Bitte entscheiden Sie, ob Sie eine Bewertungseinladung erhalten möchten.";
+
+                consentError.classList.add(
+                    "is-visible"
+                );
+
+                const firstReviewChoice =
+                    document.querySelector(
+                        'input[name="review-choice"]'
+                    );
+
+                firstReviewChoice?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+                window.setTimeout(
+                    () => firstReviewChoice?.focus(),
+                    300
+                );
+
+                return;
+            }
+
             onboardingData.consents = {
                 agbAccepted: true,
                 privacyAccepted: true,
                 withdrawalAccepted: true,
+                earlyPerformanceRequested: true,
+                earlyPerformanceAcceptedAt: new Date().toISOString(),
                 aiCallsAccepted: true,
-                marketingAccepted: consentMarketingInput.checked,
-                marketingAcceptedAt: consentMarketingInput.checked
-                    ? new Date().toISOString()
-                    : "",
-                wordingVersion: "2026-07-25-v2",
+                marketingAccepted:
+                    getMarketingConsentValue(),
+                marketingAcceptedAt:
+                    getMarketingConsentValue()
+                        ? new Date().toISOString()
+                        : "",
+                reviewInvitationAccepted:
+                    !isAdditionalPersonMode &&
+                    getReviewConsentValue() === true,
+                reviewInvitationAcceptedAt:
+                    !isAdditionalPersonMode &&
+                    getReviewConsentValue() === true
+                        ? new Date().toISOString()
+                        : "",
+                wordingVersion: "2026-09-06-v5",
                 acceptedAt: new Date().toISOString()
             };
             const buyerFullName = getBuyerFullName();
@@ -3439,13 +6027,13 @@ function getPlanSelectionMarkup() {
                 ...onboardingData,
                 fullName: buyerFullName,
                 email: onboardingData.buyerEmail,
-                phone: onboardingData.phoneNumber,
+                phone: onboardingData.personPhone,
                 plan: onboardingData.selectedPlan,
                 conversationPartner: {
                     firstName: onboardingData.personFirstName,
                     lastName: onboardingData.personLastName,
                     fullName: getPersonFullName(),
-                    phone: onboardingData.phoneNumber
+                    phone: onboardingData.personPhone
                 },
                 customer: {
                     firstName: onboardingData.buyerFirstName,
@@ -3455,7 +6043,8 @@ function getPlanSelectionMarkup() {
                     phone: onboardingData.buyerPhone
                 }
             };
-            console.log("Klaudi Onboarding Daten", checkoutData);
+            persistOnboardingCheckoutDraft();
+
             checkoutPlaceholder.hidden = false;
             continueToOrderButton.disabled = true;
             continueToOrderButton.textContent = "Klaudi wird sicher eingerichtet …";
@@ -3481,7 +6070,114 @@ function getPlanSelectionMarkup() {
             createCheckoutSession(checkoutData);
         });
 
+        const navigationEntry =
+            window.performance &&
+            typeof window.performance.getEntriesByType === "function"
+                ? window.performance.getEntriesByType("navigation")[0]
+                : null;
+
+        const isCheckoutCancelReturn =
+            checkoutReturnState === "cancel";
+
+        const isBrowserHistoryReturn =
+            navigationEntry &&
+            navigationEntry.type === "back_forward";
+
+        const shouldRestoreCheckoutDraft =
+            !isAdditionalPersonMode &&
+            (
+                isCheckoutCancelReturn ||
+                isBrowserHistoryReturn
+            );
+
+        /*
+         * A fresh setup must never be hijacked by an old
+         * checkout draft. Only an actual checkout return
+         * may restore the previous entries.
+         */
+        if (
+            !shouldRestoreCheckoutDraft &&
+            !isCheckoutSuccessReturn
+        ) {
+            removeOnboardingCheckoutDraft();
+        }
+
+        const restoredCheckoutDraft =
+            shouldRestoreCheckoutDraft &&
+            restoreOnboardingCheckoutDraft();
+
+        /*
+         * Chrome and other browsers may restore the page
+         * directly from the back/forward cache without
+         * rerunning the normal page boot.
+         *
+         * In that case all consent must be collected again.
+         */
+        window.addEventListener("pageshow", (event) => {
+
+            let hasCheckoutDraft = false;
+
+            try {
+                hasCheckoutDraft =
+                    window.sessionStorage.getItem(
+                        onboardingDraftStorageKey
+                    ) !== null;
+            } catch (error) {
+                hasCheckoutDraft = false;
+            }
+
+            if (!hasCheckoutDraft) {
+                return;
+            }
+
+            resetCheckoutConsentState();
+
+            if (
+                typeof resetCheckoutButton === "function"
+            ) {
+                resetCheckoutButton();
+            }
+        });
+
+        /*
+         * Bestandskunden-Modus:
+         * Eine bereits angemeldete Kundin fügt
+         * eine weitere angerufene Person hinzu.
+         *
+         * Die Frage "Für wen richten wir Klaudi ein?"
+         * ist deshalb nicht erforderlich.
+         */
+        if (isCheckoutSuccessReturn) {
+            verifyCheckoutSuccessReturn();
+        } else if (isAdditionalPersonMode) {
+            onboardingData.setupFor =
+                "other";
+
+            updateSetupForSelection();
+            updateNameScreenCopy();
+            updateConsentCopy();
+
+            showStep(2);
+
+            window.setTimeout(() => {
+                focusAfterStepChange(
+                    nameInput
+                );
+            }, 0);
+        } else if (restoredCheckoutDraft) {
+            window.setTimeout(() => {
+                focusAfterStepChange(
+                    summaryHeading
+                );
+            }, 0);
+        }
+
         backToSetupForButton.addEventListener("click", () => {
+            if (isAdditionalPersonMode) {
+                window.location.href =
+                    backendBaseUrl + "portal/dashboard.html";
+                return;
+            }
             onboardingData.personFirstName = nameInput.value.trim();
             onboardingData.personLastName = lastNameInput.value.trim();
             onboardingData.personName = onboardingData.personFirstName;
@@ -3499,11 +6195,477 @@ function getPlanSelectionMarkup() {
         });
 
         backToNameButton.addEventListener("click", () => {
-            onboardingData.phoneNumber = phoneInput.value.trim();
+            onboardingData.personPhone = phoneInput.value.trim();
             updateNameScreenCopy();
             showStep(2);
             focusAfterStepChange(nameInput);
         });
     </script>
+
+<footer style="padding:32px 20px;text-align:center;background:#F8E6DF;color:#4B3A34;font-family:Arial,sans-serif">
+  <nav style="display:flex;gap:18px;justify-content:center;flex-wrap:wrap">
+    <a href="agb.html">AGB</a>
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="widerrufsbelehrung.html">Widerrufsbelehrung</a>
+    <a href="kuendigen.html">Verträge hier kündigen</a>
+    <a href="widerrufen.html">Vertrag widerrufen</a>
+    <a href="impressum.html">Impressum</a>
+  </nav>
+
+
+
+
+<!-- KLAUDI_FOOTER_10_START -->
+
+<div class="klaudi-footer-trust-shell">
+
+
+    <!-- ====================================================
+         SMALL TRUST STRIP
+         ==================================================== -->
+
+    <div
+        class="klaudi-footer-trust-row"
+        aria-label="Grundsätze von Klaudi"
+    >
+
+
+        <!-- Datenschutz -->
+
+        <div class="klaudi-footer-trust-item">
+
+            <span
+                class="klaudi-footer-trust-icon klaudi-footer-shield"
+                aria-hidden="true"
+            >
+
+                <svg
+                    viewBox="0 0 32 36"
+                    focusable="false"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M16 1.8 28 6v9.5c0 8.2-4.8 14.7-12 18.7C8.8 30.2 4 23.7 4 15.5V6l12-4.2Z"
+                        fill="currentColor"
+                    />
+
+                    <path
+                        d="m10.3 17.5 3.7 3.7 7.8-8"
+                        fill="none"
+                        stroke="#fff"
+                        stroke-width="2.4"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+
+            </span>
+
+            <span>
+                Datenschutz im Fokus
+            </span>
+
+        </div>
+
+
+        <!-- Deutschland -->
+
+        <div class="klaudi-footer-trust-item">
+
+            <span
+                class="klaudi-footer-germany"
+                aria-hidden="true"
+            >
+
+                <span class="klaudi-flag-black"></span>
+                <span class="klaudi-flag-red"></span>
+                <span class="klaudi-flag-gold"></span>
+
+            </span>
+
+            <span>
+                Entwickelt in Deutschland
+            </span>
+
+        </div>
+
+
+        <!-- KI -->
+
+        <div class="klaudi-footer-trust-item">
+
+            <span
+                class="klaudi-footer-ai"
+                aria-hidden="true"
+            >
+                AI
+            </span>
+
+            <span>
+                Transparenter KI Einsatz
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ====================================================
+         MEDIA / COMPANY LINKS
+         ==================================================== -->
+
+    <div class="klaudi-footer-more">
+
+        <p class="klaudi-footer-more-title">
+            Mehr über Klaudi
+        </p>
+
+
+        <nav
+            class="klaudi-footer-more-links"
+            aria-label="Weitere Informationen über Klaudi"
+        >
+
+
+<!-- KLAUDI_FOOTER_BUSINESS_FINAL_START -->
+
+<a
+    href="kontakt.html"
+    class="klaudi-footer-more-link klaudi-footer-business-link"
+>
+    <span>
+        Für Einrichtungen &amp; Organisationen
+    </span>
+</a>
+
+<span
+    class="klaudi-footer-business-dot"
+    aria-hidden="true"
+></span>
+
+<!-- KLAUDI_FOOTER_BUSINESS_FINAL_END -->
+
+<a
+    href="vergleich.html"
+    class="klaudi-footer-more-link"
+    data-klaudi-compare-link="true"
+>
+    <span>
+        Klaudi vergleichen
+    </span>
+</a>
+
+
+
+            <a
+                href="presse.html"
+                class="klaudi-footer-more-link klaudi-footer-press-link"
+            >
+
+                <span class="klaudi-footer-press-dot" aria-hidden="true"></span>
+
+                <span>
+                    Presse &amp; Medien
+                </span>
+
+            </a>
+
+
+            <a
+                href="https://www.linkedin.com/company/klaudi/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="klaudi-footer-more-link klaudi-footer-linkedin"
+                aria-label="Klaudi auf LinkedIn in einem neuen Tab öffnen"
+            >
+
+                <span
+                    class="klaudi-footer-linkedin-mark"
+                    aria-hidden="true"
+                >
+                    in
+                </span>
+
+                <span>
+                    LinkedIn
+                </span>
+
+                <span
+                    class="klaudi-footer-external"
+                    aria-hidden="true"
+                >
+                    ↗
+                </span>
+
+            </a>
+
+
+        </nav>
+
+    </div>
+
+
+</div>
+
+<!-- KLAUDI_FOOTER_10_END -->
+
+
+
+
+
+</footer>
+
+<script id="klaudi-attribution-v1">
+/* KLAUDI_ATTRIBUTION_V1_PRIVACY_FIRST */
+(function () {
+  "use strict";
+
+  if (window.klaudiAttributionV1) {
+    return;
+  }
+
+  const query = new URLSearchParams(window.location.search);
+
+  if (query.get("mode") === "additional-person") {
+    window.klaudiAttributionV1 = {
+      getCheckoutAttribution: async function () { return null; },
+      recordEvent: function () {},
+      getAttributionKey: function () { return ""; }
+    };
+    return;
+  }
+
+  const backendBaseUrl =
+    ["localhost", "127.0.0.1"].includes(window.location.hostname)
+      ? "http://localhost:3000/"
+      : "https://api.klaudi.app/";
+
+  const visitUrl = backendBaseUrl + "api/marketing/visit";
+  const eventUrl = backendBaseUrl + "api/marketing/event";
+  const uuidPattern =
+    /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+  function clean(value, maxLength) {
+    if (typeof value !== "string") return "";
+    return value
+      .replace(/[\u0000-\u001f\u007f]/g, "")
+      .trim()
+      .slice(0, maxLength);
+  }
+
+  function firstParam(names, maxLength) {
+    for (const name of names) {
+      const value = clean(query.get(name) || "", maxLength);
+      if (value) return value;
+    }
+    return "";
+  }
+
+  function referrerHost() {
+    if (!document.referrer) return "";
+    try {
+      return clean(new URL(document.referrer).hostname, 255).toLowerCase();
+    } catch {
+      return "";
+    }
+  }
+
+  const attribution = {
+    attributionKey: firstParam(["klaudi_attribution_key"], 64).toLowerCase(),
+    utmSource: firstParam(["utm_source"], 120),
+    utmMedium: firstParam(["utm_medium"], 120),
+    utmCampaign: firstParam(["utm_campaign"], 200),
+    utmContent: firstParam(["utm_content"], 300),
+    utmTerm: firstParam(["utm_term"], 200),
+    postId: firstParam(["klaudi_post_id", "post_id"], 200),
+    channelId: firstParam(["klaudi_channel_id", "channel_id"], 120),
+    contentFingerprint: firstParam(
+      ["klaudi_content_fingerprint", "content_fingerprint", "content_fp"],
+      128
+    ),
+    landingPath: clean(window.location.pathname || "/", 300),
+    referrerHost: referrerHost()
+  };
+
+  if (!uuidPattern.test(attribution.attributionKey)) {
+    attribution.attributionKey = "";
+  }
+
+  const propagatedParams = Object.freeze([
+    ["utm_source", "utmSource"],
+    ["utm_medium", "utmMedium"],
+    ["utm_campaign", "utmCampaign"],
+    ["utm_content", "utmContent"],
+    ["utm_term", "utmTerm"],
+    ["klaudi_post_id", "postId"],
+    ["klaudi_channel_id", "channelId"],
+    ["klaudi_content_fingerprint", "contentFingerprint"]
+  ]);
+
+  function decorateSetupLinks() {
+    document.querySelectorAll("a[href]").forEach(function (link) {
+      let target;
+      try {
+        target = new URL(link.getAttribute("href"), window.location.href);
+      } catch {
+        return;
+      }
+
+      if (target.origin !== window.location.origin) return;
+
+      const normalizedPath =
+        target.pathname.replace(/\/+$/, "") || "/";
+
+      if (
+        normalizedPath !== "/einrichten" &&
+        normalizedPath !== "/einrichten.html"
+      ) {
+        return;
+      }
+
+      for (const [queryName, fieldName] of propagatedParams) {
+        const value = attribution[fieldName];
+        if (value) target.searchParams.set(queryName, value);
+      }
+
+      if (attribution.attributionKey) {
+        target.searchParams.set(
+          "klaudi_attribution_key",
+          attribution.attributionKey
+        );
+      }
+
+      link.href =
+        target.pathname +
+        (target.search ? target.search : "") +
+        (target.hash ? target.hash : "");
+    });
+  }
+
+  decorateSetupLinks();
+
+  async function createWebsiteVisit() {
+    if (attribution.attributionKey) {
+      return attribution.attributionKey;
+    }
+
+    try {
+      const response = await fetch(visitUrl, {
+        method: "POST",
+        credentials: "omit",
+        keepalive: true,
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(attribution)
+      });
+
+      const body = await response.json().catch(function () {
+        return null;
+      });
+
+      const key =
+        typeof body?.attributionKey === "string"
+          ? body.attributionKey.trim().toLowerCase()
+          : "";
+
+      if (uuidPattern.test(key)) {
+        attribution.attributionKey = key;
+        decorateSetupLinks();
+        return key;
+      }
+    } catch (error) {
+      console.warn("Klaudi Attribution ist vorübergehend nicht verfügbar.");
+    }
+
+    return "";
+  }
+
+  const visitPromise = createWebsiteVisit();
+
+  async function recordEvent(eventType) {
+    const key =
+      attribution.attributionKey ||
+      await visitPromise.catch(function () { return ""; });
+
+    if (!uuidPattern.test(key)) return;
+
+    try {
+      await fetch(eventUrl, {
+        method: "POST",
+        credentials: "omit",
+        keepalive: true,
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          attributionKey: key,
+          eventType: eventType
+        })
+      });
+    } catch {
+      /* Marketing-Messung darf die Nutzererfahrung niemals blockieren. */
+    }
+  }
+
+  function checkoutPayloadSnapshot() {
+    return {
+      attributionKey: attribution.attributionKey || null,
+      utmSource: attribution.utmSource || null,
+      utmMedium: attribution.utmMedium || null,
+      utmCampaign: attribution.utmCampaign || null,
+      utmContent: attribution.utmContent || null,
+      utmTerm: attribution.utmTerm || null,
+      postId: attribution.postId || null,
+      channelId: attribution.channelId || null,
+      contentFingerprint: attribution.contentFingerprint || null,
+      landingPath: attribution.landingPath || null,
+      referrerHost: attribution.referrerHost || null
+    };
+  }
+
+  async function getCheckoutAttribution(maxWaitMs) {
+    const waitMs =
+      Number.isFinite(maxWaitMs) && maxWaitMs >= 0
+        ? Math.min(maxWaitMs, 500)
+        : 250;
+
+    if (!attribution.attributionKey && waitMs > 0) {
+      await Promise.race([
+        visitPromise.catch(function () { return ""; }),
+        new Promise(function (resolve) {
+          window.setTimeout(resolve, waitMs);
+        })
+      ]);
+    }
+
+    return checkoutPayloadSnapshot();
+  }
+
+  window.klaudiAttributionV1 = Object.freeze({
+    getCheckoutAttribution: getCheckoutAttribution,
+    recordEvent: recordEvent,
+    getAttributionKey: function () {
+      return attribution.attributionKey || "";
+    }
+  });
+})();
+</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
